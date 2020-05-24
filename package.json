@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "env-cmd -f .env.development gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.1.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.21.37",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-catch-links": "^2.3.2",
     "gatsby-plugin-netlify": "^2.3.3",
     "gatsby-plugin-netlify-cache": "^1.2.0",
@@ -36,7 +38,6 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0",
     "prettier": "2.0.5"
   },
   "repository": {

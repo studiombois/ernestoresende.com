@@ -1,18 +1,19 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+const alias = require('./webpack-alias');
 
 module.exports = {
   // -- METADATA INFORMATION FOR THE SEO COMPONENT --
   siteMetadata: {
     title: 'Ernesto Resende',
     author: 'Ernesto Resende',
-    url: 'ernestoresende.com',
+    siteUrl: 'https://ernestoresende.com',
     image: '/static/thumbnail_image_later', // !! SET THE GLOBAL THUMBNAIL IMAGE LATER !!
     description: 'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
-    keywords: 'test1, test2', // !! SET PROPER KEYWORDS LATER !!
-    twitterUsername: 'ernestoresende',
-    instagramUsername: 'ernestoresende',
+    social: {
+      twitter: 'ernestoresende',
+      twitterLink: 'https://twitter.com/ErnestoResende',
+      linkedinLink: '',
+      githubLink: '',
+    },
   },
 
   //  -- GATSBY SPECIFIC PLUGINS --
@@ -26,6 +27,14 @@ module.exports = {
         google: {
           families: ['Jost', 'Balsamiq Sans']
         }
+      }
+    },
+
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias,
+        extensions: [],
       }
     },
 
