@@ -15,6 +15,7 @@ const HeroTextContainer = styled.div `
 `;
 const Title = styled.h2 `
   font-size: ${fontSizes.xxlg};
+  font-weight: 400;
   line-height: 38px;
   div {
     display: inline-block;

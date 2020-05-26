@@ -8,6 +8,9 @@ import media from '@styles/media';
 const { colors, zIndex, fontSizes } = theme;
 
 
+export const Main = styled.div `
+  margin: 0 auto;
+`;
 
 export const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: ${colors.highlightPink};
@@ -19,8 +22,8 @@ export const NameContainer = styled(props => <GatsbyLink {...props} />)`
   }
 `;
 const Nav = styled.nav`
+  ${mixins.desktopAlignCenter}
   position: fixed;
-  min-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +45,7 @@ export const StyledLink = styled(props => <GatsbyLink {...props} />)`
   vertical-align: middle;
   position: relative;
   overflow: hidden;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.1s;
   
   :hover {
     color: ${colors.highlightPink};
@@ -57,15 +60,17 @@ export const StyledLink = styled(props => <GatsbyLink {...props} />)`
 class Navigation extends React.Component {
   render () {
     return (
-      <Nav>
-      <NameContainer to="/">ERNESTO<bold>RESENDE</bold></NameContainer>
-      <NavList>
-        <StyledLink to="/portfolio">Portfolio</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/blog">Blog</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </NavList>
-    </Nav>
+      <Main>
+        <Nav>
+          <NameContainer to="/">ERNESTO<bold>RESENDE</bold></NameContainer>
+          <NavList>
+            <StyledLink to="/portfolio">Portfolio</StyledLink>
+            <StyledLink to="/about">About</StyledLink>
+            <StyledLink to="/blog">Blog</StyledLink>
+            <StyledLink to="/contact">Contact</StyledLink>
+          </NavList>
+        </Nav>
+      </Main>
     )
   };
 };

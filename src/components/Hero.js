@@ -22,6 +22,7 @@ const MainContainer = styled.div `
 `;
 const HeroWrapper = styled.div `
   ${mixins.sidePadding}
+  ${mixins.desktopAlignCenter}
 `;
 
 export default function Hero() {
