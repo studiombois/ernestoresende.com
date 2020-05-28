@@ -11,27 +11,35 @@ const { colors } = theme;
 
 
 const MainContainer = styled.div `
-  height: 400px;
+  height: 350px;
   background-image: ${colors.heroGradient};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.tablet`
-    height: 450px;
-  `};
+  ${media.tablet`height: 400px;`};
 `;
 const HeroWrapper = styled.div `
   ${mixins.sidePadding}
   ${mixins.desktopAlignCenter}
 `;
+const HeroMaskWrapper = styled.div `
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 3;
+  bottom: -20px;
+`;
 
 export default function Hero() {
   return (
     <MainContainer>
-    <HeroWrapper>
-      <HeroBody />
-    </HeroWrapper>
-    <HeroMask />
+        <HeroWrapper>
+          <HeroBody />
+        </HeroWrapper>
+        <HeroMaskWrapper>
+        <HeroMask />
+        </HeroMaskWrapper>
     </MainContainer>
   )
 }
