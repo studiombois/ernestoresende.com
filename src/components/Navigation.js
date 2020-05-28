@@ -23,7 +23,6 @@ export const NameContainer = styled(props => <GatsbyLink {...props} />)`
 `;
 const Nav = styled.nav`
   ${mixins.desktopAlignCenter}
-  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
