@@ -6,6 +6,7 @@ import BlogItem from '@components/BlogItem';
 // import BlogPopular from '@components/blogPopular';
 
 import mixins from '@styles/mixins';
+import media from '@styles/media';
 
 const Grid = styled.div `
     max-width: 1100px;
@@ -15,11 +16,13 @@ const Grid = styled.div `
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto 1fr;
-    grid-template-areas:
-        "newest categories"
-        "newest popular";
     padding-top: 64px;
     gap: 64px 96px;
+    ${media.tablet`
+      display: flex;
+      flex-direction: column;
+      padding-top: 64px;
+    `};
 `;
 
 // First components nested inside Grid should be the Wrapper
