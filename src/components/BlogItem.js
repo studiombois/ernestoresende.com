@@ -9,7 +9,6 @@ const { fontSizes, space, colors } = theme;
 const Item = styled.a `
   display: block;
   text-decoration: none;
-  
 `;
 
 const DateTime = styled.p `
@@ -21,9 +20,10 @@ const DateTime = styled.p `
 const PostTitle = styled.h1 `
   padding-bottom: ${space.xs};
   font-size: ${fontSizes.lg};
+  line-height: 31px;
   font-weight: 600;
   color: ${colors.mainType};
-`
+`;
 
 const PostDescription = styled.h2 `
   font-size: ${fontSizes.xs};
