@@ -8,11 +8,11 @@ import media from '@styles/media';
 const { colors, zIndex, fontSizes } = theme;
 
 
-export const Main = styled.div `
+const Main = styled.div `
   margin: 0 auto;
 `;
 
-export const NameContainer = styled(props => <GatsbyLink {...props} />)`
+const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: ${colors.highlightPink};
   text-decoration: none;
 
@@ -31,11 +31,11 @@ const Nav = styled.nav`
   z-index: ${zIndex.header};
   ${mixins.sidePadding}
 `;
-export const NavList = styled.ul`
+const NavList = styled.ul`
   display: flex;
   list-style: none;
 `;
-export const StyledLink = styled(props => <GatsbyLink {...props} />)`
+const StyledLink = styled(props => <GatsbyLink {...props} />)`
   font-size: ${fontSizes.xs};
   font-weight: 400;
   margin: 0 0 0 50px;
@@ -55,13 +55,16 @@ export const StyledLink = styled(props => <GatsbyLink {...props} />)`
     margin: 0 25px 0 0;
   `};
 `;
+const Bold = styled.span`
+  font-weight: 800;
+`;
 
 class Navigation extends React.Component {
   render () {
     return (
       <Main>
         <Nav>
-          <NameContainer to="/">ERNESTO<bold>RESENDE</bold></NameContainer>
+          <NameContainer to="/">ERNESTO<Bold>RESENDE</Bold></NameContainer>
           <NavList>
             <StyledLink to="/portfolio">Portfolio</StyledLink>
             <StyledLink to="/about">About</StyledLink>

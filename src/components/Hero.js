@@ -11,12 +11,12 @@ const { colors } = theme;
 
 
 const MainContainer = styled.div `
-  height: 350px;
+  height: 300px;
   background-image: ${colors.heroGradient};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.tablet`height: 400px;`};
+  ${media.thone`height: 350px;`};
 `;
 const HeroWrapper = styled.div `
   ${mixins.sidePadding}

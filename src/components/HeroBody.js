@@ -11,7 +11,7 @@ const Main = styled.div `
 `; 
 
 const HeroTextContainer = styled.div `
-  padding-top: 100px;
+  padding-top: 80px;
   max-width: 520px;
 `;
 const Title = styled.h2 `
