@@ -26,7 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const blogPost = path.resolve(`./src/templates/ArticlePost.js`);
+  const blogPost = path.resolve(`./src/templates/BlogPost.js`);
 
   // Queries for markdown nodes to use in creating pages.
   return graphql (
@@ -78,7 +78,7 @@ exports.createPages = ({ graphql, actions }) => {
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog/` : `/blog/page/${i + 1}`,
-        component: path.resolve('./src/templates/ArticleListThatIllWriteInTheFuture'),
+        component: path.resolve('./src/templates/BlogList.js'),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
