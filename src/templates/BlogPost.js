@@ -23,6 +23,7 @@ class BlogPostTemplate extends React.Component {
         <p>{post.frontmatter.date}</p>
         <h1>{post.frontmatter.title}</h1>
         <h3>{post.frontmatter.description}</h3>
+        <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
         <div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
@@ -50,6 +51,7 @@ export const pageQuery = graphql `
         description
         date (formatString: "MMMM DD[,] YYYY")
       }
+      tableOfContents
     }
   }
 `
