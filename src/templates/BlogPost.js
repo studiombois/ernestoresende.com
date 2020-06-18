@@ -5,8 +5,6 @@ import { graphql } from 'gatsby';
 import SEO from '@components/Seo';
 import GlobalStyles from '@styles/GlobalStyles';
 
-
-
 class BlogPostTemplate extends React.Component {
   render () {
     const post = this.props.data.markdownRemark
@@ -34,7 +32,6 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate;
 
-
 export const pageQuery = graphql `
   query BlogPostBySlug($slug: String!) {
     site {
@@ -49,7 +46,7 @@ export const pageQuery = graphql `
       frontmatter {
         title
         description
-        date (formatString: "MMMM DD[,] YYYY")
+        date(fromNow: true)
       }
       tableOfContents
     }
