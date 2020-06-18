@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                date (formatString: "MMMM DD[,] YYYY")
+                date(fromNow: true)
                 description
                 title
               }
@@ -71,10 +71,11 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
-    // Controls the number of posts per listing page.
+    // Controls the number of posts visible per listing page.
     const postsPerPage = 2;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
+    // Listing map for the blog page.
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog/` : `/blog/page/${i + 1}`,
