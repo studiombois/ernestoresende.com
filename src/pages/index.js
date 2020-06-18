@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import Hero from '@components/Hero'
-//import HomeGrid from '@components/HomeGrid';
+import HomeGrid from '@components/HomeGrid';
 import Navigation from '@components/Navigation';
 import SEO from '@components/Seo';
 
@@ -48,7 +48,10 @@ class IndexPage extends React.Component {
       <GlobalStyles />
       <Navigation />
       <Hero />
-          <div>
+
+
+      
+          <HomeGrid>
             {posts.map(({ node }) => {
               const slug = node.fields.slug;
               const title = node.frontmatter.title || node.fields.slug;
@@ -63,7 +66,7 @@ class IndexPage extends React.Component {
                 </BlogItem>
               )
             })}
-          </div>
+          </HomeGrid>
       </div>
     )
   }

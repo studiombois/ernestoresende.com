@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import theme from '@styles/theme';
-import media from '@styles/media';
 const { colors, fontSizes } = theme;
 
 const Main = styled.div `

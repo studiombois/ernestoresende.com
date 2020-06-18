@@ -29,10 +29,14 @@ const Grid = styled.div `
 // holding the Blog Items.
 // Second component should be the popular posts curation.
 
-export default function HomeGrid () {
-  return(
-    <Grid>
-      <BlogItem />
-    </Grid>
+const HomeGrid = (props) => {
+  return (
+    <React.Fragment>
+      <Grid>
+        {props.children}
+      </Grid>
+    </React.Fragment>
   )
-};
+}
+
+export default HomeGrid;
