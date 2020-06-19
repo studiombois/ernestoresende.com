@@ -2,12 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BlogItem from '@components/BlogItem';
-// import BlogCategories from '@components/blogCategories';
-// import BlogPopular from '@components/blogPopular';
+
+import { useStaticQuery, graphql } from 'gatsby';
 
 import mixins from '@styles/mixins';
+import theme from '@styles/theme';
 import media from '@styles/media';
+const { fontSizes, space, colors } = theme;
 
+
+// Styled components bit
+// Component that makes up the entire grid system from the homepage
 const Grid = styled.div `
     max-width: 1100px;
     ${mixins.desktopAlignCenter}
@@ -25,17 +30,50 @@ const Grid = styled.div `
     `};
 `;
 
+const blogListQuery = graphql `
+  query {  
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+            date(fromNow: true)
+          }
+        }
+      }
+    }
+  }
+`
+
 // First components nested inside Grid should be the Wrapper
 // holding the Blog Items.
 // Second component should be the popular posts curation.
 
-const HomeGrid = (props) => {
+const HomeGrid = () => {
+  const allBlogList = useStaticQuery(blogListQuery)
+  const list = allBlogList.allMarkdownRemark.edges
+
   return (
-    <React.Fragment>
-      <Grid>
-        {props.children}
-      </Grid>
-    </React.Fragment>
+    <Grid>
+      <div>
+        {list.map(({  node }, i) => (
+          <BlogItem
+            key={i}
+            slug={node.fields.slug}
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
+            description={node.frontmatter.description}
+          />
+        ))}
+      </div>
+    </Grid>
   )
 }
 
