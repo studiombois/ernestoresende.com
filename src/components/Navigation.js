@@ -2,18 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
+import DarkToggle from '@components/DarkToggle';
+import { ThemeContext } from '@components/ThemeContext';
+
 import theme from '@styles/theme';
 import mixins from '@styles/mixins';
 import media from '@styles/media';
-const { colors, zIndex, fontSizes } = theme;
+const { zIndex, fontSizes } = theme;
 
 
 const Main = styled.div `
   margin: 0 auto;
+  background-color: var(--color-navBackground);
 `;
 
 const NameContainer = styled(props => <GatsbyLink {...props} />)`
-  color: ${colors.highlightPink};
+  color: var(--color-highlights);
   text-decoration: none;
 
   ${media.tablet`display:none;`};
@@ -27,7 +31,6 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   min-height: 85px;
-  background-color: ${colors.mainBackground};
   z-index: ${zIndex.header};
   ${mixins.sidePadding}
 `;
@@ -38,16 +41,17 @@ const NavList = styled.ul`
 const StyledLink = styled(props => <GatsbyLink {...props} />)`
   font-size: ${fontSizes.xs};
   font-weight: 400;
-  margin: 0 0 0 50px;
-  color: ${colors.mainType};
+  margin: 0 0 0 30px;
+  color: var(--color-text);
   display: inline-block;
   vertical-align: middle;
   position: relative;
   overflow: hidden;
   transition: all ease-in-out 0.1s;
+  text-decoration: none;
   
   :hover {
-    color: ${colors.highlightPink};
+    color: var(--color-highlights);
   }
   ${media.desktop`margin: 0 25px 0 0;`};
   ${media.tablet`
@@ -70,6 +74,7 @@ class Navigation extends React.Component {
             <StyledLink to="/about">About</StyledLink>
             <StyledLink to="/blog">Blog</StyledLink>
             <StyledLink to="/contact">Contact</StyledLink>
+            <DarkToggle />
           </NavList>
         </Nav>
       </Main>

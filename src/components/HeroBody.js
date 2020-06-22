@@ -21,7 +21,7 @@ const Title = styled.h2 `
     display: inline-block;
     
     h2 {
-      color: ${colors.highlightPink};
+      color: var(--color-highlights);
     }
   }
 `;

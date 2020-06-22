@@ -17,22 +17,22 @@ export const PostContainer = styled(props => <GatsbyLink {...props} />) `
 const DateTime = styled.p `
   padding-bottom: ${space.sm};
   font-size: ${fontSizes.xxs};
-  color: ${colors.secondaryType};
+  color: var(--color-secondaryText);
 `;
 const Title = styled.h1 `
   padding-bottom: ${space.xs};
   font-size: ${fontSizes.xxmd};
   line-height: 31px;
   font-weight: 600;
-  color: ${colors.mainType};
+  color: var(--color-text);
   transition: all ease-in-out 0.1s;
   :hover {
-    color: ${colors.highlightPink};
+    color: var(--color-highlights);
   }
 `;
 const Description = styled.h2 `
   font-size: ${fontSizes.xs};
-  color: ${colors.secondaryType};
+  color: var(--color-secondaryText);
   line-height: 2.5rem;
 `;
 
