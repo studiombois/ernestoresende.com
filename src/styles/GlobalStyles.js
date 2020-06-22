@@ -79,9 +79,9 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-family: ${fonts.Jost};
       font-size: ${fontSizes.xs};
-      color: ${colors.mainType};
+      color: var(--color-text);
       text-rendering: optimizeLegibility;
-      background-color: ${colors.mainBackground};
+      background: var(--color-background);
     }
     @media (prefers-reduced-motion: reduce) {
       * {

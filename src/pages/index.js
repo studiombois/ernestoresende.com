@@ -1,5 +1,4 @@
 import React from 'react';
-import GlobalStyles from '@styles/GlobalStyles';
 
 import Hero from '@components/Hero'
 import HomeGrid from '@components/HomeGrid';
@@ -12,7 +11,6 @@ const IndexPage = () => {
       <SEO
         title="Ernesto Resende"
       />
-      <GlobalStyles />
       <Navigation />
       <Hero />
       <HomeGrid />
