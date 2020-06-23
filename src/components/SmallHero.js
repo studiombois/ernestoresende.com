@@ -7,14 +7,13 @@ import HeroMask from '@icons/HeroMask';
 import media from '@styles/media'
 import mixins from '@styles/mixins';
 
-
 const MainContainer = styled.div `
-  height: 300px;
+  height: 180px;
   background: var(--color-gradients);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.thone`height: 350px;`};
+  ${media.thone`height: 150px;`};
 `;
 const HeroWrapper = styled.div `
   ${mixins.sidePadding}
@@ -29,7 +28,7 @@ const HeroMaskWrapper = styled.div `
   bottom: -20px;
 `;
 
-const Hero = ({ children }) => {
+const SmallHero = ({ children }) => {
   return (
     <MainContainer>
         <HeroWrapper>
@@ -42,8 +41,8 @@ const Hero = ({ children }) => {
   )
 }
 
-Hero.propTypes = {
+SmallHero.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Hero;
+export default SmallHero;

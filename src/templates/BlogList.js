@@ -2,39 +2,49 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
-import GlobalStyles from '@styles/GlobalStyles';
 
 import SEO from '@components/Seo';
+import Navigation from '@components/Navigation';
+import SmallHero from '@components/SmallHero';
+import BlogItem from '@components/BlogItem';
 
+import mixins from '@styles/mixins';
+import media from '@styles/media';
+import theme from '@styles/theme';
+const { fontSizes } = theme;
 
-const Main = styled.div`
-  width: 100%;
-  max-width: 690px;
-  padding: 200px 50px 0 50px;
-  margin: 0 auto;
-`
-const BlogItem = styled(props => <GatsbyLink {...props} />)`
-  display: block;
-`
-const DateTime = styled.p`
-  margin-bottom: 0.4rem;
-  font-size: 14px;
-  letter-spacing: 0.1rem;
-`
-const ArticleTitle = styled.h1`
-  margin: 1.6rem 0 0.8rem 0;
-  font-size: 30px;
+const Grid = styled.div `
+    ${mixins.desktopAlignCenter}
+    ${mixins.sidePadding}
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    padding-top: 64px;
+    gap: 64px 96px;
+    ${media.tablet`
+      display: flex;
+      flex-direction: column;
+      padding-top: 64px;
+    `};
+`;
+
+const Title = styled.h2 `
+  font-size: ${fontSizes.xxlg};
   font-weight: 700;
-  line-height: 1.2;
-`
-const ArticleDescription = styled.h2`
-  margin-bottom: 2.4rem;
-  font-size: 18px;
-  line-height: 1.3em;
-`
+  padding-top: 20px;
+  div {
+    display: inline-block;
+    
+    h2 {
+      color: var(--color-highlights);
+    }
+  }
+`;
 
 //Pagination Styling, could be moved to components later
 const Pagination = styled.nav`
+  ${mixins.desktopAlignCenter}
   align-items: center;
   display: flex;
   font-size: 1.8rem;
@@ -42,9 +52,14 @@ const Pagination = styled.nav`
   margin-top: 4.8rem;
   padding-bottom: 2.8rem;
   padding-top: 1.6rem;
+  ${mixins.sidePadding}
 `
 const PaginationLink = styled(props => <GatsbyLink {...props} />)`
-  color: blue;
+  color: var(--color-text);
+  transition: all ease-in-out 0.1s;
+  :hover {
+    color: var(--color-highlights);
+  }
 `;
 
 
@@ -52,7 +67,7 @@ const PaginationLink = styled(props => <GatsbyLink {...props} />)`
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const posts = data.allMarkdownRemark.edges
+    const list = data.allMarkdownRemark.edges
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
@@ -61,29 +76,31 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-      <SEO
-        title="Blog"
-        description="A collection of my blog posts."
-      />
-      <GlobalStyles />
-          <Main>
+        <SEO
+          title="Blog"
+          description="A collection of my blog posts."
+        />
+        <Navigation />
+        <SmallHero>
+          <Title>Blog</Title>
+        </SmallHero>
+          
+          <Grid>
+            <div>
+              {list.map(({ node }, i) => (
+                <BlogItem
+                  key={i}
+                  slug={node.fields.slug}
+                  date={node.frontmatter.date}
+                  title={node.frontmatter.title}
+                  description={node.frontmatter.description}
+                />
+              ))}
+            </div>
+          </Grid>
 
-            {posts.map(({ node }) => {
-              const slug = node.fields.slug;
-              const title = node.frontmatter.title || node.fields.slug;
-              const description = node.frontmatter.description;
-              const date = node.frontmatter.date;
 
-              return (
-                <BlogItem to={`/blog/${slug}`}>
-                  <DateTime>{date}</DateTime>
-                  <ArticleTitle to={slug}>{title}</ArticleTitle>
-                  <ArticleDescription>{description}</ArticleDescription>
-                </BlogItem>
-              )
-            })}
-
-            <Pagination>
+          <Pagination>
               
               {!isFirst && (
                 <PaginationLink 
@@ -104,7 +121,6 @@ class BlogIndex extends React.Component {
               )}
 
             </Pagination>
-          </Main>
       </div>
     )
   }
