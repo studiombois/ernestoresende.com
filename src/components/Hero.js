@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import HeroMask from '@icons/HeroMask';
-import HeroBody from '@components/HeroBody';
 
 import media from '@styles/media'
 import mixins from '@styles/mixins';
@@ -29,11 +29,11 @@ const HeroMaskWrapper = styled.div `
   bottom: -20px;
 `;
 
-export default function Hero() {
+const Hero = ({ children }) => {
   return (
     <MainContainer>
         <HeroWrapper>
-          <HeroBody />
+          {children}
         </HeroWrapper>
         <HeroMaskWrapper>
           <HeroMask />
@@ -41,3 +41,9 @@ export default function Hero() {
     </MainContainer>
   )
 }
+
+Hero.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+export default Hero;
