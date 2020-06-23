@@ -26,11 +26,30 @@ const Grid = styled.div `
     `};
 `;
 
+const Recent = styled.h2 `
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 30px;
+  color: var(--color-highlights);
+`
+
+const Content = styled.h2 `
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 30px;
+  color: var(--color-highlights);
+  text-align: right;
+`
+const ContentDescription = styled.p `
+  text-align: right;
+  line-height: 21px;
+`
+
 const blogListQuery = graphql `
   query {  
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
+      limit: 10
     ) {
       edges {
         node {
@@ -59,6 +78,7 @@ const HomeGrid = () => {
   return (
     <Grid>
       <div>
+        <Recent>MOST RECENT</Recent>
         {list.map(({  node }, i) => (
           <BlogItem
             key={i}
@@ -68,6 +88,10 @@ const HomeGrid = () => {
             description={node.frontmatter.description}
           />
         ))}
+      </div>
+      <div>
+        <Content>TAILOR-MADE CONTENT FOR FRONT-END DEVELOPERS</Content>
+        <ContentDescription>I like to write in detail about the stuff I work on. Most of the times, 280 characters on Twitter wont cut it, and information gets lost with ease. This is where I’ll write about front-end development, design and general tech related stuff. I hope you’ll enjoy 😄</ContentDescription> 
       </div>
     </Grid>
   )
