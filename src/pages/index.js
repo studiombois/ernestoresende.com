@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Hero from '@components/Hero'
+import HeroBody from '@components/HeroBody';
 import HomeGrid from '@components/HomeGrid';
 import Navigation from '@components/Navigation';
 import SEO from '@components/Seo';
@@ -12,7 +13,9 @@ const IndexPage = () => {
         title="Ernesto Resende"
       />
       <Navigation />
-      <Hero />
+      <Hero>
+        <HeroBody/>
+      </Hero>
       <HomeGrid />
     </React.Fragment>
   )
