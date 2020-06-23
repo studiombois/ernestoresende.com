@@ -4,10 +4,8 @@ import styled from 'styled-components';
 
 import { Link as GatsbyLink } from 'gatsby';
 
-import mixins from '@styles/mixins';
 import theme from '@styles/theme';
-import media from '@styles/media';
-const { fontSizes, space, colors } = theme;
+const { fontSizes, space } = theme;
 
 export const PostContainer = styled(props => <GatsbyLink {...props} />) `
   display: block;

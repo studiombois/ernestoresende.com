@@ -6,12 +6,8 @@ import BlogItem from '@components/BlogItem';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import mixins from '@styles/mixins';
-import theme from '@styles/theme';
 import media from '@styles/media';
-const { fontSizes, space, colors } = theme;
 
-
-// Styled components bit
 // Component that makes up the entire grid system from the homepage
 const Grid = styled.div `
     max-width: 1100px;

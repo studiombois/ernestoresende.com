@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import theme from '@styles/theme';
-const { colors, fontSizes } = theme;
+const { fontSizes } = theme;
 
 const Main = styled.div `
   display: flex;

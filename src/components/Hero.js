@@ -36,7 +36,7 @@ export default function Hero() {
           <HeroBody />
         </HeroWrapper>
         <HeroMaskWrapper>
-        <HeroMask />
+          <HeroMask />
         </HeroMaskWrapper>
     </MainContainer>
   )
