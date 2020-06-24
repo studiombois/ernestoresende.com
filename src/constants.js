@@ -24,6 +24,11 @@ export const COLORS = {
     dark: 'rgba(255, 255, 255, 0.95)', // Same color as Light Mode Typography.
   },
 
+  footer: {
+    light: 'rgb(191, 222, 242)',
+    dark: 'rgb(24, 38, 53)',
+  },
+
   highlights: {
     light: 'rgb(51, 82, 239)',
     dark: 'rgb(245, 55, 106)',
