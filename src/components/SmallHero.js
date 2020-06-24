@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import HeroMask from '@icons/HeroMask';
 
-import media from '@styles/media'
 import mixins from '@styles/mixins';
 
 const MainContainer = styled.div `
@@ -13,7 +12,6 @@ const MainContainer = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.thone`height: 150px;`};
 `;
 const HeroWrapper = styled.div `
   ${mixins.sidePadding}

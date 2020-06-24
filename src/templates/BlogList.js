@@ -7,6 +7,7 @@ import SEO from '@components/Seo';
 import Navigation from '@components/Navigation';
 import SmallHero from '@components/SmallHero';
 import BlogItem from '@components/BlogItem';
+import HeroNavigation from '@components/HeroNavigation';
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
@@ -29,17 +30,26 @@ const Grid = styled.div `
     `};
 `;
 
+
+const ActiveLink = styled(props => <GatsbyLink {...props} />)`
+  color: var(--color-text);
+  font-weight: 700;
+  transition: all ease-in-out 0.1s;
+  :hover {
+    color: var(--color-highlights);
+  }
+`
+const InactiveLink = styled(props => <GatsbyLink {...props} />)`
+  color: var(--color-secondaryText);
+  transition: all ease-in-out 0.1s;
+  :hover {
+    color: var(--color-highlights);
+  }
+`
 const Title = styled.h2 `
-  font-size: ${fontSizes.xxlg};
+  font-size: 38px;
   font-weight: 700;
   padding-top: 20px;
-  div {
-    display: inline-block;
-    
-    h2 {
-      color: var(--color-highlights);
-    }
-  }
 `;
 
 //Pagination Styling, could be moved to components later
@@ -82,6 +92,9 @@ class BlogIndex extends React.Component {
         />
         <Navigation />
         <SmallHero>
+          <HeroNavigation>
+            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <ActiveLink to="/blog"> Blog</ActiveLink>
+          </HeroNavigation>
           <Title>Blog</Title>
         </SmallHero>
           
