@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import BlogItem from '@components/BlogItem';
 
 import { useStaticQuery, graphql } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
@@ -25,25 +26,33 @@ const Grid = styled.div `
       padding-top: 64px;
     `};
 `;
-
 const Recent = styled.h2 `
   font-size: 18px;
   font-weight: 700;
   padding-bottom: 30px;
   color: var(--color-highlights);
-`
-
+`;
 const Content = styled.h2 `
   font-size: 18px;
   font-weight: 700;
   padding-bottom: 30px;
   color: var(--color-highlights);
   text-align: right;
-`
+  ${media.tablet`
+      padding-top: 70px;
+      text-align: left;
+    `}
+`;
 const ContentDescription = styled.p `
   text-align: right;
-  line-height: 21px;
-`
+  line-height: 23px;
+  ${media.tablet`
+      text-align: left;
+    `}
+`;
+const Archive = styled(props => <GatsbyLink {...props} />)`
+  ${mixins.styledLink}
+`;
 
 const blogListQuery = graphql `
   query {  
@@ -88,6 +97,7 @@ const HomeGrid = () => {
             description={node.frontmatter.description}
           />
         ))}
+        <Archive to="/blog">See all blog posts</Archive>
       </div>
       <div>
         <Content>TAILOR-MADE CONTENT FOR FRONT-END DEVELOPERS</Content>
