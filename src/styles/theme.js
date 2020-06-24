@@ -1,24 +1,4 @@
 const theme = {
-  
-  colors: {
-
-    // Main Background Color
-    mainBackground: `rgb(21, 32, 43)`,
-
-    //Secondary Background Color
-    secondaryBackground: `rgb(24, 38, 53)`,
-
-    // Hero Gradient
-    heroGradient: `linear-gradient(180deg, rgba(21, 32, 43, 1) 42.2%, rgba(32, 52, 74, 0.52))`,
-
-    // Typography and Highlight Colors
-    mainType: `rgba(255, 255, 255, 0.95)`,
-    secondaryType: `rgb(159, 179, 199)`,
-    
-    // Highlights
-    highlightPink: `rgba(245, 55, 106)`,
-    highlightYellow: `rgba(255, 255, 0)`,
-  },
 
   fonts: {
     // Body Content Fontface
