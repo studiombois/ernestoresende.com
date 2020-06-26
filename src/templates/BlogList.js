@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import SEO from '@components/Seo';
-import Navigation from '@components/Navigation';
+import Layout from '@components/Layout';
 import SmallHero from '@components/SmallHero';
 import BlogItem from '@components/BlogItem';
 import HeroNavigation from '@components/HeroNavigation';
@@ -90,7 +90,7 @@ class BlogIndex extends React.Component {
           title="Blog"
           description="A collection of my blog posts."
         />
-        <Navigation />
+        <Layout>
         <SmallHero>
           <HeroNavigation>
             <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <ActiveLink to="/blog"> Blog</ActiveLink>
@@ -133,7 +133,8 @@ class BlogIndex extends React.Component {
                 </PaginationLink>
               )}
 
-            </Pagination>
+          </Pagination>
+        </Layout>
       </div>
     )
   }
