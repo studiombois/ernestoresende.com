@@ -41,7 +41,6 @@ const mixins = {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     overflow: hidden;
-    margin-right: 20px;
     &:before {
       content: "";
       position: absolute;
