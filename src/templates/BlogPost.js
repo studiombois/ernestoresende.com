@@ -17,6 +17,7 @@ import theme from '@styles/theme';
 const Title = styled.h1 `
   font-size: 36px;
   font-weight: 700;
+  letter-spacing: 0.1rem;
   max-width: 650px;
   line-height: 40px;
   padding-top: 30px;
@@ -48,12 +49,13 @@ const InactiveLink = styled(props => <GatsbyLink {...props} />)`
 const FullArticleWrapper = styled.div `
   ${mixins.desktopAlignCenter}
   ${mixins.sidePadding}
-  padding-top: 64px;
+  padding-top: 128px;
   display: flex;
   flex-direction: row-reverse;
   -webkit-box-pack: center;
   justify-content: center;
   align-items: flex-start;
+  ${media.phablet`padding: 48px 25px 0 25px;`};
 `
 
 // Table of contents
