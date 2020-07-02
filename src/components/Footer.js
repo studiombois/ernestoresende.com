@@ -11,12 +11,12 @@ const { zIndex, fontSizes } = theme;
 
 
 const MainContainer = styled.div `
+  margin-top: 36px;
   height: 300px;
   background: var(--color-footer);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.thone`height: 350px;`};
 `;
 const FooterWrapper = styled.div `
   ${mixins.sidePadding}
@@ -24,6 +24,8 @@ const FooterWrapper = styled.div `
   padding-bottom: 30px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 36px;
+  ${media.phablet`padding: 0 25px 36px 25px;`};
 `;
 const HeroMaskWrapper = styled.div `
   display: block;
@@ -35,6 +37,7 @@ const HeroMaskWrapper = styled.div `
 const FooterLeft = styled.div `
   display: flex;
   flex-direction: column;
+  padding-right: 36px;
 `;
 const FooterRight = styled.div `
   display: flex;
@@ -45,7 +48,6 @@ const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-highlights);
   text-decoration: none;
   padding-bottom: 20px;
-  ${media.tablet`display:none;`};
 `;
 const Bold = styled.span`
   font-weight: 800;
