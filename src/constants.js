@@ -20,8 +20,8 @@ export const COLORS = {
   },
 
   cards: {
-    light: 'rgb(28, 48, 54)', // One tone brighter then dark mode background.
-    dark: 'rgba(255, 255, 255, 0.95)', // Same color as Light Mode Typography.
+    light: 'rgba(255, 255, 255, 0.95)', // Same color as Light Mode Typography.
+    dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
   },
 
   footer: {
