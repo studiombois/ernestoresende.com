@@ -132,15 +132,8 @@ const ArticleWrapper = styled.div `
     font-weight: 700;
     padding: 20px 0 20px 0;
   }
-  pre{
-    overflow-x: auto;
-    background-color: red;
-    margin-bottom: 30px;
-    padding: 20px;
-  }
+  
   code {
-    white-space: pre-wrap;
-    font-family: monospace;
     font-size: 16px;
   }
   hr {

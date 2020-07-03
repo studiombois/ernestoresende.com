@@ -25,7 +25,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Jost', 'Balsamiq Sans']
+          families: ['Jost', 'Balsamiq Sans', 'Fira Mono']
         }
       }
     },
@@ -78,8 +78,15 @@ module.exports = {
             },
           },
 
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases:{sh: "bash", js:"javascript"},
+              showLineNumbers: false,
+            }
+          },
+
           `gatsby-remark-lazy-load`,
-          //`gatsby-remark-prismjs`,
           `gatsby-remark-external-links`,
         ],
       },
