@@ -20,6 +20,7 @@ const MainContainer = styled.div `
   ${media.phone`height: 550px;`};
 `;
 const HeaderWrapper = styled.div `
+  padding-top: 36px;
   ${mixins.sidePadding}
   ${mixins.desktopAlignCenter}
 `;
