@@ -41,6 +41,14 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
             ]
           : []
       }
+      /*Not ideal, but I injected the Iconify script that is used on the ToggleTheme component.
+      It could be done using gatsby-ssr file or even another Helmet component, but it's too
+      much for just a script injection. */
+      script={[
+        {
+          src: 'https://code.iconify.design/1/1.0.7/iconify.min.js',
+        },
+      ]}
       meta={[
         {
           name: `description`,
