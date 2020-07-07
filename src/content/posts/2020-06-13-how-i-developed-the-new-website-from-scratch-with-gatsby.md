@@ -67,46 +67,26 @@ If all of this got you interested in some degree, you can check the [Gatsby Conc
 It's time to explore some of the components and concepts that make up this website. Starting with a high-scope view of the thing, here is a list of technologies I'm using as of now:
 
 ```jsx
-class BlogPostTemplate extends React.Component {
-  render () {
-    const post = this.props.data.markdownRemark
-
-    return (
-      <div>
-        <Layout>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          articles={true}
-        />
-        
-        <BlogHeader>
-          <HeroNavigation>
-            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <InactiveLink to="/blog">Blog</InactiveLink> <span>&#60;</span> <ActiveLink>{post.frontmatter.title}</ActiveLink>
-          </HeroNavigation>
-          <Title>{post.frontmatter.title}</Title>
-          <Description>{post.frontmatter.description}</Description>
-        </BlogHeader>
-        
-        <FullArticleWrapper>
-          <TableOfContentSidebar>
-            <TableOfContentNavigation>
-              <h2>TABLE OF CONTENTS</h2>
-              <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
-            </TableOfContentNavigation>
-          </TableOfContentSidebar>
-
-          <ArticleWrapper>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </ArticleWrapper>
-
-        </FullArticleWrapper>
-        
-        </Layout>
-      </div>
-    );
-  };
-};
+function getInitialColorMode() {
+  /* Same as above. Omitted for brevity */
+}
+export const ThemeContext = React.createContext();
+export const ThemeProvider = ({ children }) => {
+  const [
+    colorMode,
+    rawSetColorMode
+  ] = React.useState(getInitialColorMode);
+  const setColorMode = (value) => {
+    rawSetColorMode(value);
+    // Persist it on update
+    window.localStorage.setItem('color-mode', value);
+  }
+  return (
+    <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
 ```
 
 - GraphQL - Sourcing content and presenting structured data.

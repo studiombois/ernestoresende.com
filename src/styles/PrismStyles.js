@@ -1,43 +1,47 @@
+import { css } from 'styled-components';
+
+const PrismStyles = css`
+
 
   code[class*="language-"],
   pre[class*="language-"] {
   	color: #f8f8f2;
-  	background: none;
+    background: none;
+    max-height: 75vh;
+    margin-bottom: 30px;
   	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     font-family: 'Fira Mono', 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-weight: 600;
+    font-weight: 700;
   	text-align: left;
   	white-space: pre;
-  	word-spacing: normal;
-  	word-break: normal;
-  	word-wrap: normal;
-  	line-height: 1.5;
+  	line-height: 1.6;
+    overflow: auto;
   	-moz-tab-size: 2;
   	-o-tab-size: 2;
   	tab-size: 2;
   	-webkit-hyphens: none;
   	-moz-hyphens: none;
   	-ms-hyphens: none;
-  	hyphens: none;
+    hyphens: none;
   }
 
   /* Code blocks */
   pre[class*="language-"] {
   	padding: 1em;
-  	margin: .5em 0;
-  	overflow: auto;
+    margin-left: -32px;
+    margin-right: -32px;
   	border-radius: 0.3em;
   }
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
   	background: var(--color-cards);
+    box-shadow: var(--color-cardsBoxShadow);
   }
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
   	padding: .1em;
-  	border-radius: .3em;
   	white-space: normal;
   }
 
@@ -115,4 +119,6 @@
   .token.entity {
   	cursor: help;
   }
+`
 
+export default PrismStyles;

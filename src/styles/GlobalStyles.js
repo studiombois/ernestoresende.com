@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from '@styles/theme';
+import PrismStyles from '@styles/PrismStyles';
 
 const { fontSizes, fonts } = theme;
 
@@ -75,7 +76,14 @@ const GlobalStyle = createGlobalStyle`
   input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
   }
-    
+
+  /* Prism Styles */
+  /* -------------------- */
+  ${PrismStyles};
+
+
+  /* Global Body Styles */
+  /* -------------------- */
     body {
       font-family: ${fonts.Jost};
       font-size: ${fontSizes.xs};
