@@ -24,12 +24,12 @@ export const COLORS = {
     dark: 'linear-gradient(180deg, rgba(21, 32, 43, 1) 42.2%, rgba(32, 52, 74, 0.52))',
   },
   cards: {
-    light: 'rgba(255, 255, 255, 0.95)', // Same color as Light Mode Typography.
+    light: 'rgba(245, 245, 245, 0.9)', // Same color as Light Mode Typography.
     dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
   },
   cardsBoxShadow: {
-    light: '0px 0px 15px rgba(153, 153, 153, 0.3)', // Same color as Light Mode Typography.
-    dark: '0px 0px 30px rgba(0, 0, 0, 0.05)', // One tone brighter then dark mode background.
+    light: '0px 0px 30px rgba(153, 153, 153, 0.3)', // Same color as Light Mode Typography.
+    dark: '0px 0px 30px rgba(0, 0, 0, 0.3)', // One tone brighter then dark mode background.
   },
   footer: {
     light: 'rgb(191, 222, 242)',
@@ -39,7 +39,10 @@ export const COLORS = {
     light: 'rgba(191, 222, 242, 0.50)',
     dark: 'rgb(21, 32, 43)',
   },
-
+  toggleBorder: {
+    light: '#ffd700',
+    dark: '#e4e7ec',
+  },
 
   /* Custom scrollbar colors */
   scrollbar: {
@@ -58,6 +61,40 @@ export const COLORS = {
     light: 'rgba(191, 222, 242, 0.50)',
     dark: 'rgb(159, 150, 199)',
   },
+
+  /* Custom Prism.js theme colors */
+  syntaxComment: {
+    light: '#467790',
+    dark: '#6c8998',
+  },
+  syntaxProp: {
+    light: '#da0079',
+    dark: '#FF39A8',
+  },
+  syntaxBool: {
+    light: '#bf00b8',
+    dark: '#FFD600',
+  },
+  syntaxValue: {
+    light: '#78909C',
+    dark: '#61747D',
+  },
+  syntaxString: {
+    light: '#651fff',
+    dark: 'rgb(155, 109, 255)',
+  },
+  syntaxName: {
+    light: '#AA00FF',
+    dark: '#C653FF',
+  },
+  syntaxDel: {
+    light: 'rgb(255, 85, 85)',
+    dark: '##FF5555',
+  },
+  syntaxRegex: {
+    light: '#3600d6', 
+    dark: '#ffd700',
+  }
 };
 
 export const COLOR_MODE_KEY = 'color-mode';
