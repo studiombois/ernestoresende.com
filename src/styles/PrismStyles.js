@@ -1,48 +1,49 @@
 import { css } from 'styled-components';
+import media from '@styles/media';
+
 
 const PrismStyles = css`
-
-
   code[class*="language-"],
   pre[class*="language-"] {
-  	color: #f8f8f2;
-    background: none;
-    max-height: 75vh;
-    margin-bottom: 30px;
-  	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: 'Fira Mono', 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-weight: 700;
-  	text-align: left;
-  	white-space: pre;
-  	line-height: 1.6;
-    overflow: auto;
-  	-moz-tab-size: 2;
-  	-o-tab-size: 2;
-  	tab-size: 2;
-  	-webkit-hyphens: none;
-  	-moz-hyphens: none;
-  	-ms-hyphens: none;
-    hyphens: none;
+  text-align: left;
+  max-height: 75vh;
+	white-space: pre-wrap;
+	line-height: 1.7;
+	-moz-tab-size: 2;
+	tab-size: 2;
+  hyphens: none;
+  font-family: 'Fira Mono', monospace !important;
+  font-size: 16px;
+  font-weight: 700;
+	overflow-x: auto !important;
+	border-radius: 0;
+
+${media.phablet`
+    font-size: 12px;
+  `};
   }
 
   /* Code blocks */
   pre[class*="language-"] {
-  	padding: 1em;
-    margin-left: -32px;
-    margin-right: -32px;
+    max-width: 100%;
+    padding: 1em;
   	border-radius: 0.3em;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
   	background: var(--color-cards);
     box-shadow: var(--color-cardsBoxShadow);
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-  	padding: .1em;
-  	white-space: normal;
+  	padding: 1em;
   }
 
   .token.comment,
