@@ -11,8 +11,6 @@ import HeroNavigation from '@components/HeroNavigation';
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
-import theme from '@styles/theme';
-const { fontSizes } = theme;
 
 const Grid = styled.div `
     ${mixins.desktopAlignCenter}
@@ -33,6 +31,7 @@ const Grid = styled.div `
 
 const ActiveLink = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-text);
+  font-size: 16px;
   font-weight: 700;
   transition: all ease-in-out 0.1s;
   :hover {
@@ -41,6 +40,7 @@ const ActiveLink = styled(props => <GatsbyLink {...props} />)`
 `
 const InactiveLink = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-secondaryText);
+  font-size: 16px;
   transition: all ease-in-out 0.1s;
   :hover {
     color: var(--color-highlights);
@@ -59,9 +59,7 @@ const Pagination = styled.nav`
   display: flex;
   font-size: 1.8rem;
   justify-content: space-between;
-  margin-top: 4.8rem;
   padding-bottom: 2.8rem;
-  padding-top: 1.6rem;
   ${mixins.sidePadding}
 `
 const PaginationLink = styled(props => <GatsbyLink {...props} />)`
