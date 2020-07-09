@@ -48,7 +48,6 @@ const GlobalStyle = createGlobalStyle`
   img {
     display: block;
     height: auto;
-    max-width: 100%;
   }
   svg {
     fill: currentColor;
@@ -61,7 +60,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     -moz-osx-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
   }
   b, strong {
     font-weight: 700;

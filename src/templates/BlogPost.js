@@ -55,7 +55,7 @@ const FullArticleWrapper = styled.div `
   -webkit-box-pack: center;
   justify-content: center;
   align-items: flex-start;
-  ${media.phablet`padding: 48px 25px 0 25px;`};
+  ${media.phablet`padding: 48px 15px 0 15px;`};
 `
 
 // Table of contents
@@ -90,7 +90,7 @@ const TableOfContentNavigation = styled.nav `
 
 // Article only div
 const ArticleWrapper = styled.div `
-  max-width: 680px;
+  width: 680px;
   overflow-wrap: break-word;
 
   p {
@@ -131,10 +131,6 @@ const ArticleWrapper = styled.div `
     font-size: 26px;
     font-weight: 700;
     padding: 20px 0 20px 0;
-  }
-  
-  code {
-    font-size: 16px;
   }
   hr {
     display: block;
