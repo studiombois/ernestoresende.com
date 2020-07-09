@@ -32,7 +32,7 @@ const mixins = {
   sidePadding: css`
     padding-left: 50px;
     padding-right: 50px;
-    ${media.phablet`padding-left: 25px; padding-right: 25px;`};
+    ${media.phablet`padding-left: 15px; padding-right: 15px;`};
   `,
 
   styledLink: css`
