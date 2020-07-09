@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ThemeContext } from '@components/ThemeContext';
+import media from '@styles/media';
 
 /* Kudos to Bill Heberer for the toggle button animation. I was stuck here for a
 long time before giving up on doing the animation myself and looking for a nice
@@ -10,6 +11,7 @@ toggle on Codepen, and yours, my friend... Looks fantastic. */
 const ToggleLabel = styled.label`
   display: block;
   padding-left: 26px;
+  ${media.tablet`padding-left: 0;`};
 
   .toggle-checkbox {
   position: absolute;
@@ -23,7 +25,7 @@ const ToggleLabel = styled.label`
   position: relative;
   height: 2.5rem;
   width: 5.2rem;
-  border: 1px solid #e4e7ec;
+  border: 1px solid var(--color-toggleBorder);
   border-radius: 5rem;
   background-color: white;
   transition: background-color 250ms;
@@ -52,7 +54,7 @@ const ToggleLabel = styled.label`
   
   border-radius: 50%;
   background-color: #ffeccf;
-  box-shadow: inset 0px 0px 0px 1em #ffbb52;
+  box-shadow: inset 0px 0px 0px 1em #ffd700;
   transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
 }
 
