@@ -62,9 +62,6 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
   }
-  b, strong {
-    font-weight: 700;
-  }
   i, em {
     font-style: italic;
   }
@@ -104,6 +101,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-family: ${fonts.Jost};
       font-size: ${fontSizes.xs};
+      letter-spacing: 0.015em;
       color: var(--color-text);
       text-rendering: optimizeLegibility;
       background: var(--color-background);

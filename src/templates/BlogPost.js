@@ -108,6 +108,9 @@ const ArticleWrapper = styled.div `
     font-family: ${fonts.Balsamiq};
     color: var(--color-highlights);
   }
+  code {
+    font-family: 'Fira Mono', monospace;
+  }
   ul {
     padding-left: 2.5rem;
     list-style-type: disc;
@@ -121,21 +124,26 @@ const ArticleWrapper = styled.div `
   a {
     ${mixins.styledLink}
   }
+  strong {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
   h1 {
-    font-size: 40px;
+    font-size: 36px;
     color: var(--color-titleHighlights);
     font-weight: 700;
     line-height: 1.2;
     padding: 20px 0 20px 0;
   }
   h2 {
-    font-size: 32px;
+    font-size: 28px;
     color: var(--color-titleHighlights);
     font-weight: 700;
     padding: 20px 0 20px 0;
   }
   h3 {
-    font-size: 26px;
+    font-size: 24px;
     color: var(--color-titleHighlights);
     font-weight: 700;
     padding: 20px 0 20px 0;
@@ -147,18 +155,18 @@ const ArticleWrapper = styled.div `
     overflow: hidden;
     border-style: solid;
     border-width: 1px;
-    border-color: red;
+    border-color: var(--color-cards);
   }
   blockquote {
     font-size: 20px;
     font-style: italic;
+    text-align: center;
     position: relative;
     padding: 24px 32px;
-    font-size: 18px;
     margin-bottom: 48px;
     border-left-width: 3px;
     border-left-style: solid;
-    border-radius: 6px 6px 6px 3px;
+    border-radius: 6px;
     background: var(--color-cards);
     border-color: var(--color-blueCardHighlight);
     box-shadow: var(--color-cardsBoxShadow);
