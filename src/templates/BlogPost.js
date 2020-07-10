@@ -11,6 +11,7 @@ import HeroNavigation from '@components/HeroNavigation';
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 import theme from '@styles/theme';
+const { fonts } = theme;
 
 
 
@@ -49,7 +50,7 @@ const InactiveLink = styled(props => <GatsbyLink {...props} />)`
 const FullArticleWrapper = styled.div `
   ${mixins.desktopAlignCenter}
   ${mixins.sidePadding}
-  padding-top: 128px;
+  padding-top: 64px;
   display: flex;
   flex-direction: row-reverse;
   -webkit-box-pack: center;
@@ -94,7 +95,7 @@ const ArticleWrapper = styled.div `
   overflow-wrap: break-word;
 
   p {
-    line-height: 30px;
+    line-height: 1.5;
     padding-bottom: 30px;
     ${media.thone`
       font-size: 18px;
@@ -102,6 +103,10 @@ const ArticleWrapper = styled.div `
       line-height: 1.4;
       letter-spacing: 0.015em;
     `}
+  }
+  em {
+    font-family: ${fonts.Balsamiq};
+    color: var(--color-highlights);
   }
   ul {
     padding-left: 2.5rem;
@@ -118,17 +123,20 @@ const ArticleWrapper = styled.div `
   }
   h1 {
     font-size: 40px;
+    color: var(--color-titleHighlights);
     font-weight: 700;
     line-height: 1.2;
     padding: 20px 0 20px 0;
   }
   h2 {
     font-size: 32px;
+    color: var(--color-titleHighlights);
     font-weight: 700;
     padding: 20px 0 20px 0;
   }
   h3 {
     font-size: 26px;
+    color: var(--color-titleHighlights);
     font-weight: 700;
     padding: 20px 0 20px 0;
   }
@@ -144,22 +152,57 @@ const ArticleWrapper = styled.div `
   blockquote {
     font-size: 20px;
     font-style: italic;
-    overflow-wrap: break-word;
-    padding-left: 2.4rem;
-    padding-top: 10px;
-    margin-bottom: 30px;
+    position: relative;
+    padding: 24px 32px;
+    font-size: 18px;
+    margin-bottom: 48px;
+    border-left-width: 3px;
     border-left-style: solid;
-    border-color: var(--color-highlights);
-    border-width: 3px;
-  }
-  blockquote p {
-    padding-bottom: 10px;
+    border-radius: 6px 6px 6px 3px;
+    background: var(--color-cards);
+    border-color: var(--color-blueCardHighlight);
+    box-shadow: var(--color-cardsBoxShadow);
+    p {
+      padding-bottom: 36px;
+    }
+    .last-line {
+      padding-bottom: 0;
+    }
   }
   video {
     padding-bottom: 30px;
     width: 100%;
     max-width: 650px;
     min-width: 250px;
+  }
+  aside {
+    position: relative;
+    padding: 24px 32px;
+    font-size: 18px;
+    margin-bottom: 48px;
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-radius: 6px 6px 6px 3px;
+    background: var(--color-cards);
+    border-color: var(--color-blueCardHighlight);
+    box-shadow: var(--color-cardsBoxShadow);
+    
+    p {
+      padding-bottom: 36px;
+    }
+    .last-line {
+      padding-bottom: 0;
+    }
+
+    .icon-wrapper { 
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      transform: translate(-50%, -50%);
+      padding: 8px;
+      transition: background 350ms ease 0s;
+      border-radius: 50%;
+    }
   }
 `
 
