@@ -12,6 +12,11 @@ export const COLORS = {
     light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
     dark: 'rgb(245, 55, 106)', // Light saturated pink in contrast with the dark background.
   },
+  titleHighlights: {
+    light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
+    dark: 'rgb(255, 255, 0)', // Light saturated yellow in contrast with the dark background.
+  },
+  
 
   
   /* Background for page and page components (cards, heros, navigation, etc.) */
@@ -24,12 +29,12 @@ export const COLORS = {
     dark: 'linear-gradient(180deg, rgba(21, 32, 43, 1) 42.2%, rgba(32, 52, 74, 0.52))',
   },
   cards: {
-    light: 'rgba(245, 245, 245, 0.9)', // Same color as Light Mode Typography.
+    light: 'hsl(210deg, 55%, 92%)', // Same color as Light Mode Typography.
     dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
   },
   cardsBoxShadow: {
-    light: '0px 0px 30px rgba(153, 153, 153, 0.3)', // Same color as Light Mode Typography.
-    dark: '0px 0px 30px rgba(0, 0, 0, 0.3)', // One tone brighter then dark mode background.
+    light: '0px 0px 30px rgba(153, 153, 153, 0.2)', // Same color as Light Mode Typography.
+    dark: '0px 0px 30px rgba(0, 0, 0, 0.1)', // One tone brighter then dark mode background.
   },
   footer: {
     light: 'rgb(191, 222, 242)',
@@ -43,6 +48,10 @@ export const COLORS = {
     light: '#ffd700',
     dark: '#e4e7ec',
   },
+  blueCardHighlight: {
+    light: 'rgb(51, 82, 239)',
+    dark: 'rgb(51, 82, 239)',
+  },
 
   /* Custom scrollbar colors */
   scrollbar: {
@@ -54,7 +63,7 @@ export const COLORS = {
     dark: 'rgb(63, 72, 82)',
   },
   scrollbarThumb: {
-    light: 'rgba(191, 222, 242, 0.50)',
+    light: 'rgb(90, 90, 90)',
     dark: 'rgb(159, 179, 199)',
   },
   scrollbarThumbHover: {
@@ -62,7 +71,17 @@ export const COLORS = {
     dark: 'rgb(159, 150, 199)',
   },
 
+    /* Custom scrollbar colors */
+    scrollbar: {
+      light: 'rgba(191, 222, 242, 0.50)',
+      dark: 'rgb(63, 72, 82)',
+    },
+
   /* Custom Prism.js theme colors */
+  syntaxBackground: {
+    light: '	rgb(245, 245, 245)', // Same color as Light Mode Typography.
+    dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
+  },
   syntaxComment: {
     light: '#467790',
     dark: '#6c8998',
