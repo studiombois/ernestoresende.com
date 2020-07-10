@@ -71,12 +71,6 @@ export const COLORS = {
     dark: 'rgb(159, 150, 199)',
   },
 
-    /* Custom scrollbar colors */
-    scrollbar: {
-      light: 'rgba(191, 222, 242, 0.50)',
-      dark: 'rgb(63, 72, 82)',
-    },
-
   /* Custom Prism.js theme colors */
   syntaxBackground: {
     light: '	rgb(245, 245, 245)', // Same color as Light Mode Typography.

@@ -14,13 +14,13 @@ const { zIndex, fontSizes } = theme;
 const Main = styled.div `
   margin: 0 auto;
   background-color: var(--color-navBackground);
+  ${media.tablet`display:none;`}
 `;
 
 const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-highlights);
   text-decoration: none;
 
-  ${media.tablet`display:none;`};
   bold {
     font-weight: 900;
   }
@@ -33,6 +33,7 @@ const Nav = styled.nav`
   min-height: 85px;
   z-index: ${zIndex.header};
   ${mixins.sidePadding}
+  ${media.tablet`min-height: 50px;`}
 `;
 const NavList = styled.ul`
   display: flex;
