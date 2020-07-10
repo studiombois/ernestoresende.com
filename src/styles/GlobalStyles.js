@@ -47,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
   }
   img {
     display: block;
+    width: 100%;
     height: auto;
   }
   svg {
@@ -74,6 +75,24 @@ const GlobalStyle = createGlobalStyle`
   input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
   }
+
+  /* Scrollbar Styles */
+  /* -------------------- */
+::-webkit-scrollbar-track
+{
+	background-color: var(--color-scrollbarTrack);
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: var(--color-scrollbarThumb);
+}
 
   /* Prism Styles */
   /* -------------------- */
