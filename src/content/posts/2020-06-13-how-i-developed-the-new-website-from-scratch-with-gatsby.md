@@ -12,6 +12,8 @@ As we reached the middle of 2020, the COVID-19 pandemic had already caused a mas
 
 Along with that came the decision to build a new website from the ground-up and have it be a place where I could centralize all the content I produced under my personal brand. I researched some of the blogs from people who's contents I enjoyed, spent some weeks on back-and-forth between some design choices and what would I ship in a MVP, and decided on a stack where I would build it.
 
+<section id='coming-up-with-a-new-layout'>
+
 # Coming up with a new layout
 
 First thing's first, I had to come up with a brand new layout for the thing. I went trough some iterations of what I wanted, spending a long time in the borders of the "I want it to feel like you're reading a newspaper kind of experience", but that was ultimately scratched. By the end of April, I had something like this:
@@ -21,6 +23,9 @@ First thing's first, I had to come up with a brand new layout for the thing. I w
 A slick modern UI with a dark/light mode theme with very saturated highlights on main elements. Normally I wouldn't go for a fully-fledged design system and UI planning while working on a tight schedule, but I took the liberty of doing so because... I had time to kill. 
 
 With the design done, it was time for development. That's where I would expend the most amount of time...
+</section>
+
+<section id='why-gatsby'>
 
 # Why Gatsby?
 
@@ -29,6 +34,7 @@ I'll begin by adressing the massive elephant in the room from nowdays discussion
 > <p class='last-line'>"It's funny how many people out there will go over the trouble of putting together a Gatsby or Next.js site to end up having a landing page and two posts."  — Someone on Twitter, probably.</p>
 
 That's actually fair. Opting for Gatsby to bootstrap simple presentational content is massive over-engineering in *my humble opinion*. But, even though I have few posts here as of now, I obviously intend to have much more in the future. That's where some of Gatsby advantages (or Static Site Generation as a whole) comes into play. I'm cutting out on many of the headaches that may arise in the future. Let me take the time to delve deeper into such advantages:
+</section>
 
 ## Incremental Builds
 

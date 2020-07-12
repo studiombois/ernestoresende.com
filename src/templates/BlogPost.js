@@ -61,6 +61,7 @@ const FullArticleWrapper = styled.div `
 
 // Table of contents
 const TableOfContentSidebar = styled.aside`
+  font-size: 18px;
   display: block;
   width: 380px;
   padding-left: 106px;
@@ -79,13 +80,20 @@ const TableOfContentNavigation = styled.nav `
     padding-bottom: 26px;
   }
   a {
-    font-size: 16px;
+    padding-top: 0.3em;
     color: var(--color-secondaryText);
     text-decoration: none;
     transition: all ease-in-out 0.1s;
     :hover {
       color: var(--color-highlights);
     }
+  }
+  li {
+    padding-bottom: 0.3em;
+  }
+  li ul {
+    padding-left: 10px;
+    font-size: 16px;
   }
 `
 
@@ -107,9 +115,6 @@ const ArticleWrapper = styled.div `
   em {
     font-family: ${fonts.Balsamiq};
     color: var(--color-highlights);
-  }
-  code {
-    font-family: 'Fira Mono', monospace;
   }
   ul {
     padding-left: 2.5rem;
@@ -275,7 +280,7 @@ export const pageQuery = graphql `
         description
         date(fromNow: true)
       }
-      tableOfContents
+      tableOfContents(absolute: false)
     }
   }
 `
