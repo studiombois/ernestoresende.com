@@ -22,15 +22,6 @@ module.exports = {
     // Plugins that require additional options. Any future plugins that requires aditional options
     // should be put bellow.
     {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Jost', 'Balsamiq Sans', 'Fira Mono']
-        }
-      }
-    },
-
-    {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias,
@@ -54,7 +45,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 660,
+              maxWidth: 637,
               linkImagesToOriginal: false,
             },
           },
