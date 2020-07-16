@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from '@styles/theme';
 import PrismStyles from '@styles/PrismStyles';
+import FontFaces from './fonts';
 
 const { fontSizes, fonts } = theme;
 
 
 const GlobalStyle = createGlobalStyle`
+  ${FontFaces};
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -100,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
   /* Global Body Styles */
   /* -------------------- */
     body {
-      font-family: ${fonts.Jost};
+      font-family: ${fonts.Futura};
       font-size: ${fontSizes.xs};
       letter-spacing: 0.015em;
       color: var(--color-text);
