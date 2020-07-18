@@ -4,7 +4,6 @@ import Layout from '@components/Layout';
 import Hero from '@components/Hero'
 import HeroBody from '@components/HeroBody';
 import HomeGrid from '@components/HomeGrid';
-import Contact from '@components/Contact';
 import SEO from '@components/Seo';
 
 const IndexPage = () => {
@@ -18,7 +17,6 @@ const IndexPage = () => {
           <HeroBody/>
         </Hero>
         <HomeGrid />
-        <Contact />
       </Layout>
     </React.Fragment>
   )

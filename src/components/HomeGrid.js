@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BlogItem from '@components/BlogItem';
+import SectionCard from '@components/SectionCard'
 
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
@@ -9,61 +10,20 @@ import { Link as GatsbyLink } from 'gatsby';
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 
-const MaxWidthWrapper = styled.main `
-  width: 100%;
-  z-index: 20;
-`
 // Component that makes up the entire grid system from the homepage
-const Grid = styled.div `
-    max-width: 1100px;
-    ${mixins.desktopAlignCenter}
-    ${mixins.sidePadding}
-    position: relative;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
-    padding-top: 64px;
-    gap: 64px 96px;
-    ${media.tablet`
-      display: flex;
-      flex-direction: column;
-      padding-top: 64px;
-    `};
+const Main = styled.div `
+  max-width: 780px;
+  margin: 0 auto;
+  ${mixins.sidePadding}
 `;
 const Recent = styled.h2 `
   font-size: 18px;
-  font-weight: 700;
-  padding-bottom: 30px;
+  font-weight: 600;
+  padding: 50px 0 30px;
   color: var(--color-highlights);
-`;
-const Content = styled.h2 `
-  font-size: 18px;
-  font-weight: 700;
-  padding-bottom: 30px;
-  color: var(--color-highlights);
-  text-align: right;
-  ${media.tablet`
-      padding-top: 70px;
-      text-align: left;
-    `}
-`;
-const ContentDescription = styled.p `
-  text-align: right;
-  line-height: 23px;
-  ${media.tablet`
-      text-align: left;
-    `}
 `;
 const Archive = styled(props => <GatsbyLink {...props} />)`
   ${mixins.styledLink}
-`;
-const HeroMaskWrapper = styled.div `
-  display: block;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  z-index: 10;
-  bottom: 43px;
 `;
 
 const blogListQuery = graphql `
@@ -97,10 +57,12 @@ const HomeGrid = () => {
   const list = allBlogList.allMarkdownRemark.edges
 
   return (
-    <MaxWidthWrapper>
-      <Grid>
+      <Main>
+      <SectionCard
+      title="Writing."
+      description="I love to write in detail about the stuff I work on. This is where I'll write about front-end development, design, and general tech related stuff." />
         <div>
-          <Recent>MOST RECENT</Recent>
+          <Recent>RECENTLY PUBLISHED</Recent>
           {list.map(({  node }, i) => (
             <BlogItem
               key={i}
@@ -112,12 +74,7 @@ const HomeGrid = () => {
           ))}
           <Archive to="/blog">See all blog posts</Archive>
         </div>
-        <div>
-          <Content>TAILOR-MADE CONTENT FOR FRONT-END DEVELOPERS</Content>
-          <ContentDescription>I like to write in detail about the stuff I work on. Most of the times, 280 characters on Twitter wont cut it, and information gets lost with ease. This is where I’ll write about front-end development, design and general tech related stuff. I hope you’ll enjoy 😄</ContentDescription> 
-        </div>
-      </Grid>
-    </MaxWidthWrapper>
+      </Main>
   )
 }
 

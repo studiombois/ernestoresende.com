@@ -21,7 +21,8 @@ const Title = styled.h1 `
   padding-bottom: ${space.xs};
   font-size: ${fontSizes.xxmd};
   line-height: 31px;
-  font-weight: 600;
+  letter-spacing: -0.1rem;
+  font-weight: 700;
   color: var(--color-text);
   transition: all ease-in-out 0.1s;
   :hover {
@@ -32,6 +33,8 @@ const Description = styled.h2 `
   font-size: ${fontSizes.xs};
   color: var(--color-secondaryText);
   line-height: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.05rem;
 `;
 
 const BlogItem = ({
