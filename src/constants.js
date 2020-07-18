@@ -25,8 +25,8 @@ export const COLORS = {
     dark: 'rgb(21, 32, 43)', // Very dark tone of blue.
   },
   gradients: {
-    light: 'rgba(191, 222, 242, 0.50)',
-    dark: 'linear-gradient(180deg, rgba(21, 32, 43, 1) 42.2%, rgba(32, 52, 74, 0.52))',
+    light: 'rgb(191, 222, 242)',
+    dark: 'rgb(18, 26, 36)',
   },
   cards: {
     light: 'hsl(210deg, 55%, 92%)', // Same color as Light Mode Typography.
@@ -38,11 +38,11 @@ export const COLORS = {
   },
   footer: {
     light: 'rgb(191, 222, 242)',
-    dark: 'rgb(24, 38, 53)',
+    dark: 'rgb(18, 26, 36)',
   },
   navBackground: {
-    light: 'rgba(191, 222, 242, 0.50)',
-    dark: 'rgb(21, 32, 43)',
+    light: 'rgba(191, 222, 242, 0.95)',
+    dark: 'rgba(18, 26, 36, 0.95)',
   },
   toggleBorder: {
     light: '#ffd700',
