@@ -9,6 +9,10 @@ import { Link as GatsbyLink } from 'gatsby';
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 
+const MaxWidthWrapper = styled.main `
+  width: 100%;
+  z-index: 20;
+`
 // Component that makes up the entire grid system from the homepage
 const Grid = styled.div `
     max-width: 1100px;
@@ -53,6 +57,14 @@ const ContentDescription = styled.p `
 const Archive = styled(props => <GatsbyLink {...props} />)`
   ${mixins.styledLink}
 `;
+const HeroMaskWrapper = styled.div `
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 10;
+  bottom: 43px;
+`;
 
 const blogListQuery = graphql `
   query {  
@@ -85,25 +97,27 @@ const HomeGrid = () => {
   const list = allBlogList.allMarkdownRemark.edges
 
   return (
-    <Grid>
-      <div>
-        <Recent>MOST RECENT</Recent>
-        {list.map(({  node }, i) => (
-          <BlogItem
-            key={i}
-            slug={node.fields.slug}
-            date={node.frontmatter.date}
-            title={node.frontmatter.title}
-            description={node.frontmatter.description}
-          />
-        ))}
-        <Archive to="/blog">See all blog posts</Archive>
-      </div>
-      <div>
-        <Content>TAILOR-MADE CONTENT FOR FRONT-END DEVELOPERS</Content>
-        <ContentDescription>I like to write in detail about the stuff I work on. Most of the times, 280 characters on Twitter wont cut it, and information gets lost with ease. This is where I’ll write about front-end development, design and general tech related stuff. I hope you’ll enjoy 😄</ContentDescription> 
-      </div>
-    </Grid>
+    <MaxWidthWrapper>
+      <Grid>
+        <div>
+          <Recent>MOST RECENT</Recent>
+          {list.map(({  node }, i) => (
+            <BlogItem
+              key={i}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              title={node.frontmatter.title}
+              description={node.frontmatter.description}
+            />
+          ))}
+          <Archive to="/blog">See all blog posts</Archive>
+        </div>
+        <div>
+          <Content>TAILOR-MADE CONTENT FOR FRONT-END DEVELOPERS</Content>
+          <ContentDescription>I like to write in detail about the stuff I work on. Most of the times, 280 characters on Twitter wont cut it, and information gets lost with ease. This is where I’ll write about front-end development, design and general tech related stuff. I hope you’ll enjoy 😄</ContentDescription> 
+        </div>
+      </Grid>
+    </MaxWidthWrapper>
   )
 }
 

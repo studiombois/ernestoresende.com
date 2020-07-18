@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import theme from '@styles/theme';
 const { fontSizes } = theme;
 
-const Main = styled.div `
-  display: flex;
+const Main = styled.main `
+  display: blockj ;
   justify-content: space-between;
 `; 
 
 const HeroTextContainer = styled.div `
   padding-top: 80px;
-  max-width: 520px;
 `;
 const Title = styled.h2 `
   font-size: ${fontSizes.xxlg};
@@ -19,7 +18,6 @@ const Title = styled.h2 `
   line-height: 38px;
   div {
     display: inline-block;
-    
     h2 {
       color: var(--color-highlights);
     }
