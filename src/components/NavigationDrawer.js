@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
-import DarkToggle from '@components/DarkToggle';
-
 import media from '@styles/media';
 
 const DrawerWrapper = styled.div `
   align-items: center;
-  background-color: var(--color-cards);
-  border-color: var(--color-cards);
+  background-color: var(--color-navBackground);
+  border-color: var(--color-scrollbar);
   border-top-style: solid;
   border-top-width: 1px;
   bottom: 0rem;
+  box-shadow: var(color-cardsBoxShadow);
   display: none;
   justify-content: space-around;
   left: 0rem;
@@ -69,8 +68,6 @@ const NavigationDrawer = () => {
         <span class="iconify" data-icon="mdi:contacts-outline" data-inline="false"></span>
         <StyledLinkCaption>Contact</StyledLinkCaption>
       </StyledLink>
-
-      <DarkToggle/>
 
     </DrawerWrapper>
   )

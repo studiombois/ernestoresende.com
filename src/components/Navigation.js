@@ -16,7 +16,6 @@ const Main = styled.div `
   position: sticky;
   background-color: var(--color-navBackground);
   z-index: 15;
-  ${media.tablet`display:none;`}
 `;
 
 const NameContainer = styled(props => <GatsbyLink {...props} />)`
@@ -25,6 +24,7 @@ const NameContainer = styled(props => <GatsbyLink {...props} />)`
   padding-right: 64px;
   font-size: 20px;
   letter-spacing: -.1rem;
+  ${media.tablet`font-size: 18px;`}
 `;
 const Nav = styled.nav`
   ${mixins.desktopAlignCenter}
@@ -42,6 +42,7 @@ const LeftBlock = styled.div `
 const NavList = styled.ul`
   display: flex;
   list-style: none;
+  ${media.tablet`display:none;`}
 `;
 const StyledLink = styled(props => <GatsbyLink {...props} />)`
   font-size: 16px;
