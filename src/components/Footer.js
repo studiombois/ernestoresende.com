@@ -48,12 +48,13 @@ const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-highlights);
   text-decoration: none;
   padding-bottom: 20px;
+  letter-spacing: -.1rem;
 `;
 const Bold = styled.span`
-  font-weight: 800;
+  font-weight: 700;
 `;
 const Copyright = styled.p `
-  font-size: 18px;
+  font-size: 15px;
   color: var(--color-secondaryText);
 `
 const StyledLink = styled(props => <GatsbyLink {...props} />)`
