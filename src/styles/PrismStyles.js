@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
+import theme from '@styles/theme'
 import media from '@styles/media';
 
+const { fonts } = theme
 
 const PrismStyles = css`
   code[class*="language-"],
@@ -12,11 +14,12 @@ const PrismStyles = css`
 	-moz-tab-size: 2;
 	tab-size: 2;
   hyphens: none;
-  font-family: 'Fira Mono', monospace !important;
+  font-family: ${fonts.LeagueMono};
   font-size: 16px;
   font-weight: 700;
 	overflow-x: auto !important;
 	border-radius: 0;
+  letter-spacing: -0.05rem;
 
 ${media.phablet`
     font-size: 12px;
