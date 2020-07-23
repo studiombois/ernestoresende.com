@@ -28,7 +28,7 @@ export const COLORS = {
   
   /* Background for page and page components (cards, heros, navigation, etc.) */
   background: {
-    light: 'rgb(249, 249, 249)', // Very bright tone of gray.
+    light: 'rgb(252, 252, 252)', // Very bright tone of gray.
     dark: 'rgb(14, 20, 27)', // Very dark tone of blue.
   },
   gradients: {
@@ -36,11 +36,11 @@ export const COLORS = {
     dark: 'rgb(18, 26, 36)',
   },
   cards: {
-    light: 'hsl(210deg, 55%, 92%)', // Same color as Light Mode Typography.
+    light: 'rgba(191, 222, 242, 0.50)', // Same color as Light Mode Typography.
     dark: 'rgb(18, 26, 36)', // One tone brighter then dark mode background.
   },
   cardsBoxShadow: {
-    light: '0px 0px 30px rgba(153, 153, 153, 0.2)', // Same color as Light Mode Typography.
+    light: '0px 0px 20px rgba(153, 153, 153, 0.2)', // Same color as Light Mode Typography.
     dark: '0px 0px 30px rgba(0, 0, 0, 0.1)', // One tone brighter then dark mode background.
   },
   footer: {
@@ -80,7 +80,7 @@ export const COLORS = {
 
   /* Custom Prism.js theme colors */
   syntaxBackground: {
-    light: '	rgb(245, 245, 245)', // Same color as Light Mode Typography.
+    light: '	rgb(255, 255, 255)', // Same color as Light Mode Typography.
     dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
   },
   syntaxComment: {

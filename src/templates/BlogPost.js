@@ -36,7 +36,7 @@ const Description = styled.h3 `
 const ActiveLink = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-highlights);
   cursor: pointer;
 `
 const InactiveLink = styled(props => <GatsbyLink {...props} />)`
@@ -82,7 +82,6 @@ const TableOfContentNavigation = styled.nav `
     padding-bottom: 26px;
   }
   a {
-    padding-top: 0.3em;
     color: var(--color-secondaryText);
     text-decoration: none;
     transition: all ease-in-out 0.1s;
@@ -91,11 +90,12 @@ const TableOfContentNavigation = styled.nav `
     }
   }
   li {
-    padding-bottom: 0.3em;
+    padding-bottom: 0.4em;
   }
   li ul {
+    padding-top: 0.7em;
     padding-left: 10px;
-    font-size: 16px;
+    font-size: 17px;
   }
 `
 
@@ -115,7 +115,8 @@ const ArticleWrapper = styled.div `
     `}
   }
   em {
-    font-family: ${fonts.Balsamiq};
+    font-family: ${fonts.Sriracha};
+    font-style: normal;
     color: var(--color-highlights);
   }
   ul {
