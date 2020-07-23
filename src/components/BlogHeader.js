@@ -2,35 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import HeroMask from '@icons/HeroMask';
-
 import media from '@styles/media'
 import mixins from '@styles/mixins';
 
 
 const MainContainer = styled.div `
-  height: 350px;
-  background: var(--color-gradients);
+  background: var(--color-background);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  ${media.tablet`height: 400px;`};
-  ${media.thone`height: 450px;`};
-  ${media.phablet`height: 500px;`};
-  ${media.phone`height: 550px;`};
 `;
 const HeaderWrapper = styled.div `
-  padding-top: 36px;
+  text-align: center;
+  padding: 128px 0 64px 0;
+  margin: 0 auto;
   ${mixins.sidePadding}
-  ${mixins.desktopAlignCenter}
-`;
-const HeaderMaskWrapper = styled.div `
-  display: block;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  z-index: 3;
-  bottom: -20px;
+  ${media.tablet`
+    text-align: left;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  `}
 `;
 
 const BlogHeader = ({ children }) => {
@@ -39,9 +30,6 @@ const BlogHeader = ({ children }) => {
         <HeaderWrapper>
           {children}
         </HeaderWrapper>
-        <HeaderMaskWrapper>
-          <HeroMask />
-        </HeaderMaskWrapper>
     </MainContainer>
   )
 }

@@ -1,7 +1,7 @@
 ---
-title: "Migrating to Linux: Installing and configuring a development environment"
+title: "Migrating to a Linux development system"
 date: 2020-04-18
-description: "A comprehensive guide for those who are still on the fence about using Linux as an operating system for development tasks."
+description: "A guide for those who are still on the fence about it."
 ---
 
 I often see in the community a certain indecision about which direction to take when choosing an OS to develop. "*Do I use Windows with WSL, a Linux distro, break my head trying a hackintosh or spend a ton of money buying a Macbook?*"
@@ -91,7 +91,7 @@ sudo apt install -f
 
 You will only need to execute:
 
-```
+```bash
 sudo apt install git
 ```
 
@@ -159,7 +159,7 @@ Now it's time to install Oh My Zsh, which works as a kind of framework for zsh. 
 
 To install Oh My Zsh just run:
 
-```
+```bash
 sh -c "$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"
 ```
 

@@ -7,25 +7,15 @@ import SEO from '@components/Seo';
 import Layout from '@components/Layout';
 import SmallHero from '@components/SmallHero';
 import BlogItem from '@components/BlogItem';
-import HeroNavigation from '@components/HeroNavigation';
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 
-const Grid = styled.div `
-    ${mixins.desktopAlignCenter}
-    ${mixins.sidePadding}
-    position: relative;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
-    padding-top: 64px;
-    gap: 64px 96px;
-    ${media.tablet`
-      display: flex;
-      flex-direction: column;
-      padding-top: 64px;
-    `};
+const Main = styled.div `
+  padding-top: 60px;
+  max-width: 780px;
+  margin: 0 auto;
+  ${mixins.sidePadding}
 `;
 
 
@@ -47,9 +37,9 @@ const InactiveLink = styled(props => <GatsbyLink {...props} />)`
   }
 `
 const Title = styled.h2 `
-  font-size: 38px;
+  font-size: 48px;
   font-weight: 700;
-  padding-top: 20px;
+  padding-top: 40px;
 `;
 
 //Pagination Styling, could be moved to components later
@@ -60,7 +50,6 @@ const Pagination = styled.nav`
   font-size: 1.8rem;
   justify-content: space-between;
   padding-bottom: 2.8rem;
-  ${mixins.sidePadding}
 `
 const PaginationLink = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-text);
@@ -89,49 +78,44 @@ class BlogIndex extends React.Component {
           description="A collection of my blog posts."
         />
         <Layout>
-        <SmallHero>
-          <HeroNavigation>
-            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <ActiveLink to="/blog"> Blog</ActiveLink>
-          </HeroNavigation>
-          <Title>Blog</Title>
-        </SmallHero>
+        <SmallHero/>
           
-          <Grid>
+          <Main>
             <div>
               {list.map(({ node }, i) => (
-                <BlogItem
-                  key={i}
-                  slug={node.fields.slug}
-                  date={node.frontmatter.date}
-                  title={node.frontmatter.title}
-                  description={node.frontmatter.description}
-                />
+              <BlogItem
+                key={i}
+                slug={node.fields.slug}
+                timeToRead={node.timeToRead}
+                title={node.frontmatter.title}
+                excerpt={node.excerpt}
+                description={node.frontmatter.description}
+              />
               ))}
-            </div>
-          </Grid>
+              </div>
+              <Pagination>
+                
+                {!isFirst && (
+                  <PaginationLink 
+                  to={prevPage} 
+                  rel="prev">
+                    ← Previous
+                  </PaginationLink>
+                )}
+                
+                <span>{currentPage} of {numPages}</span>
+                
+                {!isLast && (
+                  <PaginationLink 
+                  to={nextPage} 
+                  rel="next">
+                    Next →
+                  </PaginationLink>
+                )}
 
+            </Pagination>
+          </Main>
 
-          <Pagination>
-              
-              {!isFirst && (
-                <PaginationLink 
-                to={prevPage} 
-                rel="prev">
-                  ← Previous
-                </PaginationLink>
-              )}
-              
-              <span>{currentPage} of {numPages}</span>
-              
-              {!isLast && (
-                <PaginationLink 
-                to={nextPage} 
-                rel="next">
-                  Next →
-                </PaginationLink>
-              )}
-
-          </Pagination>
         </Layout>
       </div>
     )
@@ -149,6 +133,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          excerpt(pruneLength: 230)
           fields {
             slug
           }
@@ -157,6 +142,7 @@ export const pageQuery = graphql`
             description
             date(fromNow: true)
           }
+          timeToRead
         }
       }
     }

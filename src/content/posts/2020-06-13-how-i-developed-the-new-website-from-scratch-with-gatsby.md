@@ -1,7 +1,7 @@
 ---
-title: "How I developed the new website from scratch with Gatsby"
+title: "How I developed the new website with Gatsby"
 date: 2020-06-13
-description: "Learn all the parts that went into the making of this website, from conceptual planning and design decisions to the development process and technologies that I've used."
+description: "Making a blog has never been such a pleasant experience."
 ---
 
 Let's start with a little summary. I began messing with front-end development and UI design back in the start of 2019. By the time — like any other aspiring front-end developer in the world, I guess — I spent some time on building my first little website with very basic and rudimentary HTML & CSS to show off my pet projects and ambitions for the future. I don't regret it at all; we all start somewhere and building yourself a website is a great way to get your hands dirty for the first time when you're starting. 

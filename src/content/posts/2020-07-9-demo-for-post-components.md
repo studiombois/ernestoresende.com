@@ -1,7 +1,7 @@
 ---
 title: "Demo for post components"
 date: 2020-07-09
-description: "This is a description. Make sure descriptions don't go over the length of a tweet or you will probably break the responsive components."
+description: "This is a description. They should not be longer then a line."
 ---
 
 This a demo post to highlight some of styles and components that are possible to create with the current configuration of styles I have for blog posts. More features and complex components can be added in the future.

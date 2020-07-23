@@ -1,7 +1,7 @@
 ---
-title: "We need to talk about: Dribbble/Behance vs. the reality of work market"
+title: "Dribbble/Behance vs. the reality of work market"
 date: 2020-05-01
-description: "It's time to talk about some concerns regarding the popularity growth of layouts that don't fit with the reality of the industry."
+description: "Some concerns about layouts that don't fit with the reality of the industry."
 ---
 I have been postponing this article for a long time now, partially because many other respected and experienced designers have already talked about this, partially because impostor syndrome is a bitch and I've always had that tingly feeling that I'm not seasoned enough to even start talking about this. That is, until I've decided that I don't care, and that this is a important subject that should be debated more wildly regardless of experience and seniority.
 

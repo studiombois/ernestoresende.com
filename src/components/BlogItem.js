@@ -10,16 +10,16 @@ const { fontSizes, space } = theme;
 export const PostContainer = styled(props => <GatsbyLink {...props} />) `
   display: block;
   text-decoration: none;
-  padding-bottom: ${space.xlg};
+  padding-bottom: 72px;
 `;
-const DateTime = styled.p `
+const TimeToRead = styled.p `
   padding-bottom: ${space.sm};
   font-size: ${fontSizes.xxs};
   color: var(--color-secondaryText);
 `;
 const Title = styled.h1 `
-  padding-bottom: ${space.xs};
-  font-size: ${fontSizes.xxmd};
+  padding-bottom: 5px;
+  font-size: 24px;
   line-height: 31px;
   letter-spacing: -0.1rem;
   font-weight: 700;
@@ -30,27 +30,35 @@ const Title = styled.h1 `
   }
 `;
 const Description = styled.h2 `
-  font-size: ${fontSizes.xs};
+  padding-bottom: 20px;
+  font-size: 20px;
   color: var(--color-secondaryText);
-  line-height: 2.5rem;
   font-weight: 600;
   letter-spacing: -0.05rem;
+`;
+const Excerpt = styled.h2 `
+  font-size: 17px;
+  color: var(--color-text);
+  line-height: 2.4rem;
+  font-weight: 400;
 `;
 
 const BlogItem = ({
   slug,
-  date,
+  timeToRead,
   title,
-  description
+  description,
+  excerpt
 }) => {
   return (
     <PostContainer
       to={`/blog/${slug}`}
       title={title}
     >
-      <DateTime>{date}</DateTime>
+      <TimeToRead>{timeToRead} minutes read</TimeToRead>
       <Title>{title}</Title>
       <Description>{description}</Description>
+      <Excerpt>{excerpt}</Excerpt>
     </PostContainer>
   );
 };
@@ -58,8 +66,9 @@ const BlogItem = ({
 BlogItem.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  timeToRead: PropTypes.string.isRequired,
   description: PropTypes.string,
+  excerpt: PropTypes.string.isRequired,
 }
 
 export default BlogItem;

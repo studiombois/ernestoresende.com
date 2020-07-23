@@ -16,16 +16,19 @@ const { fonts } = theme;
 
 
 const Title = styled.h1 `
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
-  letter-spacing: 0.1rem;
-  max-width: 800px;
-  line-height: 40px;
+  letter-spacing: -0.1rem;
+  line-height: 44px;
   padding-top: 30px;
+  ${media.tablet`
+    font-size: 36px;
+    `}
 `
 const Description = styled.h3 `
-  max-width: 650px;
-  line-height: 23px;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
   color: var(--color-secondaryText);
   padding-top: 30px;
 `
@@ -35,7 +38,6 @@ const ActiveLink = styled.span`
   font-weight: 700;
   color: var(--color-text);
   cursor: pointer;
-  }
 `
 const InactiveLink = styled(props => <GatsbyLink {...props} />)`
   font-size: 16px;
