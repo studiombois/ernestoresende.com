@@ -16,13 +16,20 @@ export const COLORS = {
     light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
     dark: 'rgb(255, 255, 0)', // Light saturated yellow in contrast with the dark background.
   },
-  
+  sectionTitleHighlights: {
+    light: 'rgb(51, 82, 239)',
+    dark: 'rgb(51, 82, 239)',
+  },
+  cardUnderline: {
+    light: 'rgb(255, 232, 60)',
+    dark: 'rgb(51, 82, 239)',
+  },
 
   
   /* Background for page and page components (cards, heros, navigation, etc.) */
   background: {
     light: 'rgb(249, 249, 249)', // Very bright tone of gray.
-    dark: 'rgb(21, 32, 43)', // Very dark tone of blue.
+    dark: 'rgb(14, 20, 27)', // Very dark tone of blue.
   },
   gradients: {
     light: 'rgb(191, 222, 242)',
@@ -30,7 +37,7 @@ export const COLORS = {
   },
   cards: {
     light: 'hsl(210deg, 55%, 92%)', // Same color as Light Mode Typography.
-    dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
+    dark: 'rgb(18, 26, 36)', // One tone brighter then dark mode background.
   },
   cardsBoxShadow: {
     light: '0px 0px 30px rgba(153, 153, 153, 0.2)', // Same color as Light Mode Typography.
@@ -41,11 +48,11 @@ export const COLORS = {
     dark: 'rgb(18, 26, 36)',
   },
   navBackground: {
-    light: 'rgba(191, 222, 242, 0.95)',
-    dark: 'rgba(18, 26, 36, 0.95)',
+    light: 'rgba(191, 222, 242, 0.97)',
+    dark: 'rgba(18, 26, 36, 0.97)',
   },
   toggleBorder: {
-    light: '#ffd700',
+    light: '#rgb(255, 232, 60)',
     dark: '#e4e7ec',
   },
   blueCardHighlight: {
