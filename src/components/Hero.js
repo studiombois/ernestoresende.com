@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import HeroMask from '@icons/HeroMask';
 
 import media from '@styles/media'
-import mixins from '@styles/mixins';
 
 const MainContainer = styled.main `
   display: flex;
@@ -26,10 +25,8 @@ const HeroModuleCanvas = styled.canvas`
   z-index: -1;
 `
 const HeroModuleText = styled.h1 `
-  height: 300px;
   margin: 0 auto;
-  max-height: 54vw;
-  max-width: 500px;
+  max-width: 680px;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -37,22 +34,26 @@ const HeroModuleText = styled.h1 `
   text-transform: uppercase;
   width: 90vw;
   z-index: 1;
+  padding-bottom: 30px;
   .hero-module-firstLine {
     color: var(--color-highlights);
-    font-size: 100px;
+    font-size: 143px;
     line-height: .90;
-    
+    ${media.tablet `font-size: 18.5vw;`}
   }
   .hero-module-box {
     background: var(--color-highlights);
     color: var(--color-gradients);
-    font-size: 90px;
+    font-size: 130px;
     padding: 0 2rem;
+    ${media.tablet `font-size: 16.5vw;`}
+    ${media.phablet `padding: 0 1.5rem;`}
   }
   .hero-module-lastLine {
     color: var(--color-highlights);
-    font-size: 30.5px;
+    font-size: 41.5px;
     line-height: 1.60;
+    ${media.tablet `font-size: 5.5vw;`}
   }
 `
 
