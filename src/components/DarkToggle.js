@@ -128,9 +128,8 @@ const DarkToggle = () => {
       />{' '}
 
 
-    {/* Input will require further changes. As it is, tab focus works fine, but
-    keyboard input will not do anything.*/}
-    <div tabIndex="1" title="Change between Light/Dark Mode" role="button" className='toggle-slot'>
+    {/* Working on showing the element outline only when tabbed, but no when selected.*/}
+    <div title="Change between Light/Dark Mode" role="button" className='toggle-slot'>
       <div className='sun-icon-wrapper'>
         <div className="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
       </div>
