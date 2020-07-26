@@ -7,7 +7,7 @@ import FooterMask from '@icons/FooterMask';
 import theme from '@styles/theme';
 import mixins from '@styles/mixins';
 import media from '@styles/media';
-const { zIndex, fontSizes } = theme;
+const { fontSizes } = theme;
 
 
 const MainContainer = styled.div `

@@ -8,7 +8,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import mixins from '@styles/mixins';
-import media from '@styles/media';
+
 
 // Component that makes up the entire grid system from the homepage
 const Main = styled.div `

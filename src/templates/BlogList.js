@@ -9,37 +9,12 @@ import SmallHero from '@components/SmallHero';
 import BlogItem from '@components/BlogItem';
 
 import mixins from '@styles/mixins';
-import media from '@styles/media';
 
 const Main = styled.div `
   padding-top: 60px;
   max-width: 780px;
   margin: 0 auto;
   ${mixins.sidePadding}
-`;
-
-
-const ActiveLink = styled(props => <GatsbyLink {...props} />)`
-  color: var(--color-text);
-  font-size: 16px;
-  font-weight: 700;
-  transition: all ease-in-out 0.1s;
-  :hover {
-    color: var(--color-highlights);
-  }
-`
-const InactiveLink = styled(props => <GatsbyLink {...props} />)`
-  color: var(--color-secondaryText);
-  font-size: 16px;
-  transition: all ease-in-out 0.1s;
-  :hover {
-    color: var(--color-highlights);
-  }
-`
-const Title = styled.h2 `
-  font-size: 48px;
-  font-weight: 700;
-  padding-top: 40px;
 `;
 
 //Pagination Styling, could be moved to components later

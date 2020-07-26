@@ -1,5 +1,4 @@
 import React from 'react';
-import PrismStyles from '@styles/PrismStyles';
 
 import App from '@components/App';
 
