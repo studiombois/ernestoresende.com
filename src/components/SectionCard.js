@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -61,7 +61,7 @@ const SectionCard = ( {title, description, descriptionSecondLine, contactEmail, 
           </div>
           <p>{description}</p>
           <p className="reset-padding">{descriptionSecondLine}</p>
-          <a href="#">{contactEmail}</a>
+          <a href="mailto:ernestoresende@hotmail" rel="noopener noreferrer" target="_blank">{contactEmail}</a>
           <div className="social-media">{children}</div>
         </TextWrapper>
       </MainWrapper>
