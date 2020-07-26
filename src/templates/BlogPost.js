@@ -14,7 +14,6 @@ import theme from '@styles/theme';
 const { fonts } = theme;
 
 
-
 const Title = styled.h1 `
   font-size: 42px;
   font-weight: 700;
@@ -103,6 +102,16 @@ const TableOfContentNavigation = styled.nav `
 const ArticleWrapper = styled.div `
   width: 680px;
   overflow-wrap: break-word;
+
+  .no-heading-introduction {
+    display: none;
+  }
+  .anchor {
+    display: block;
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+  }
 
   p {
     line-height: 1.5;
