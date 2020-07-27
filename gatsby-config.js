@@ -37,11 +37,12 @@ module.exports = {
       },
     },
 
-    // Gatsby transformer-remark uses plugin subsets under it's own options.
+    // MDX Plugin and subplugins from remark
     {
-      resolve : `gatsby-transformer-remark`,
+      resolve : `gatsby-plugin-mdx`,
       options: {
-        plugins : [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -50,24 +51,7 @@ module.exports = {
             },
           },
 
-          {
-            resolve: `@raae/gatsby-remark-oembed`,
-            options: {
-              usePrefix: false,
-              providers: {
-                include: [
-                  'Youtube',
-                  'Twitter',
-                  'Instagram',
-                ],
-                exclude: [
-                  'Reddit', 
-                  'Flickr',
-                  'Codepen',
-                ],
-              },
-            },
-          },
+          // Remember to remove oEmbed and look for a MDX alternative later.
 
           {
             resolve: `gatsby-remark-prismjs`,
