@@ -35,11 +35,10 @@ const PaginationLink = styled(props => <GatsbyLink {...props} />)`
 `;
 
 
-
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const list = data.allMarkdownRemark.edges
+    const { edges: posts } = data.allMdx  
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
@@ -57,17 +56,17 @@ class BlogIndex extends React.Component {
           
           <Main>
             <div>
-              {list.map(({ node }, i) => (
+              {posts.map(({ node: post }) => (
               <BlogItem
-                key={i}
-                slug={node.fields.slug}
-                timeToRead={node.timeToRead}
-                title={node.frontmatter.title}
-                excerpt={node.excerpt}
-                description={node.frontmatter.description}
+                key={post.id}
+                slug={post.fields.slug}
+                title={post.frontmatter.title}
+                excerpt={post.excerpt}
+                description={post.frontmatter.description}
               />
               ))}
               </div>
+
               <Pagination>
                 
                 {!isFirst && (
@@ -89,35 +88,34 @@ class BlogIndex extends React.Component {
                 )}
 
             </Pagination>
-          </Main>
 
+          </Main>
         </Layout>
       </div>
     )
   }
 }
 
-export default BlogIndex;
+export default BlogIndex
 
 export const pageQuery = graphql`
-  query blogPageQuery($skip: Int!, $limit: Int!) {  
-    allMarkdownRemark(
+  query blogPageQuery($limit: Int! $skip: Int!) {  
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
     ) {
       edges {
         node {
-          excerpt(pruneLength: 230)
+          excerpt
           fields {
             slug
           }
           frontmatter {
             title
             description
-            date(fromNow: true)
+            date
           }
-          timeToRead
         }
       }
     }

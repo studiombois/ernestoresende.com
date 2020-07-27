@@ -9,84 +9,84 @@ each node on the GraphQL layer. */
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   
-  /* Ensures that we are only processing Markdown files and not other assets
+  /* Ensures that we are only processing MDX files and not other assets
   that might be within the sourced folder. */ 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === "Mdx") {
     const value = createFilePath({ node, getNode });
 
     // Creates new query'able field with name of 'slug'.
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `${value}`,
     });
   };
 };
 
+// Call the createPages API
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // Destructure the createPage function from the actions object
+  const { createPage } = actions
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const blogPost = path.resolve(`./src/templates/BlogPost.js`);
-
-  // Queries for markdown nodes to use in creating pages.
-  return graphql (
-    `
-      {
-        allMarkdownRemark (sort: { fields: [frontmatter___date], order: DESC }
-                limit: 1000) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                date(fromNow: true)
-                description
-                title
-              }
-            }
+  const result = await graphql(`
+  query {
+    allMdx (sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          id
+          frontmatter {
+            title
+            description
+            date
           }
         }
       }
-    `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors;
     }
+  }
+  `)
 
-    // Creates the individual pages for the blog posts
-    const posts = result.data.allMarkdownRemark.edges;
-    posts.forEach((post, index ) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+  }
 
-      createPage({
-        path: `/blog${post.node.fields.slug}`,
-          component: blogPost,
-          context: {
-            slug: post.node.fields.slug,
-            previous,
-            next,
-          },
-      });
-    });
+  // Create blog post pages.
+  const posts = result.data.allMdx.edges
 
-    // Controls the number of posts visible per listing page.
+  // you'll call `createPage` for each result
+  posts.forEach(({ node }, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
+
+    createPage({
+      // This is the slug you created before
+      // (or `node.frontmatter.slug`)
+      path: node.fields.slug,
+      // This component will wrap our MDX content
+      component: path.resolve(`./src/templates/BlogPost.js`),
+      // You can use the values in this context in
+      // our page layout component
+      context: { id: node.id },
+    })
+
     const postsPerPage = 2;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
-    // Listing map for the blog page.
-    Array.from({ length: numPages }).forEach((_, i) => {
+    Array.from({ length:numPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/blog/` : `/blog/page/${i + 1}`,
+        path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
         component: path.resolve('./src/templates/BlogList.js'),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,
           currentPage: i + 1
-        },
-      });
-    });
-  });
-};
+        }
+      })
+    })
+  })
+}

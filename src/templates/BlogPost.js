@@ -1,7 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 
 import Layout from '@components/Layout';
 import SEO from '@components/Seo';
@@ -233,37 +235,35 @@ const ArticleWrapper = styled.div `
 
 
 
-class BlogPostTemplate extends React.Component {
-  render () {
-    const post = this.props.data.markdownRemark
-
+export default function PageTemplate({ data: { mdx } }) {
     return (
       <div>
         <Layout>
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
+          title={mdx.frontmatter.title}
+          description={mdx.frontmatter.description}
           articles={true}
         />
         
         <BlogHeader>
           <HeroNavigation>
-            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <InactiveLink to="/blog">Blog</InactiveLink> <span>&#60;</span> <ActiveLink>{post.frontmatter.title}</ActiveLink>
+            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <InactiveLink to="/blog">Blog</InactiveLink> <span>&#60;</span> <ActiveLink>{mdx.frontmatter.title}</ActiveLink>
           </HeroNavigation>
-          <Title>{post.frontmatter.title}</Title>
-          <Description>{post.frontmatter.description}</Description>
+          <Title>{mdx.frontmatter.title}</Title>
+          <Description>{mdx.frontmatter.description}</Description>
         </BlogHeader>
         
         <FullArticleWrapper>
           <TableOfContentSidebar>
             <TableOfContentNavigation>
-              <h2>TABLE OF CONTENTS</h2>
-              <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
+              <h2>TABLE OF CONTENTS</h2>  
             </TableOfContentNavigation>
           </TableOfContentSidebar>
 
           <ArticleWrapper>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <MDXProvider>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </MDXProvider>
           </ArticleWrapper>
 
         </FullArticleWrapper>
@@ -271,28 +271,18 @@ class BlogPostTemplate extends React.Component {
         </Layout>
       </div>
     );
-  };
 };
 
-export default BlogPostTemplate;
-
 export const pageQuery = graphql `
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: {slug: { eq: $slug } }) {
+  query BlogPostQuery($id: String!) {
+    mdx(id: { eq: $id }) {
       id
-      html
+      body
       frontmatter {
         title
         description
-        date(fromNow: true)
+        date
       }
-      tableOfContents(absolute: false)
     }
   }
 `

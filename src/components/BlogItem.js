@@ -52,7 +52,7 @@ const BlogItem = ({
 }) => {
   return (
     <PostContainer
-      to={`/blog/${slug}`}
+      to={`${slug}`}
       title={title}
     >
       <TimeToRead>{timeToRead} minutes read</TimeToRead>
@@ -66,9 +66,9 @@ const BlogItem = ({
 BlogItem.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  timeToRead: PropTypes.string.isRequired,
+  timeToRead: PropTypes.string,
   description: PropTypes.string,
-  excerpt: PropTypes.string.isRequired,
+  excerpt: PropTypes.string,
 }
 
 export default BlogItem;

@@ -56,7 +56,7 @@ const StyledIcon = styled.a`
 
 const blogListQuery = graphql `
   query {  
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
     ) {
@@ -83,8 +83,8 @@ const blogListQuery = graphql `
 // Second component should be the popular posts curation.
 
 const HomeGrid = () => {
-  const allBlogList = useStaticQuery(blogListQuery)
-  const list = allBlogList.allMarkdownRemark.edges
+  // const allBlogList = useStaticQuery(blogListQuery)
+  // const list = allBlogList.allMdx.edges
 
   return (
       <Main>
@@ -95,7 +95,7 @@ const HomeGrid = () => {
       />
         <div>
           <Recent>RECENTLY PUBLISHED</Recent>
-          {list.map(({ node }, i) => (
+          {/* {list.map(({ node }, i) => (
             <BlogItem
               key={i}
               slug={node.fields.slug}
@@ -104,11 +104,12 @@ const HomeGrid = () => {
               excerpt={node.excerpt}
               description={node.frontmatter.description}
             />
-          ))}
+          ))} */}
           <Archive to="/blog">See all blog posts</Archive>
         </div>
 
         <ContactSection>
+
           <SectionCard
             title="Hey there!"
             description="As of now, I'm actually looking for a job opportunity in front-end development and/or UI design roles. If you like what you see here, consider sending me a mail or reaching out in any of my socials:"
@@ -129,6 +130,7 @@ const HomeGrid = () => {
             </SocialWrapper>
 
           </SectionCard>
+
         </ContactSection>
       </Main>
   )
