@@ -38,7 +38,6 @@ ${media.phablet`
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
   	background: var(--color-syntaxBackground);
-    box-shadow: var(--color-cardsBoxShadow);
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 48px;
