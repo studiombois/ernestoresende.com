@@ -55,10 +55,27 @@ export const COLORS = {
     light: '#rgb(255, 232, 60)',
     dark: '#e4e7ec',
   },
-  blueCardHighlight: {
+  informationCardHighlight: {
     light: 'rgb(51, 82, 239)',
     dark: 'rgb(51, 82, 239)',
   },
+  warningCardHighlight: {
+    light: 'rgb(255, 157, 0)',
+    dark: 'rgb(255, 157, 0)',
+  },
+  warningCardBackground: {
+    light: 'rgb(255, 238, 178)',
+    dark: 'rgba(255, 170, 0, 0.15)',
+  },
+  sucessCardHighlight: {
+    light: 'rgb(0, 204, 136)',
+    dark: 'rgb(0, 204, 136)',
+  },
+  sucessCardBackground: {
+    light: 'rgba(0, 204, 136, 0.1)',
+    dark: 'rgba(0, 204, 136, 0.1)',
+  },
+
 
   /* Custom scrollbar colors */
   scrollbar: {
@@ -80,8 +97,8 @@ export const COLORS = {
 
   /* Custom Prism.js theme colors */
   syntaxBackground: {
-    light: '	rgb(255, 255, 255)', // Same color as Light Mode Typography.
-    dark: 'rgb(28, 40, 54)', // One tone brighter then dark mode background.
+    light: 'rgb(241, 241, 241)', // Same color as Light Mode Typography.
+    dark: 'rgb(24, 34, 47)', // One tone brighter then dark mode background.
   },
   syntaxComment: {
     light: '#467790',
