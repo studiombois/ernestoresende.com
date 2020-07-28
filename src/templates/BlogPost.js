@@ -9,11 +9,16 @@ import Layout from '@components/Layout';
 import SEO from '@components/Seo';
 import BlogHeader from '@components/BlogHeader';
 import HeroNavigation from '@components/HeroNavigation';
+import WarningSidenote from '@components/Sidenote/WarningSidenote'
+import InformationSidenote from '@components/Sidenote/InformationSidenote'
+import SucessSidenote from '@components/Sidenote/SucessSidenote'
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 import theme from '@styles/theme';
 const { fonts } = theme;
+
+const shortcodes = { WarningSidenote, InformationSidenote, SucessSidenote }
 
 
 const Title = styled.h1 `
@@ -143,11 +148,6 @@ const ArticleWrapper = styled.div `
   a {
     ${mixins.styledLink}
   }
-  strong {
-    font-size: 20px;
-    font-weight: 700;
-    padding-bottom: 20px;
-  }
   h1 {
     font-size: 36px;
     color: var(--color-titleHighlights);
@@ -176,64 +176,7 @@ const ArticleWrapper = styled.div `
     border-width: 1px;
     border-color: var(--color-cards);
   }
-  blockquote {
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    position: relative;
-    padding: 24px 32px;
-    margin-bottom: 48px;
-    border-left-width: 3px;
-    border-left-style: solid;
-    border-radius: 6px;
-    background: var(--color-cards);
-    border-color: var(--color-blueCardHighlight);
-    box-shadow: var(--color-cardsBoxShadow);
-    p {
-      padding-bottom: 36px;
-    }
-    .last-line {
-      padding-bottom: 0;
-    }
-  }
-  video {
-    padding-bottom: 30px;
-    width: 100%;
-    max-width: 650px;
-    min-width: 250px;
-  }
-  aside {
-    position: relative;
-    padding: 24px 32px;
-    font-size: 18px;
-    margin-bottom: 48px;
-    border-left-width: 3px;
-    border-left-style: solid;
-    border-radius: 6px 6px 6px 3px;
-    background: var(--color-cards);
-    border-color: var(--color-blueCardHighlight);
-    box-shadow: var(--color-cardsBoxShadow);
-    
-    p {
-      padding-bottom: 36px;
-    }
-    .last-line {
-      padding-bottom: 0;
-    }
-
-    .icon-wrapper { 
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      transform: translate(-50%, -50%);
-      padding: 8px;
-      transition: background 350ms ease 0s;
-      border-radius: 50%;
-    }
-  }
 `
-
-
 
 export default function PageTemplate({ data: { mdx } }) {
     return (
@@ -261,7 +204,7 @@ export default function PageTemplate({ data: { mdx } }) {
           </TableOfContentSidebar>
 
           <ArticleWrapper>
-            <MDXProvider>
+            <MDXProvider components={shortcodes}>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </MDXProvider>
           </ArticleWrapper>
