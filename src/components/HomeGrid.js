@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import BlogItem from '@components/BlogItem';
 import SectionCard from '@components/SectionCard'
 
-import { useStaticQuery, graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import mixins from '@styles/mixins';
@@ -54,38 +52,7 @@ const StyledIcon = styled.a`
     }
 `
 
-const blogListQuery = graphql `
-  query {  
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 10
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 230)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            description
-            date(fromNow: true)
-          }
-          timeToRead
-        }
-      }
-    }
-  }
-`
-
-// First components nested inside Grid should be the Wrapper
-// holding the Blog Items.
-// Second component should be the popular posts curation.
-
-const HomeGrid = () => {
-  // const allBlogList = useStaticQuery(blogListQuery)
-  // const list = allBlogList.allMdx.edges
-
+const HomeGrid = ({children}) => {
   return (
       <Main>
       <SectionCard
@@ -95,16 +62,9 @@ const HomeGrid = () => {
       />
         <div>
           <Recent>RECENTLY PUBLISHED</Recent>
-          {/* {list.map(({ node }, i) => (
-            <BlogItem
-              key={i}
-              slug={node.fields.slug}
-              timeToRead={node.timeToRead}
-              title={node.frontmatter.title}
-              excerpt={node.excerpt}
-              description={node.frontmatter.description}
-            />
-          ))} */}
+            
+            {children}
+          
           <Archive to="/blog">See all blog posts</Archive>
         </div>
 
@@ -114,9 +74,7 @@ const HomeGrid = () => {
             title="Hey there!"
             description="As of now, I'm actually looking for a job opportunity in front-end development and/or UI design roles. If you like what you see here, consider sending me a mail or reaching out in any of my socials:"
             contactEmail="ernestoresende@hotmail.com">
-
             <SocialWrapper>
-
               <StyledIcon href="#">
                 <span class="iconify" data-icon="ant-design:linkedin-filled" data-inline="false"></span>
               </StyledIcon>
@@ -126,9 +84,7 @@ const HomeGrid = () => {
               <StyledIcon href="#">
                 <span class="iconify" data-icon="ant-design:twitter-outlined" data-inline="false"></span>
               </StyledIcon>
-
             </SocialWrapper>
-
           </SectionCard>
 
         </ContactSection>
