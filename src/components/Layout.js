@@ -7,11 +7,9 @@ import NavigationDrawer from '@components/NavigationDrawer';
 const Layout = (props) => {
   return (
     <React.Fragment>
-      <div>
-        <Navigation />
-        {props.children}
-      </div>
-      <Footer />
+      <Navigation/>
+      {props.children}
+      <Footer/>
       <NavigationDrawer/>
     </React.Fragment>
   ); 

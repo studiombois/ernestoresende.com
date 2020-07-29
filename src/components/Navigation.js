@@ -13,9 +13,10 @@ const { fontSizes } = theme;
 const Main = styled.div `
   margin: 0 auto;
   top: 0;
-  position: sticky;
+  position: fixed;
   background-color: var(--color-navBackground);
   z-index: 15;
+  width: 100%;
 `;
 
 const NameContainer = styled(props => <GatsbyLink {...props} />)`

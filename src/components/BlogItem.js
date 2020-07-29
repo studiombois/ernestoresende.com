@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { Link as GatsbyLink } from 'gatsby';
 
 import theme from '@styles/theme';
 const { fontSizes, space } = theme;
 
-export const PostContainer = styled(props => <GatsbyLink {...props} />) `
+export const PostContainer = styled(props => <AniLink {...props} />) `
   display: block;
   text-decoration: none;
   padding-bottom: 72px;
@@ -50,8 +51,11 @@ const BlogItem = ({
   description,
   excerpt
 }) => {
+  const transitionColor = 'var(--color-footer)'
+
   return (
     <PostContainer
+      cover direction="down" duration={0.8} bg={transitionColor}
       to={`${slug}`}
       title={title}
     >

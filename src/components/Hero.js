@@ -30,29 +30,23 @@ const HeroModuleText = styled.h1 `
   overflow: hidden;
   position: relative;
   text-align: center;
-  font-weight: 900;
-  text-transform: uppercase;
   width: 90vw;
   z-index: 1;
-  padding-bottom: 30px;
+  padding: 70px 0 50px;
   .hero-module-firstLine {
     color: var(--color-highlights);
-    font-size: 143px;
+    font-size: 71px;
+    letter-spacing: -1.5px;
     line-height: .90;
+    font-weight: 900;
+    text-transform: uppercase;
     ${media.tablet `font-size: 18.5vw;`}
   }
-  .hero-module-box {
-    background: var(--color-highlights);
-    color: var(--color-gradients);
-    font-size: 130px;
-    padding: 0 2rem;
-    ${media.tablet `font-size: 16.5vw;`}
-    ${media.phablet `padding: 0 1.5rem;`}
-  }
   .hero-module-lastLine {
-    color: var(--color-highlights);
-    font-size: 41.5px;
-    line-height: 1.60;
+    color: var(--color-text);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
     ${media.tablet `font-size: 5.5vw;`}
   }
 `
@@ -73,9 +67,8 @@ const Hero = () => {
       <BlockModule>
         <HeroModuleCanvas/>
         <HeroModuleText>
-          <span className="hero-module-firstLine">Ernesto</span><br/>
-          <span className="hero-module-box">Resende</span><br/>
-          <span className="hero-module-lastLine">Builds things for the web</span>
+          <span className="hero-module-firstLine">Ernesto Resende</span><br/>
+          <span className="hero-module-lastLine">builds things for the web</span>
         </HeroModuleText>
       </BlockModule>
 

@@ -36,6 +36,7 @@ module.exports = {
         path: `${__dirname}/src/content/posts/`,
       },
     },
+    `gatsby-plugin-transition-link`,
 
     // MDX Plugin and subplugins from remark
     {
@@ -60,7 +61,6 @@ module.exports = {
               showLineNumbers: false,
             }
           },
-
           `gatsby-remark-lazy-load`,
           `gatsby-remark-external-links`,
         ],
