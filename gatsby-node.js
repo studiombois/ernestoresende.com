@@ -65,12 +65,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
-      path: node.fields.slug,
+      path: `/blog${node.fields.slug}`,
       // This component will wrap our MDX content
       component: path.resolve(`./src/templates/BlogPost.js`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id },
+      context: { 
+        id: node.id,
+        slug: node.fields.slug,
+        previous,
+        next},
     })
 
     const postsPerPage = 10;
