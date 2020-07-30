@@ -12,14 +12,18 @@ import HeroNavigation from '@components/HeroNavigation';
 import WarningSidenote from '@components/Sidenote/WarningSidenote'
 import InformationSidenote from '@components/Sidenote/InformationSidenote'
 import SucessSidenote from '@components/Sidenote/SucessSidenote'
+import TableOfContents from '@components/TableOfContents'
 
 import mixins from '@styles/mixins';
 import media from '@styles/media';
 import theme from '@styles/theme';
 const { fonts } = theme;
 
-const shortcodes = { WarningSidenote, InformationSidenote, SucessSidenote }
-
+const shortcodes = { 
+  WarningSidenote, 
+  InformationSidenote, 
+  SucessSidenote,
+  TableOfContents }
 
 const Title = styled.h1 `
   font-size: 42px;
@@ -68,20 +72,19 @@ const FullArticleWrapper = styled.div `
 `
 
 // Table of contents
-const TableOfContentSidebar = styled.aside`
-  font-size: 18px;
+const TableOfContentsWrapper = styled.div`
   display: block;
   width: 380px;
-  padding-left: 106px;
+  margin-left: 108px;
   position: sticky;
   top: 148px;
   max-height: calc(100vh - 148px);
   overflow: auto;
   padding-bottom: 16px;
   ${media.desktop`display:none;`}
-`;
-// Wraps the Table of Content as a Navigation element for semantic HTML
-const TableOfContentNavigation = styled.nav `
+`
+
+const TableOfContentNavigation = styled.nav`
   h2 {
     font-size: 18px;
     font-weight: 700;
@@ -96,14 +99,12 @@ const TableOfContentNavigation = styled.nav `
     }
   }
   li {
-    padding-bottom: 0.4em;
+    font-size: 16px;
+    padding-bottom: 0.6em;
+    list-style: none;
   }
-  li ul {
-    padding-top: 0.7em;
-    padding-left: 10px;
-    font-size: 17px;
-  }
-`
+`;
+// Wraps the Table of Content as a Navigation element for semantic HTML
 
 // Article only div
 const ArticleWrapper = styled.div `
@@ -197,15 +198,16 @@ export default function PageTemplate({ data: { mdx } }) {
         </BlogHeader>
         
         <FullArticleWrapper>
-          <TableOfContentSidebar>
+          <TableOfContentsWrapper>
             <TableOfContentNavigation>
-              <h2>TABLE OF CONTENTS</h2>  
+              <h2>TABLE OF CONTENTS</h2>
+              <TableOfContents headings={mdx.headings} url={mdx.fields.slug} />  
             </TableOfContentNavigation>
-          </TableOfContentSidebar>
+          </TableOfContentsWrapper>
 
           <ArticleWrapper>
             <MDXProvider components={shortcodes}>
-              <MDXRenderer>{mdx.body}</MDXRenderer>
+              <MDXRenderer headings={mdx.headings} url={mdx.fields.slug}>{mdx.body}</MDXRenderer>
             </MDXProvider>
           </ArticleWrapper>
 
@@ -221,10 +223,17 @@ export const pageQuery = graphql `
     mdx(id: { eq: $id }) {
       id
       body
+      fields {
+        slug
+      }
       frontmatter {
         title
         description
         date
+      }
+      headings {
+        depth
+        value
       }
     }
   }

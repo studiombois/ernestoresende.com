@@ -13,7 +13,7 @@ const { fontSizes } = theme;
 const Main = styled.div `
   margin: 0 auto;
   top: 0;
-  position: fixed;
+  position: sticky;
   background-color: var(--color-navBackground);
   z-index: 15;
   width: 100%;

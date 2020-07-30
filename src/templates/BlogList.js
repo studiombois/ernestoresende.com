@@ -59,7 +59,8 @@ class BlogIndex extends React.Component {
               {posts.map(({ node: post }) => (
               <BlogItem
                 key={post.id}
-                slug={post.fields.slug}
+                timeToRead={post.timeToRead}
+                slug={`/blog${post.fields.slug}`}
                 title={post.frontmatter.title}
                 excerpt={post.excerpt}
                 description={post.frontmatter.description}
@@ -107,6 +108,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          timeToRead
           excerpt(pruneLength: 230)
           fields {
             slug

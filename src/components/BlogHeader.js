@@ -14,7 +14,7 @@ const MainContainer = styled.div `
 `;
 const HeaderWrapper = styled.div `
   text-align: center;
-  padding: 128px 0 64px 0;
+  padding: 64px 0 32px 0;
   margin: 0 auto;
   ${mixins.sidePadding}
   ${media.tablet`

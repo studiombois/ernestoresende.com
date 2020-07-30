@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
         {data.allMdx.nodes.map(({ id, excerpt, fields, timeToRead, frontmatter }) => (
           <BlogItem
             key={id}
-            slug={fields.slug}
+            slug={`/blog${fields.slug}`}
             timeToRead={timeToRead}
             title={frontmatter.title}
             description={frontmatter.description}
