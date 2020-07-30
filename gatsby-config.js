@@ -36,13 +36,13 @@ module.exports = {
         path: `${__dirname}/src/content/posts/`,
       },
     },
-    `gatsby-plugin-transition-link`,
 
     // MDX Plugin and subplugins from remark
     {
       resolve : `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
+        remarkPlugins: [require('remark-slug')],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -51,7 +51,6 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-
           // Remember to remove oEmbed and look for a MDX alternative later.
 
           {
