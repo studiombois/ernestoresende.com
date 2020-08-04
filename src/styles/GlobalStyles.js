@@ -105,7 +105,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-family: ${fonts.Futura};
       font-size: ${fontSizes.xs};
-      letter-spacing: 0.015em;
+      letter-spacing: 0.020em;
       color: var(--color-text);
       text-rendering: optimizeLegibility;
       background: var(--color-background);

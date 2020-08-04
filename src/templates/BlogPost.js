@@ -25,11 +25,12 @@ const shortcodes = {
   SucessSidenote,
   TableOfContents }
 
+  // Header styles
 const Title = styled.h1 `
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.1rem;
-  line-height: 44px;
+  line-height: 1.3;
   padding-top: 30px;
   ${media.tablet`
     font-size: 36px;
@@ -41,8 +42,11 @@ const Description = styled.h3 `
   font-weight: 600;
   color: var(--color-secondaryText);
   padding-top: 30px;
+  ${media.tablet`
+    font-size: 22px;
+    `}
 `
-
+// Header Link Styles
 const ActiveLink = styled.span`
   font-size: 16px;
   font-weight: 700;
@@ -111,23 +115,13 @@ const ArticleWrapper = styled.div `
   width: 680px;
   overflow-wrap: break-word;
 
-  .no-heading-introduction {
-    display: none;
-  }
-  .anchor {
-    display: block;
-    position: relative;
-    top: -100px;
-    visibility: hidden;
-  }
-
   p {
-    line-height: 1.5;
+    line-height: 1.7;
     padding-bottom: 30px;
     ${media.thone`
       font-size: 18px;
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.6;
       letter-spacing: 0.015em;
     `}
   }
