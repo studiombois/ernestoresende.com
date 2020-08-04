@@ -8,7 +8,7 @@ const BaseWrapper = styled.aside `
   position: relative;
   padding: 24px 32px;
   font-size: 17px;
-  margin-top: 48px;
+  margin-top: 24px;
   margin-bottom: 64px;
   border-left: 3px solid var(--color-informationCardHighlight);
   border-radius: 6px 6px 6px 3px;
@@ -32,7 +32,7 @@ const IconWrapper = styled.div `
 `
 const Title = styled.strong `
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   display: block;
   margin-bottom: 8px;
 `
