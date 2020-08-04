@@ -5,17 +5,7 @@ import PropTypes from 'prop-types'
 import media from '@styles/media'
 
 const MainWrapper = styled.div `
-    background-color: var(--color-background);
-    color: var(--color-text);
-    border: solid 3px var(--color-text);
-    box-shadow: 1.2rem 1.2rem 0 var(--color-text);
-    padding: 32px;
-    margin: 0 auto 45px;
-    ${media.phablet`
-      margin: 0 5px 45px 5px;
-      border: solid 2px var(--color-text);
-      box-shadow: 0.8rem 0.8rem 0 var(--color-text);
-    `}
+  padding: 0 0 50px;
 `
 const TextWrapper = styled.div `
   .card-header-wrapper {

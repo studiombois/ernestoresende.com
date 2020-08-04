@@ -32,7 +32,7 @@ const HeroModuleText = styled.h1 `
   text-align: center;
   width: 90vw;
   z-index: 1;
-  padding: 70px 0 50px;
+  padding: 0 0 30px;
   .hero-module-firstLine {
     color: var(--color-highlights);
     font-size: 71px;
@@ -68,7 +68,7 @@ const Hero = () => {
         <HeroModuleCanvas/>
         <HeroModuleText>
           <span className="hero-module-firstLine">Ernesto Resende</span><br/>
-          <span className="hero-module-lastLine">builds things for the web</span>
+          <span className="hero-module-lastLine">builds stuff for the web</span>
         </HeroModuleText>
       </BlockModule>
 

@@ -8,7 +8,6 @@ import { Link as GatsbyLink } from 'gatsby';
 import mixins from '@styles/mixins';
 
 
-// Component that makes up the entire grid system from the homepage
 const Main = styled.div `
   max-width: 780px;
   margin: 0 auto;
@@ -46,8 +45,8 @@ const StyledIcon = styled.a`
     text-decoration: none;
     .iconify {
       color: var(--color-text);
-      width: 6rem;
-      height: 6rem;
+      width: 5rem;
+      height: 5rem;
       padding-right: 20px;
     }
 `
@@ -68,22 +67,33 @@ const HomeGrid = ({children}) => {
           <Archive to="/blog">See all blog posts</Archive>
         </div>
 
-        <ContactSection>
+        <ContactSection id="connect">
 
           <SectionCard
             title="Hey there!"
             description="As of now, I'm actually looking for a job opportunity in front-end development and/or UI design roles. If you like what you see here, consider sending me a mail or reaching out in any of my socials:"
             contactEmail="ernestoresende@hotmail.com">
             <SocialWrapper>
-              <StyledIcon href="#">
+              
+              <StyledIcon 
+              href="https://www.linkedin.com/in/ernesto-resende/" 
+              target="_blank" 
+              rel="nofollow noopener noreferer">
                 <span class="iconify" data-icon="ant-design:linkedin-filled" data-inline="false"></span>
+              
               </StyledIcon>
-              <StyledIcon href="#">
+              <StyledIcon href="https://github.com/thisisernesto" 
+              target="_blank" 
+              rel="nofollow noopener noreferer">
                 <span class="iconify" data-icon="ant-design:github-filled" data-inline="false"></span>
+              
               </StyledIcon>
-              <StyledIcon href="#">
+              <StyledIcon href="https://twitter.com/ErnestoResende" 
+              target="_blank" 
+              rel="nofollow noopener noreferer">
                 <span class="iconify" data-icon="ant-design:twitter-outlined" data-inline="false"></span>
               </StyledIcon>
+            
             </SocialWrapper>
           </SectionCard>
 

@@ -14,7 +14,7 @@ export const COLORS = {
   },
   titleHighlights: {
     light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
-    dark: 'rgb(255, 255, 0)', // Light saturated yellow in contrast with the dark background.
+    dark: 'rgb(255, 232, 60)', // Light saturated yellow in contrast with the dark background.
   },
   sectionTitleHighlights: {
     light: 'rgb(51, 82, 239)',
@@ -32,7 +32,7 @@ export const COLORS = {
     dark: 'rgb(14, 20, 27)', // Very dark tone of blue.
   },
   gradients: {
-    light: 'rgb(191, 222, 242)',
+    light: 'rgb(225, 241, 250)',
     dark: 'rgb(18, 26, 36)',
   },
   cards: {
@@ -44,15 +44,15 @@ export const COLORS = {
     dark: '0px 0px 30px rgba(0, 0, 0, 0.1)', // One tone brighter then dark mode background.
   },
   footer: {
-    light: 'rgb(191, 222, 242)',
+    light: 'rgb(225, 241, 250)',
     dark: 'rgb(18, 26, 36)',
   },
   navBackground: {
-    light: 'rgba(191, 222, 242, 0.97)',
+    light: 'rgba(225, 241, 250, 0.97)',
     dark: 'rgba(18, 26, 36, 0.97)',
   },
   toggleBorder: {
-    light: '#rgb(255, 232, 60)',
+    light: 'rgb(33, 35, 44)',
     dark: '#e4e7ec',
   },
   informationCardHighlight: {

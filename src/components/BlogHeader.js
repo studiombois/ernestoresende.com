@@ -19,8 +19,8 @@ const HeaderWrapper = styled.div `
   ${mixins.sidePadding}
   ${media.tablet`
     text-align: left;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   `}
 `;
 

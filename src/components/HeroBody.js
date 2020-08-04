@@ -10,7 +10,6 @@ const Main = styled.main `
 `; 
 
 const HeroTextContainer = styled.div `
-  padding-top: 80px;
 `;
 const Title = styled.h2 `
   font-size: ${fontSizes.xxlg};

@@ -10,7 +10,7 @@ const { fontSizes, space } = theme;
 export const PostContainer = styled(props => <GatsbyLink {...props} />) `
   display: block;
   text-decoration: none;
-  padding-bottom: 72px;
+  padding-bottom: 55px;
 `;
 const TimeToRead = styled.p `
   padding-bottom: ${space.sm};

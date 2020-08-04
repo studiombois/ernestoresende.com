@@ -76,3 +76,274 @@ I quickly glanced over some of my design decisions and advantages of using a sta
 </WarningSidenote>
 
 Starting with a high-scope view of the thing, here is a list of relevant technologies I'm using as of now:
+
+- <em>GraphQL</em> - This fella is the one responsible for sourcing content and presenting structured data. We write a query like this:
+  
+```graphql
+  query MyQuery {
+  site {
+    siteMetadata {
+      title
+      description
+    }
+  }
+}
+```
+
+And this is how it will return the data stored inside Gatsby configuration file:
+
+```graphql
+{
+  "data": {
+    "site": {
+      "siteMetadata": {
+        "title": "Ernesto Resende",
+        "description": "UI Designer and Front-End Developer. Blogs about design, development and tech stuff."
+      }
+    }
+  }
+}
+```
+
+Now we can source and use that data to populate SEO components for example.
+
+- <em>Remark</em> - As said before, remark is responsible for everything related to parsing Markdown content into HTML. In this project, I'm taking advantage of a full plethora of gatsby-remark "sub-plugins" such as `image`, `oembed`, `lazy-load`, and `prismjs` which is not exactly a remark dependency, but we'll get to that later.
+- <em>Styled-Components</em> - CSS-in-JS library. The name says everything; it creates named components that you can style with CSS directly inside your JavaScript file. You will end up seeing a structure similar to this:
+
+```jsx
+const Title = styled.h1 `
+  font-size: 36px;
+`
+
+export default function Header () {
+  return (
+    <Title>This is a title</Title>
+  )
+}
+```
+
+- <em>Gatsby Cloud</em> - Just like Vercel, Gatsby came out with their own set of cloud solutions that integrate with their build system. And their pricing range is very fair so far, so I saw no reason not to jump on it.
+
+If we were to get a high-scope view of the thing, the structure this site uses is mostly the same we get recommended by Gatsby with their documentation.
+
+```bash
+├── LICENSE
+├── README.md
+├── gatsby-browser.js
+├── gatsby-config.js
+├── gatsby-node.js
+├── gatsby-ssr.js
+├── package.json
+├── src
+│   ├── components
+│   ├── content
+│   │   └── posts
+│   ├── icons
+│   ├── pages
+│   ├── styles
+│   │   ├── GlobalStyles.js
+│   │   ├── PrismStyles.js
+│   │   ├── media.js
+│   │   ├── mixins.js
+│   │   └── theme.js
+│   └── templates
+│       ├── BlogList.js
+│       └── BlogPost.js
+├── static
+├── webpack-alias.js
+└── yarn.lock
+```
+
+All the components, pages, templates and stylesheets sits under the `src` directory. The Markdown files are also there on my case, but there is no rule telling you that you can't put them somewhere else, it's just my personal preference.
+
+Speaking of Markdown, remember the GraphQL used to query for site metadata? The same approach is used to source Markdown files from the filesystem. With the plugins `gatsby-source-filesystem` and `gatsby-transformer-remark`, they can be sourced with a simple query that returns all the data from the front-matter, along with the document body.
+
+## Styling with Styled Components
+
+With styled-components, styling rules sit right next to their JSX elements in the same document (separating the component in a document file and style file also works, but having everything in one file looks cleaner, as long as the styles there belong to the same component.
+
+A regular component will end up looking somewhat like this:
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+import HeroMask from '@icons/HeroMask';
+
+import media from '@styles/media'
+import mixins from '@styles/mixins';
+
+const MainContainer = styled.div `
+  height: 350px;
+  background: var(--color-gradients);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${media.tablet`height: 400px;`};
+  ${media.thone`height: 450px;`};
+  ${media.phablet`height: 500px;`};
+  ${media.phone`height: 550px;`};
+`;
+const HeaderWrapper = styled.div `
+  padding-top: 36px;
+  ${mixins.sidePadding}
+  ${mixins.desktopAlignCenter}
+`;
+const HeaderMaskWrapper = styled.div `
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 3;
+  bottom: -20px;
+`;
+
+const BlogHeader = ({ children }) => {
+  return (
+    <MainContainer>
+        <HeaderWrapper>
+          {children}
+        </HeaderWrapper>
+        <HeaderMaskWrapper>
+          <HeroMask />
+        </HeaderMaskWrapper>
+    </MainContainer>
+  )
+}
+
+BlogHeader.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+export default BlogHeader;
+```
+
+<InformationSidenote title="Webpack aliases">
+  
+  <p>
+  You can use aliases instead of the absolute path when working with webpack imports. Set up a file for webpack aliases in the root of your project. After that, use the require method in the gatsby-config file, also located at the root of your Gatsby project.
+  </p>
+
+  On `webpack-aliases.js`:
+
+  ```js
+const path = require('path');
+
+module.exports = {
+  '@components': path.resolve(__dirname, 'src/components'),
+  '@pages': path.resolve(__dirname, 'src/pages'),
+  '@styles': path.resolve(__dirname, 'src/styles'),
+  '@icons' : path.resolve(__dirname, 'src/icons'),
+  '@fonts' : path.resolve(__dirname, 'src/fonts')
+};
+  ```
+
+  And on `gatsby-config.js`:
+  
+  ```js
+  module.exports = {
+    plugins: [
+      {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias,
+        extensions: [],
+      }
+    },
+    ]
+  }
+  ```
+
+</InformationSidenote>
+
+You may be asking what are these `media` and `mixins` imports.
+
+The mixins store CSS properties that are frequently repeated in various components, like aligning a whole container to the center for example.
+
+Inside `mixins.js`:
+
+```jsx
+import { css } from 'styled-components';
+
+const mixins = {
+  desktopAlignCenter: css`
+    margin: 0 auto;
+    width: 100%;
+    right: 0px;
+    left: 0px;
+    max-width: 1100px;
+  `,
+};
+
+export default mixins;
+```
+
+That mixin can then be called in a component like:
+
+```jsx
+import mixins from '@styles/mixins;
+
+const Main = styled.div `
+  ${mixins.desktopAlignCenter};
+`
+```
+
+For global styles that are reused across the entire project, styled-components provides the `createGlobalStyles` API. They are used on a `GlobalStyles.js` file that sits on the `styles` directory.
+
+```jsx
+import { createGlobalStyle } from 'styled-components';
+
+// Global Body Styles
+const GlobalStyle = createGlobalStyle`
+    body {
+      font-family: ${fonts.Jost};
+      font-size: ${fontSizes.xs};
+      color: var(--color-text);
+      text-rendering: optimizeLegibility;
+      background: var(--color-background);
+    }
+`
+```
+
+You may also have noticed that I use a mix of JavaScript and CSS variables to hold the values that go on CSS properties. That happens because the Dark/Light Mode Toggle uses CSS variables to switch the values. We will get to that in a bit.
+
+## Managing post content
+
+Usually content management befalls to a CMS, but I like having things at my fingertips and writing raw Markdown gives me fine-grained control over the content. So what do I do to manage the chaos.
+
+Well, I use Notion. It is basically a notes application that uses a Rich-Text editor. The nice part is that as soon as I have a draft ready, I can quickly export it from Notion to Markdown, without having to manually write all the Markdown itself.
+
+// SCREENSHOT OF MY ARTICLE MANAGEMENT
+
+## Code-Highlighting with Prism
+
+You may have noticed that all the code snippets here have syntax highlighting. That's possible thanks to Prism.js. Using the gatsby-remark-prism I can choose between a list of themes, or create my own. To perfectly match the color scheme from the rest of the website, I opted for the latter.
+
+Doing that is very simple. You can require a CSS file from the `gatsby-ssr.js` file, or inject it on the Global Styles as I did:
+
+On `PrismStyles.js` file:
+
+ 
+
+```jsx
+import { css } from 'styled-components';
+
+const PrismStyles = css`
+	// ALL THE PRISM STUFF
+`
+
+export default PrismStyles;
+```
+
+And then on `GlobalStyles.js`:
+
+```js
+import { createGlobalStyle } from 'styled-components';
+import PrismStyles from '@styles/PrismStyles';
+
+// Injects the CSS from PrismStyles.js
+const GlobalStyle = createGlobalStyle`
+	${PrismStyles};
+`
+```
