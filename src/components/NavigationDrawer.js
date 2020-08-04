@@ -36,13 +36,13 @@ const StyledLink = styled(props => <GatsbyLink {...props} />)`
     text-decoration: none;
     .iconify {
       color: var(--color-text);
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
       padding-bottom: 5px;
     }
 `
 const StyledLinkCaption = styled.div `
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-secondaryText);
 `
 
@@ -50,23 +50,23 @@ const NavigationDrawer = () => {
   return (
     <DrawerWrapper>
       <StyledLink to="/portfolio">
-        <span class="iconify" data-icon="mdi:palette-swatch-outline" data-inline="false"></span>
-        <StyledLinkCaption>Portfolio</StyledLinkCaption>
+        <span class="iconify" data-icon="bx:bx-code-alt" data-inline="false"></span>
+        <StyledLinkCaption>work</StyledLinkCaption>
       </StyledLink>
 
       <StyledLink to="/about">
-        <span class="iconify" data-icon="mdi:emoticon-happy-outline" data-inline="false"></span>
-        <StyledLinkCaption>About</StyledLinkCaption>
+        <span class="iconify" data-icon="mdi:emoticon-happy" data-inline="false"></span>
+        <StyledLinkCaption>about</StyledLinkCaption>
       </StyledLink>
 
       <StyledLink to="/blog">
-        <span class="iconify" data-icon="mdi:pencil-outline" data-inline="false"></span>
-        <StyledLinkCaption>Blog</StyledLinkCaption>
+        <span class="iconify" data-icon="bx:bxs-pencil" data-inline="false"></span>
+        <StyledLinkCaption>blog</StyledLinkCaption>
       </StyledLink>
 
-      <StyledLink to="/contact">
-        <span class="iconify" data-icon="mdi:contacts-outline" data-inline="false"></span>
-        <StyledLinkCaption>Contact</StyledLinkCaption>
+      <StyledLink to="/#connect">
+        <span class="iconify" data-icon="bi:person-fill" data-inline="false"></span>
+        <StyledLinkCaption>connect</StyledLinkCaption>
       </StyledLink>
 
     </DrawerWrapper>

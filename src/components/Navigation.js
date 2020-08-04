@@ -32,7 +32,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 65px;
+  min-height: 55px;
   ${mixins.sidePadding}
   ${media.tablet`min-height: 50px;`}
 `;
@@ -81,7 +81,7 @@ class Navigation extends React.Component {
               <StyledLink to="/portfolio">portfolio</StyledLink>
               <StyledLink to="/about">about</StyledLink>
               <StyledLink to="/blog">blog</StyledLink>
-              <StyledLink to="/contact">connect</StyledLink>
+              <StyledLink to="/#connect">connect</StyledLink>
             </NavList>
           </LeftBlock>
           <DarkToggle />
