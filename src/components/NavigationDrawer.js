@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
+import { Link as GatsbyLink } from 'gatsby'
 
-import media from '@styles/media';
+import media from '@styles/media'
 
-const DrawerWrapper = styled.div `
+const DrawerWrapper = styled.div`
   align-items: center;
   background-color: var(--color-navBackground);
   border-color: var(--color-scrollbar);
@@ -23,25 +23,25 @@ const DrawerWrapper = styled.div `
 const StyledLink = styled(props => <GatsbyLink {...props} />)`
   align-items: center;
   padding: 10px 0 10px 0;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    font-size: 0.875rem;
-    line-height: 1;
-    -webkit-box-pack: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    .iconify {
-      color: var(--color-text);
-      width: 2.5rem;
-      height: 2.5rem;
-      padding-bottom: 5px;
-    }
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  font-size: 0.875rem;
+  line-height: 1;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  .iconify {
+    color: var(--color-text);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-bottom: 5px;
+  }
 `
-const StyledLinkCaption = styled.div `
+const StyledLinkCaption = styled.div`
   font-size: 13px;
   color: var(--color-secondaryText);
 `
@@ -49,28 +49,43 @@ const StyledLinkCaption = styled.div `
 const NavigationDrawer = () => {
   return (
     <DrawerWrapper>
-      <StyledLink to="/portfolio">
-        <span class="iconify" data-icon="bx:bx-code-alt" data-inline="false"></span>
+      <StyledLink to='/portfolio'>
+        <span
+          class='iconify'
+          data-icon='bx:bx-code-alt'
+          data-inline='false'
+        ></span>
         <StyledLinkCaption>work</StyledLinkCaption>
       </StyledLink>
 
-      <StyledLink to="/about">
-        <span class="iconify" data-icon="mdi:emoticon-happy" data-inline="false"></span>
+      <StyledLink to='/about'>
+        <span
+          class='iconify'
+          data-icon='mdi:emoticon-happy'
+          data-inline='false'
+        ></span>
         <StyledLinkCaption>about</StyledLinkCaption>
       </StyledLink>
 
-      <StyledLink to="/blog">
-        <span class="iconify" data-icon="bx:bxs-pencil" data-inline="false"></span>
+      <StyledLink to='/blog'>
+        <span
+          class='iconify'
+          data-icon='bx:bxs-pencil'
+          data-inline='false'
+        ></span>
         <StyledLinkCaption>blog</StyledLinkCaption>
       </StyledLink>
 
-      <StyledLink to="/#connect">
-        <span class="iconify" data-icon="bi:person-fill" data-inline="false"></span>
+      <StyledLink to='/#connect'>
+        <span
+          class='iconify'
+          data-icon='bi:person-fill'
+          data-inline='false'
+        ></span>
         <StyledLinkCaption>connect</StyledLinkCaption>
       </StyledLink>
-
     </DrawerWrapper>
   )
-};
+}
 
-export default NavigationDrawer;
+export default NavigationDrawer

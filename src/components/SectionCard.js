@@ -4,19 +4,26 @@ import PropTypes from 'prop-types'
 
 import media from '@styles/media'
 
-const MainWrapper = styled.div `
+const MainWrapper = styled.div`
   padding: 0 0 50px;
 `
-const TextWrapper = styled.div `
+const TextWrapper = styled.div`
   .card-header-wrapper {
     margin-bottom: 28px;
   }
   h1 {
     font-size: 36px;
     font-weight: 900;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
     display: inline;
-    background-image: linear-gradient(transparent 0,transparent 55%,var(--color-cardUnderline) 55%,var(--color-cardUnderline) 90%,transparent 90%,transparent 100%);
+    background-image: linear-gradient(
+      transparent 0,
+      transparent 55%,
+      var(--color-cardUnderline) 55%,
+      var(--color-cardUnderline) 90%,
+      transparent 90%,
+      transparent 100%
+    );
     background-repeat: no-repeat;
     background-size: 90% 100%;
     background-position: 0%;
@@ -41,18 +48,30 @@ const TextWrapper = styled.div `
   }
 `
 
-const SectionCard = ( {title, description, descriptionSecondLine, contactEmail, children} ) => {
+const SectionCard = ({
+  title,
+  description,
+  descriptionSecondLine,
+  contactEmail,
+  children,
+}) => {
   return (
     <React.Fragment>
       <MainWrapper>
         <TextWrapper>
-          <div className="card-header-wrapper">
+          <div className='card-header-wrapper'>
             <h1>{title}</h1>
           </div>
           <p>{description}</p>
-          <p className="reset-padding">{descriptionSecondLine}</p>
-          <a href="mailto:ernestoresende@hotmail" rel="noopener noreferrer" target="_blank">{contactEmail}</a>
-          <div className="social-media">{children}</div>
+          <p className='reset-padding'>{descriptionSecondLine}</p>
+          <a
+            href='mailto:ernestoresende@hotmail'
+            rel='noopener noreferrer'
+            target='_blank'
+          >
+            {contactEmail}
+          </a>
+          <div className='social-media'>{children}</div>
         </TextWrapper>
       </MainWrapper>
     </React.Fragment>

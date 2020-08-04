@@ -25,7 +25,6 @@ export const COLORS = {
     dark: 'rgb(51, 82, 239)',
   },
 
-  
   /* Background for page and page components (cards, heros, navigation, etc.) */
   background: {
     light: 'rgb(252, 252, 252)', // Very bright tone of gray.
@@ -75,7 +74,6 @@ export const COLORS = {
     light: 'rgba(0, 204, 136, 0.1)',
     dark: 'rgba(0, 204, 136, 0.1)',
   },
-
 
   /* Custom scrollbar colors */
   scrollbar: {
@@ -129,10 +127,10 @@ export const COLORS = {
     dark: '##FF5555',
   },
   syntaxRegex: {
-    light: '#3600d6', 
+    light: '#3600d6',
     dark: '#ffd700',
-  }
-};
+  },
+}
 
-export const COLOR_MODE_KEY = 'color-mode';
-export const INITIAL_COLOR_MODE_CSS_PROP = '--initial-color-mode';
+export const COLOR_MODE_KEY = 'color-mode'
+export const INITIAL_COLOR_MODE_CSS_PROP = '--initial-color-mode'

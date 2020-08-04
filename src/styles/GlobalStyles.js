@@ -1,10 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from '@styles/theme';
-import PrismStyles from '@styles/PrismStyles';
-import FontFaces from './fonts';
+import { createGlobalStyle } from 'styled-components'
+import theme from '@styles/theme'
+import PrismStyles from '@styles/PrismStyles'
+import FontFaces from './fonts'
 
-const { fontSizes, fonts } = theme;
-
+const { fontSizes, fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
   ${FontFaces};
@@ -116,6 +115,6 @@ const GlobalStyle = createGlobalStyle`
         transition: none;
       }
     }
-  `;
+  `
 
-  export default GlobalStyle;
+export default GlobalStyle

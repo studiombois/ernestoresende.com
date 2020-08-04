@@ -1,21 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 
-import SEO from '@components/Seo';
-import Layout from '@components/Layout';
-import SmallHero from '@components/SmallHero';
-import BlogItem from '@components/BlogItem';
+import SEO from '@components/Seo'
+import Layout from '@components/Layout'
+import SmallHero from '@components/SmallHero'
+import BlogItem from '@components/BlogItem'
 
-import mixins from '@styles/mixins';
+import mixins from '@styles/mixins'
 
-const Main = styled.div `
+const Main = styled.div`
   padding-top: 60px;
   max-width: 780px;
   margin: 0 auto;
   ${mixins.sidePadding}
-`;
+`
 
 //Pagination Styling, could be moved to components later
 const Pagination = styled.nav`
@@ -32,64 +32,56 @@ const PaginationLink = styled(props => <GatsbyLink {...props} />)`
   :hover {
     color: var(--color-highlights);
   }
-`;
-
+`
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const { edges: posts } = data.allMdx  
+    const { edges: posts } = data.allMdx
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/blog/' : `/blog/page/${currentPage - 1}`
+    const prevPage =
+      currentPage - 1 === 1 ? '/blog/' : `/blog/page/${currentPage - 1}`
     const nextPage = `/blog/page/${currentPage + 1}`
 
     return (
       <div>
-        <SEO
-          title="Blog"
-          description="A collection of my blog posts."
-        />
+        <SEO title='Blog' description='A collection of my blog posts.' />
         <Layout>
-        <SmallHero/>
-          
+          <SmallHero />
+
           <Main>
             <div>
               {posts.map(({ node: post }) => (
-              <BlogItem
-                key={post.id}
-                timeToRead={post.timeToRead}
-                slug={`/blog${post.fields.slug}`}
-                title={post.frontmatter.title}
-                excerpt={post.excerpt}
-                description={post.frontmatter.description}
-              />
+                <BlogItem
+                  key={post.id}
+                  timeToRead={post.timeToRead}
+                  slug={`/blog${post.fields.slug}`}
+                  title={post.frontmatter.title}
+                  excerpt={post.excerpt}
+                  description={post.frontmatter.description}
+                />
               ))}
-              </div>
+            </div>
 
-              <Pagination>
-                
-                {!isFirst && (
-                  <PaginationLink 
-                  to={prevPage} 
-                  rel="prev">
-                    ← Previous
-                  </PaginationLink>
-                )}
-                
-                <span>{currentPage} of {numPages}</span>
-                
-                {!isLast && (
-                  <PaginationLink 
-                  to={nextPage} 
-                  rel="next">
-                    Next →
-                  </PaginationLink>
-                )}
+            <Pagination>
+              {!isFirst && (
+                <PaginationLink to={prevPage} rel='prev'>
+                  ← Previous
+                </PaginationLink>
+              )}
 
+              <span>
+                {currentPage} of {numPages}
+              </span>
+
+              {!isLast && (
+                <PaginationLink to={nextPage} rel='next'>
+                  Next →
+                </PaginationLink>
+              )}
             </Pagination>
-
           </Main>
         </Layout>
       </div>
@@ -100,7 +92,7 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query blogPageQuery($limit: Int! $skip: Int!) {  
+  query blogPageQuery($limit: Int!, $skip: Int!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit

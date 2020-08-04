@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   const { site } = useStaticQuery(
@@ -22,8 +22,8 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   const image =
     metaImage && metaImage.src
       ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null;
-  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+      : null
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
 
   return (
     <Helmet
@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
         canonical
           ? [
               {
-                rel: "canonical",
+                rel: 'canonical',
                 href: canonical,
               },
             ]
@@ -83,26 +83,26 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           metaImage
             ? [
                 {
-                  property: "og:image",
+                  property: 'og:image',
                   content: image,
                 },
                 {
-                  property: "og:image:width",
+                  property: 'og:image:width',
                   content: metaImage.width,
                 },
                 {
-                  property: "og:image:height",
+                  property: 'og:image:height',
                   content: metaImage.height,
                 },
                 {
-                  name: "twitter:card",
-                  content: "summary_large_image",
+                  name: 'twitter:card',
+                  content: 'summary_large_image',
                 },
               ]
             : [
                 {
-                  name: "twitter:card",
-                  content: "summary",
+                  name: 'twitter:card',
+                  content: 'summary',
                 },
               ]
         )

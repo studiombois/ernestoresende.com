@@ -1,4 +1,4 @@
-const alias = require('./webpack-alias');
+const alias = require('./webpack-alias')
 
 module.exports = {
   // -- METADATA INFORMATION FOR THE SEO COMPONENT --
@@ -7,7 +7,8 @@ module.exports = {
     author: 'Ernesto Resende',
     siteUrl: 'https://ernestoresende.com',
     image: '/static/thumbnail_image_later', // !! SET THE GLOBAL THUMBNAIL IMAGE LATER !!
-    description: 'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
+    description:
+      'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
     social: {
       twitter: 'ernestoresende',
       twitterLink: 'https://twitter.com/ErnestoResende',
@@ -18,7 +19,6 @@ module.exports = {
 
   //  -- GATSBY SPECIFIC PLUGINS --
   plugins: [
-
     // Plugins that require additional options. Any future plugins that requires aditional options
     // should be put bellow.
     {
@@ -26,7 +26,7 @@ module.exports = {
       options: {
         alias,
         extensions: [],
-      }
+      },
     },
 
     {
@@ -39,7 +39,7 @@ module.exports = {
 
     // MDX Plugin and subplugins from remark
     {
-      resolve : `gatsby-plugin-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
         remarkPlugins: [require('remark-slug')],
@@ -56,9 +56,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              aliases:{sh: "bash", js:"javascript"},
+              aliases: { sh: 'bash', js: 'javascript' },
               showLineNumbers: false,
-            }
+            },
           },
           `gatsby-remark-lazy-load`,
           `gatsby-remark-external-links`,
@@ -66,7 +66,7 @@ module.exports = {
       },
     },
 
-    // Plugins that don't require any additional options. Any future plugins that don't require the 
+    // Plugins that don't require any additional options. Any future plugins that don't require the
     // resolve parameter should be put bellow.
 
     'gatsby-plugin-sharp',
@@ -75,6 +75,5 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
-    
   ],
 }

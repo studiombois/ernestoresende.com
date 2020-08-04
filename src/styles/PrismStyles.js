@@ -1,66 +1,66 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 import theme from '@styles/theme'
-import media from '@styles/media';
+import media from '@styles/media'
 
 const { fonts } = theme
 
 const PrismStyles = css`
-  code[class*="language-"],
-  pre[class*="language-"] {
-  text-align: left;
-  max-height: 75vh;
-	white-space: pre-wrap;
-	line-height: 1.7;
-	-moz-tab-size: 2;
-	tab-size: 2;
-  hyphens: none;
-  font-family: ${fonts.LeagueMono};
-  font-size: 16px;
-  font-weight: 700;
-	overflow-x: auto !important;
-	border-radius: 0;
-  letter-spacing: -0.05rem;
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-align: left;
+    max-height: 75vh;
+    white-space: pre-wrap;
+    line-height: 1.7;
+    -moz-tab-size: 2;
+    tab-size: 2;
+    hyphens: none;
+    font-family: ${fonts.LeagueMono};
+    font-size: 16px;
+    font-weight: 700;
+    overflow-x: auto !important;
+    border-radius: 0;
+    letter-spacing: -0.05rem;
 
-${media.phablet`
+    ${media.phablet`
     font-size: 12px;
   `};
   }
 
   /* Code blocks */
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     max-width: 100%;
     padding: 1em;
-  	border-radius: 0.3em;
+    border-radius: 0.3em;
     margin: 0 auto;
     margin-bottom: 30px;
   }
 
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-  	background: var(--color-syntaxBackground);
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    background: var(--color-syntaxBackground);
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 48px;
   }
 
   /* Inline code */
-  :not(pre) > code[class*="language-"] {
-  	padding: 0;
+  :not(pre) > code[class*='language-'] {
+    padding: 0;
   }
 
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata {
-  	color: var(--color-syntaxComment);
+    color: var(--color-syntaxComment);
   }
 
   .token.punctuation {
-  	color: var(--color-text);
+    color: var(--color-text);
   }
 
   .namespace {
-  	opacity: .7;
+    opacity: 0.7;
   }
 
   .token.property,
@@ -68,12 +68,12 @@ ${media.phablet`
   .token.constant,
   .token.symbol,
   .token.deleted {
-  	color: var(--color-syntaxDel);
+    color: var(--color-syntaxDel);
   }
 
   .token.boolean,
   .token.number {
-  	color: var(--color-syntaxBool);
+    color: var(--color-syntaxBool);
   }
 
   .token.selector,
@@ -82,7 +82,7 @@ ${media.phablet`
   .token.char,
   .token.builtin,
   .token.inserted {
-  	color: var(--color-syntaxRegex);
+    color: var(--color-syntaxRegex);
   }
 
   .token.operator,
@@ -91,37 +91,37 @@ ${media.phablet`
   .language-css .token.string,
   .style .token.string,
   .token.variable {
-  	color: var(--color-syntaxString);
+    color: var(--color-syntaxString);
   }
 
   .token.atrule,
   .token.attr-value,
   .token.function,
   .token.class-name {
-  	color: var(--color-syntaxName);
+    color: var(--color-syntaxName);
   }
 
   .token.keyword {
-  	color: var(--color-syntaxProp);
+    color: var(--color-syntaxProp);
   }
 
   .token.regex,
   .token.important {
-  	color: var(--color-syntaxRegex);
+    color: var(--color-syntaxRegex);
   }
 
   .token.important,
   .token.bold {
-  	font-weight: bold;
+    font-weight: bold;
   }
 
   .token.italic {
-  	font-style: italic;
+    font-style: italic;
   }
 
   .token.entity {
-  	cursor: help;
+    cursor: help;
   }
 `
 
-export default PrismStyles;
+export default PrismStyles

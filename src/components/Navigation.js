@@ -1,32 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
+import { Link as GatsbyLink } from 'gatsby'
 
-import DarkToggle from '@components/DarkToggle';
+import DarkToggle from '@components/DarkToggle'
 
-import theme from '@styles/theme';
-import mixins from '@styles/mixins';
-import media from '@styles/media';
-const { fontSizes } = theme;
+import theme from '@styles/theme'
+import mixins from '@styles/mixins'
+import media from '@styles/media'
+const { fontSizes } = theme
 
-
-const Main = styled.div `
+const Main = styled.div`
   margin: 0 auto;
   top: 0;
   position: sticky;
   background-color: var(--color-navBackground);
   z-index: 15;
   width: 100%;
-`;
+`
 
 const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-highlights);
   text-decoration: none;
   padding-right: 64px;
   font-size: 20px;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
   ${media.tablet`font-size: 18px;`}
-`;
+`
 const Nav = styled.nav`
   ${mixins.desktopAlignCenter}
   display: flex;
@@ -35,8 +34,8 @@ const Nav = styled.nav`
   min-height: 55px;
   ${mixins.sidePadding}
   ${media.tablet`min-height: 50px;`}
-`;
-const LeftBlock = styled.div `
+`
+const LeftBlock = styled.div`
   display: flex;
   flex-direction: row;
 `
@@ -44,7 +43,7 @@ const NavList = styled.ul`
   display: flex;
   list-style: none;
   ${media.tablet`display:none;`}
-`;
+`
 const StyledLink = styled(props => <GatsbyLink {...props} />)`
   font-size: 16px;
   font-weight: 600;
@@ -56,7 +55,7 @@ const StyledLink = styled(props => <GatsbyLink {...props} />)`
   overflow: hidden;
   transition: all ease-in-out 0.1s;
   text-decoration: none;
-  
+
   :hover {
     color: var(--color-highlights);
   }
@@ -65,30 +64,32 @@ const StyledLink = styled(props => <GatsbyLink {...props} />)`
     font-size: ${fontSizes.xxs};
     margin: 0 25px 0 0;
   `};
-`;
+`
 const Bold = styled.span`
   font-weight: 700;
-`;
+`
 
 class Navigation extends React.Component {
-  render () {
+  render() {
     return (
       <Main>
-          <Nav>
+        <Nav>
           <LeftBlock>
-            <NameContainer to="/">ERNESTO<Bold>RESENDE</Bold></NameContainer>
+            <NameContainer to='/'>
+              ERNESTO<Bold>RESENDE</Bold>
+            </NameContainer>
             <NavList>
-              <StyledLink to="/portfolio">portfolio</StyledLink>
-              <StyledLink to="/about">about</StyledLink>
-              <StyledLink to="/blog">blog</StyledLink>
-              <StyledLink to="/#connect">connect</StyledLink>
+              <StyledLink to='/portfolio'>portfolio</StyledLink>
+              <StyledLink to='/about'>about</StyledLink>
+              <StyledLink to='/blog'>blog</StyledLink>
+              <StyledLink to='/#connect'>connect</StyledLink>
             </NavList>
           </LeftBlock>
           <DarkToggle />
-          </Nav>
+        </Nav>
       </Main>
     )
-  };
-};
+  }
+}
 
-export default Navigation;
+export default Navigation

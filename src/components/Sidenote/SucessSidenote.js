@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const BaseWrapper = styled.aside `
+const BaseWrapper = styled.aside`
   background: var(--color-sucessCardBackground);
   border-left-color: red;
   position: relative;
@@ -16,7 +16,7 @@ const BaseWrapper = styled.aside `
     padding: 0px;
   }
 `
-const IconWrapper = styled.div `
+const IconWrapper = styled.div`
   color: var(--color-sucessCardHighlight);
   position: absolute;
   top: 0px;
@@ -30,18 +30,22 @@ const IconWrapper = styled.div `
     height: 3rem;
   }
 `
-const Title = styled.strong `
+const Title = styled.strong`
   font-size: 20px;
   font-weight: 700;
   display: block;
   margin-bottom: 8px;
 `
 
-const SucessSidenote = ({title, children}) => {
+const SucessSidenote = ({ title, children }) => {
   return (
     <BaseWrapper>
       <IconWrapper>
-        <span class="iconify" data-icon="bi:check-all" data-inline="false"></span>
+        <span
+          class='iconify'
+          data-icon='bi:check-all'
+          data-inline='false'
+        ></span>
       </IconWrapper>
       <Title>{title}</Title>
       {children}

@@ -1,11 +1,12 @@
 const theme = {
-
   fonts: {
     // Body Content Fontface
-    Futura: 'Futura, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
+    Futura:
+      'Futura, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
 
     // Styled Content Fontface
-    Sriracha: 'Sriracha, Pangolin, Mali, Comic Neue, Comic Sans, Arial, sans-serif',
+    Sriracha:
+      'Sriracha, Pangolin, Mali, Comic Neue, Comic Sans, Arial, sans-serif',
 
     //Monospaced content fontface
     LeagueMono: 'League Mono, Fira Mono, monospace',
@@ -48,4 +49,4 @@ const theme = {
   // -- Add any additional theming variables above --
 }
 
-export default theme;
+export default theme

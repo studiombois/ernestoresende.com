@@ -1,32 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
-import { Link as GatsbyLink } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
-import Layout from '@components/Layout';
-import SEO from '@components/Seo';
-import BlogHeader from '@components/BlogHeader';
-import HeroNavigation from '@components/HeroNavigation';
+import Layout from '@components/Layout'
+import SEO from '@components/Seo'
+import BlogHeader from '@components/BlogHeader'
+import HeroNavigation from '@components/HeroNavigation'
 import WarningSidenote from '@components/Sidenote/WarningSidenote'
 import InformationSidenote from '@components/Sidenote/InformationSidenote'
 import SucessSidenote from '@components/Sidenote/SucessSidenote'
 import TableOfContents from '@components/TableOfContents'
 
-import mixins from '@styles/mixins';
-import media from '@styles/media';
-import theme from '@styles/theme';
-const { fonts } = theme;
+import mixins from '@styles/mixins'
+import media from '@styles/media'
+import theme from '@styles/theme'
+const { fonts } = theme
 
-const shortcodes = { 
-  WarningSidenote, 
-  InformationSidenote, 
+const shortcodes = {
+  WarningSidenote,
+  InformationSidenote,
   SucessSidenote,
-  TableOfContents }
+  TableOfContents,
+}
 
-  // Header styles
-const Title = styled.h1 `
+// Header styles
+const Title = styled.h1`
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.1rem;
@@ -36,7 +37,7 @@ const Title = styled.h1 `
     font-size: 36px;
     `}
 `
-const Description = styled.h3 `
+const Description = styled.h3`
   font-size: 26px;
   line-height: 32px;
   font-weight: 600;
@@ -63,7 +64,7 @@ const InactiveLink = styled(props => <GatsbyLink {...props} />)`
 `
 
 // Wraps both the article and the table of contents
-const FullArticleWrapper = styled.div `
+const FullArticleWrapper = styled.div`
   ${mixins.desktopAlignCenter}
   ${mixins.sidePadding}
   padding-top: 64px;
@@ -107,11 +108,11 @@ const TableOfContentNavigation = styled.nav`
     padding-bottom: 0.6em;
     list-style: none;
   }
-`;
+`
 // Wraps the Table of Content as a Navigation element for semantic HTML
 
 // Article only div
-const ArticleWrapper = styled.div `
+const ArticleWrapper = styled.div`
   width: 680px;
   overflow-wrap: break-word;
 
@@ -139,7 +140,7 @@ const ArticleWrapper = styled.div `
     margin-bottom: 1.6rem;
     line-height: 30px;
   }
-  
+
   a {
     ${mixins.styledLink}
   }
@@ -174,45 +175,47 @@ const ArticleWrapper = styled.div `
 `
 
 export default function PageTemplate({ data: { mdx } }) {
-    return (
-      <div>
-        <Layout>
+  return (
+    <div>
+      <Layout>
         <SEO
           title={mdx.frontmatter.title}
           description={mdx.frontmatter.description}
           articles={true}
         />
-        
+
         <BlogHeader>
           <HeroNavigation>
-            <InactiveLink to="/">Home</InactiveLink> <span>&#60;</span> <InactiveLink to="/blog">Blog</InactiveLink> <span>&#60;</span> <ActiveLink>{mdx.frontmatter.title}</ActiveLink>
+            <InactiveLink to='/'>Home</InactiveLink> <span>&#60;</span>{' '}
+            <InactiveLink to='/blog'>Blog</InactiveLink> <span>&#60;</span>{' '}
+            <ActiveLink>{mdx.frontmatter.title}</ActiveLink>
           </HeroNavigation>
           <Title>{mdx.frontmatter.title}</Title>
           <Description>{mdx.frontmatter.description}</Description>
         </BlogHeader>
-        
+
         <FullArticleWrapper>
           <TableOfContentsWrapper>
             <TableOfContentNavigation>
               <h2>TABLE OF CONTENTS</h2>
-              <TableOfContents headings={mdx.headings} url={mdx.fields.slug} />  
+              <TableOfContents headings={mdx.headings} url={mdx.fields.slug} />
             </TableOfContentNavigation>
           </TableOfContentsWrapper>
 
           <ArticleWrapper>
             <MDXProvider components={shortcodes}>
-              <MDXRenderer headings={mdx.headings} url={mdx.fields.slug}>{mdx.body}</MDXRenderer>
+              <MDXRenderer headings={mdx.headings} url={mdx.fields.slug}>
+                {mdx.body}
+              </MDXRenderer>
             </MDXProvider>
           </ArticleWrapper>
-
         </FullArticleWrapper>
-        
-        </Layout>
-      </div>
-    );
-};
+      </Layout>
+    </div>
+  )
+}
 
-export const pageQuery = graphql `
+export const pageQuery = graphql`
   query BlogPostQuery($id: String!) {
     mdx(id: { eq: $id }) {
       id

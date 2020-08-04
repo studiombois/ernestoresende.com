@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import Navigation from '@components/Navigation';
-import Footer from '@components/Footer';
-import NavigationDrawer from '@components/NavigationDrawer';
+import Navigation from '@components/Navigation'
+import Footer from '@components/Footer'
+import NavigationDrawer from '@components/NavigationDrawer'
 
-const Layout = (props) => {
+const Layout = props => {
   return (
     <React.Fragment>
-      <Navigation/>
+      <Navigation />
       {props.children}
-      <Footer/>
-      <NavigationDrawer/>
+      <Footer />
+      <NavigationDrawer />
     </React.Fragment>
-  ); 
-};
+  )
+}
 
-export default Layout;
+export default Layout

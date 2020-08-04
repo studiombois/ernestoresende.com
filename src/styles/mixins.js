@@ -1,6 +1,6 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 //import theme from '@styles/theme';
-import media from '@styles/media';
+import media from '@styles/media'
 //const { colors, zIndex } = theme;
 
 const mixins = {
@@ -10,7 +10,7 @@ const mixins = {
     align-items: center;
   `,
 
-  flexLeft: css `
+  flexLeft: css`
     display: flex;
     justify-content: left;
   `,
@@ -43,7 +43,7 @@ const mixins = {
     position: relative;
     overflow: hidden;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 51%;
       right: 51%;
@@ -72,7 +72,7 @@ const mixins = {
     @media (max-width: 500px) {
       font-size: 16px;
     }
-  `
-};
+  `,
+}
 
-export default mixins;
+export default mixins
