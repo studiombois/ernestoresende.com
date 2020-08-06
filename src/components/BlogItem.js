@@ -39,7 +39,7 @@ const Description = styled.h2`
 const Excerpt = styled.h2`
   font-size: 17px;
   color: var(--color-text);
-  line-height: 2.4rem;
+  line-height: 2.6rem;
   font-weight: 400;
 `
 

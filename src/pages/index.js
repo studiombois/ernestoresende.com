@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '@components/Layout'
+import Navigation from '@components/Navigation'
+import NavigationDrawer from '@components/NavigationDrawer'
+import Footer from '@components/Footer'
 import Hero from '@components/Hero'
 import HeroBody from '@components/HeroBody'
 import HomeGrid from '@components/HomeGrid'
@@ -12,25 +14,26 @@ const IndexPage = ({ data }) => {
   return (
     <React.Fragment>
       <SEO title='Ernesto Resende' />
-      <Layout>
-        <Hero>
-          <HeroBody />
-        </Hero>
-        <HomeGrid>
-          {data.allMdx.nodes.map(
-            ({ id, excerpt, fields, timeToRead, frontmatter }) => (
-              <BlogItem
-                key={id}
-                slug={`/blog${fields.slug}`}
-                timeToRead={timeToRead}
-                title={frontmatter.title}
-                description={frontmatter.description}
-                excerpt={excerpt}
-              />
-            )
-          )}
-        </HomeGrid>
-      </Layout>
+      <Navigation onHomePage />
+      <Hero>
+        <HeroBody />
+      </Hero>
+      <HomeGrid>
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, fields, timeToRead, frontmatter }) => (
+            <BlogItem
+              key={id}
+              slug={`/blog${fields.slug}`}
+              timeToRead={timeToRead}
+              title={frontmatter.title}
+              description={frontmatter.description}
+              excerpt={excerpt}
+            />
+          )
+        )}
+      </HomeGrid>
+      <Footer />
+      <NavigationDrawer />
     </React.Fragment>
   )
 }

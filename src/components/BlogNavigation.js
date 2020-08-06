@@ -11,12 +11,13 @@ const { fontSizes } = theme
 
 
 const Main = styled.div`
-  background-color: var(--color-navBackground);
+  background-color: var(--color-background);
   margin: 0 auto;
   top: 0;
   position: sticky;
   z-index: 15;
   width: 100%;
+  filter: drop-shadow(0px 5px 10px var(--color-background));
 `
 const NameContainer = styled(props => <GatsbyLink {...props} />)`
   color: var(--color-highlights);
@@ -69,7 +70,7 @@ const Bold = styled.span`
   font-weight: 700;
 `
 
-class Navigation extends React.Component {
+class BlogNavigation extends React.Component {
   render() {
     return (
       <Main>
@@ -92,5 +93,4 @@ class Navigation extends React.Component {
   }
 }
 
-
-export default Navigation
+export default BlogNavigation

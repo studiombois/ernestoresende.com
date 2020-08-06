@@ -47,8 +47,8 @@ export const COLORS = {
     dark: 'rgb(18, 26, 36)',
   },
   navBackground: {
-    light: 'rgba(225, 241, 250, 0.97)',
-    dark: 'rgba(18, 26, 36, 0.97)',
+    light: 'rgb(225, 241, 250)',
+    dark: 'rgb(18, 26, 36)',
   },
   toggleBorder: {
     light: 'rgb(33, 35, 44)',
