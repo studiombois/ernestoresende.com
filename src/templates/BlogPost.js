@@ -5,10 +5,13 @@ import { Link as GatsbyLink } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
-import Layout from '@components/Layout'
+import BlogNavigation from '@components/BlogNavigation'
+import NavigationDrawer from '@components/NavigationDrawer'
+import Footer from '@components/Footer'
 import SEO from '@components/Seo'
 import BlogHeader from '@components/BlogHeader'
 import HeroNavigation from '@components/HeroNavigation'
+import BlogImages from '@components/BlogImages'
 import WarningSidenote from '@components/Sidenote/WarningSidenote'
 import InformationSidenote from '@components/Sidenote/InformationSidenote'
 import SucessSidenote from '@components/Sidenote/SucessSidenote'
@@ -24,6 +27,7 @@ const shortcodes = {
   InformationSidenote,
   SucessSidenote,
   TableOfContents,
+  BlogImages,
 }
 
 // Header styles
@@ -123,7 +127,6 @@ const ArticleWrapper = styled.div`
       font-size: 18px;
       font-weight: 400;
       line-height: 1.6;
-      letter-spacing: 0.015em;
     `}
   }
   em {
@@ -143,6 +146,9 @@ const ArticleWrapper = styled.div`
 
   a {
     ${mixins.styledLink}
+    ${media.thone`
+      font-size: 18px;
+    `}
   }
   h1 {
     font-size: 36px;
@@ -177,7 +183,7 @@ const ArticleWrapper = styled.div`
 export default function PageTemplate({ data: { mdx } }) {
   return (
     <div>
-      <Layout>
+      <BlogNavigation/>
         <SEO
           title={mdx.frontmatter.title}
           description={mdx.frontmatter.description}
@@ -210,7 +216,8 @@ export default function PageTemplate({ data: { mdx } }) {
             </MDXProvider>
           </ArticleWrapper>
         </FullArticleWrapper>
-      </Layout>
+      <Footer/>
+      <NavigationDrawer/>
     </div>
   )
 }

@@ -49,6 +49,8 @@ module.exports = {
             options: {
               maxWidth: 637,
               linkImagesToOriginal: false,
+              showCaptions: true,
+              withWebp: true,
             },
           },
           // Remember to remove oEmbed and look for a MDX alternative later.
@@ -62,6 +64,7 @@ module.exports = {
           },
           `gatsby-remark-lazy-load`,
           `gatsby-remark-external-links`,
+          `gatsby-remark-unwrap-images`,
         ],
       },
     },
