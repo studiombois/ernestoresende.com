@@ -9,12 +9,16 @@ export const COLORS = {
     dark: 'rgb(159, 179, 199)', // Light gray with a light blue tone.
   },
   highlights: {
-    light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
-    dark: 'rgb(245, 55, 106)', // Light saturated pink in contrast with the dark background.
+    light: 'rgb(51, 82, 239)', 
+    // Dark Blue/Purple in contrast with the white background.
+    dark: 'rgb(245, 55, 106)', 
+    // Light saturated pink in contrast with the dark background.
   },
   titleHighlights: {
-    light: 'rgb(51, 82, 239)', // Dark Blue/Purple in contrast with the white background.
-    dark: 'rgb(255, 232, 60)', // Light saturated yellow in contrast with the dark background.
+    light: 'rgb(51, 82, 239)', 
+    // Dark Blue/Purple in contrast with the white background.
+    dark: 'rgb(255, 232, 60)', 
+    // Light saturated yellow in contrast with the dark background.
   },
   sectionTitleHighlights: {
     light: 'rgb(51, 82, 239)',
@@ -27,7 +31,7 @@ export const COLORS = {
 
   /* Background for page and page components (cards, heros, navigation, etc.) */
   background: {
-    light: 'rgb(252, 252, 252)', // Very bright tone of gray.
+    light: 'rgb(247, 247, 247)', // Very bright tone of gray.
     dark: 'rgb(14, 20, 27)', // Very dark tone of blue.
   },
   gradients: {
@@ -38,8 +42,12 @@ export const COLORS = {
     light: 'rgba(191, 222, 242, 0.50)', // Same color as Light Mode Typography.
     dark: 'rgb(18, 26, 36)', // One tone brighter then dark mode background.
   },
+  workCards: {
+    light: 'rgba(255, 255, 255)', // Same color as Light Mode Typography.
+    dark: 'rgb(24, 34, 46)', // One tone brighter then dark mode background.
+  },
   cardsBoxShadow: {
-    light: '0px 0px 20px rgba(153, 153, 153, 0.2)', // Same color as Light Mode Typography.
+    light: '0px 0px 25px rgba(153, 153, 153, 0.3)', // Same color as Light Mode Typography.
     dark: '0px 0px 30px rgba(0, 0, 0, 0.1)', // One tone brighter then dark mode background.
   },
   footer: {

@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
   return (
     <React.Fragment>
       <SEO title='Ernesto Resende' />
-      <Navigation onHomePage />
+      <Navigation />
       <Hero>
         <HeroBody />
       </Hero>
