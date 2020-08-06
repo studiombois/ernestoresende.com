@@ -79,10 +79,10 @@ class Navigation extends React.Component {
               ERNESTO<Bold>RESENDE</Bold>
             </NameContainer>
             <NavList>
-              <StyledLink to='/portfolio'>portfolio</StyledLink>
-              <StyledLink to='/about'>about</StyledLink>
-              <StyledLink to='/blog'>blog</StyledLink>
-              <StyledLink to='/#connect'>connect</StyledLink>
+              <StyledLink to='/blog'>Blog</StyledLink>
+              <StyledLink to='/work'>Work</StyledLink>
+              <StyledLink to='/about'>About</StyledLink>
+              <StyledLink to='/#connect'>Connect</StyledLink>
             </NavList>
           </LeftBlock>
           <DarkToggle />
