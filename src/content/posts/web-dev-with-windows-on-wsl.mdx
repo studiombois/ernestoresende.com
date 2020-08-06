@@ -1,0 +1,39 @@
+---
+title: Web-dev on Windows with WSL
+description: It's still Linux... But inside Windows
+date: 2020-07-07 
+---
+
+If someone told me a decade ago that we would be running the Linux kernel inside a regular Windows build, I would probably laugh at them. 
+
+It's not new to anyone that the Microsoft from that time is not the same company that is now aggressively adopting open-source tools and actively helping them grow. 
+
+In the last few years, we saw the open-sourcing of PowerShell and Visual Studio Code, Edge's transition to Chromium, and even a partnership with Canonical to bring Ubuntu to Linux. From that partnership we saw the rise of the first version of WSL, the Windows Subsystem for Linux.
+
+It was a huge move, and brought some quality of life improvements to web developers using Windows for development tasks. But it wasn't quite there yet...
+
+<InformationSidenote title="A good start, but with several flaws">
+
+  <p>The first version of WSL worked as an operation layer that would emulate the Linux API. It worked, but since Microsoft had to implement each API by hand, it was easy to get bonked each time Linux shifted some obscure things on the background. That would break things... Important things, like Webpack for example.</p>  
+
+  <p className='last-line'>In the end, as much as it worked most of the time, there was always a change of breaking some key component of the whole ecosystem, making it unreliable.</p>
+
+</InformationSidenote>
+
+# How does WSL2 differs from the first version
+
+The new version of the Linux Subsystem is a complete rework of the underlining architecture.
+
+// Image of the schema here.
+
+Instead of trying to emulate system calls, the entire Linux kernel is now integrated **inside** Windows. That makes for a very seamlessly and native Linux development environment on top of Windows. 
+
+# Virtualization on steroids
+
+Now, it is important to understand that, behind the scenes, the new WSL is actually a Hyper-V virtual machine... Don't roll your eyes yet.
+
+I don't hold much love for virtualized environments myself, and yet, even I was impressed when I saw this running for the first time. Unlike the traditional virtualized environments, this is so tightly integrated into the OS that the performance does not feel like a virtual machine in any aspect. I'm talking about spinning up a new Ubuntu instance and opening the entire project on my IDE in a matter of 20 seconds.
+
+And it goes further. Want to thinker with the filesystem or spin a project under a new set of configurations? Spin a new instance, mess with it, throw it away, and spin yet another instance in a matter of minutes.
+
+This entire gimmick makes me think about all the development workflows that can be put in action with this. Shutting down and bringing up instances of the entire development ecosystem in a matter of seconds.

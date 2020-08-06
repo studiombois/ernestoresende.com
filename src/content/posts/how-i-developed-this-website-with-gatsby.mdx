@@ -4,23 +4,27 @@ description: Building a blog was never such a pleasant experience
 date: 2020-07-08 
 ---
 
-A year ago from now I began I began messing with front-end development and UI design back in the start of 2019. By the time — like any other aspiring front-end developer in the world, I guess — I spent some time on building my first little website with very basic and rudimentary HTML & CSS to show off my pet projects and ambitions for the future. I don't regret it at all; we all start somewhere and building yourself a website is a great way to get your hands dirty for the first time when you're starting. 
+A year ago from now I began messing with front-end development and UI design back for the first time. By that time — like any other aspiring developer in the world, I guess — I spent some time on building my first little website with very basic and rudimentary HTML & CSS to show off my pet projects and ambitions for the future. 
+
+I don't regret it at all; we all start somewhere and building yourself a website is a great way to get your hands dirty for the first time when you're starting. 
 
 But as I began to delve deeper and started to write about some of my experiences, the desire to have my own little space to blog about the stuff I liked rose to the surface. 
 
-As we reached the middle of 2020, the COVID-19 pandemic had already caused a massive havoc in the world and essentially shut down any chances of me frequenting college for the rest of the year. I was essentially stuck home like most of the world. Even tough under rather tragic circumstances, this gave me the opportunity to get some grasp at personal projects that were in my head since high-school, but that I never had time to properly execute before.
+As we reached the middle of 2020, the god-forsaken pandemic had already caused a massive havoc in the world and essentially shut down any chances of me frequenting college for the rest of the year. Stuck at home with the rest of the world. This was the opportunity for me to get some grasp at personal projects that were in my head.
 
-Along with that came the decision to build a new website from the ground-up and have it be a place where I could centralize all the content I produced under my personal brand. I researched some of the blogs from people who's contents I enjoyed, spent some weeks on back-and-forth between some design choices and what would I ship in a MVP, and decided on a stack where I would build it.
+Along with that came the decision to build a new website from the ground-up and have it be a place where I could centralize all the content I produced under my personal brand. I researched some of the blogs I enjoyed, spent some weeks on back-and-forth between some design choices and what would I ship in a MVP, and decided on a stack where I would build it.
 
 # Coming up with a new layout
 
-First thing's first, I had to come up with a brand new layout for the thing. I went trough some iterations of what I wanted, spending a long time in the borders of the "I want it to feel like you're reading a newspaper kind of experience", but that was ultimately scratched. By the end of April, I had something like this:
+First thing's first, I had to come up with a new layout for the thing. I went trough some iterations of what I wanted, spending a long time in the borders of the *I want it to feel like you're reading a newspaper kind of experience*, but that was ultimately scratched. By the end of April, I had something like this:
 
-// PUT A PHOTO OF THE MAIN PAGE LAYOUT HERE ONCE IT`S COMPLETE
+<BlogImages>
 
-A slick modern UI with a dark/light mode theme with very saturated highlights on main elements. Normally I wouldn't go for a fully-fledged design system and UI planning while working on a tight schedule, but I took the liberty of doing so because... I had time to kill. 
+![Layout from this website](https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-11.58.04_fpag4c.webp)
 
-With the design done, it was time for development. That's where I would expend the most amount of time...
+</BlogImages>
+
+A slick modern UI with saturated highlights on main elements. With the design done, it was time for development. That's where I would expend the most amount of time...
 
 
 # Why Gatsby?
@@ -54,7 +58,7 @@ Gatsby is blessed with an enormous amount of plugins that deal with many commons
 Here are some of the plugins that went into the building of this site for example:
 
 - <em>gatsby-source-filesystem</em> - Allows me to source content that sits inside the filesystem (Markdown files that make up the blog posts on my case).
-- <em>gatsby-transformer-remark</em> - Responsible for parsing through the Markdown files and making them into HTML that the browser can understand.
+- <em>gatsby-plugin-mdx</em> - Responsible for parsing through the Markdown files and making them into HTML that the browser can understand.
 - <em>gatsby-remark-prismjs</em> - Handles the syntax highlighting for code snippets.
 
 And that's just the tip of the iceberg. Gatsby plugins can solve a massive array of problems with none to very little configuration.
@@ -72,7 +76,7 @@ If all of this got you interested in some degree, you can check the [Gatsby Conc
 I quickly glanced over some of my design decisions and advantages of using a static site generator like Gatsby to build it. Now it's time to explore some of the components and concepts that make up this website.
 
 <WarningSidenote title="Intended audience">
-  <p className='last-line'>This blog post is written for people with some degree of previous experience with React, so don't expect me to go into details about core React principles.</p>
+  <p className='last-line'>This section assumes some previous experience with core principles of React development.</p>
 </WarningSidenote>
 
 Starting with a high-scope view of the thing, here is a list of relevant technologies I'm using as of now:
@@ -107,8 +111,8 @@ And this is how it will return the data stored inside Gatsby configuration file:
 
 Now we can source and use that data to populate SEO components for example.
 
-- <em>Remark</em> - As said before, remark is responsible for everything related to parsing Markdown content into HTML. In this project, I'm taking advantage of a full plethora of gatsby-remark "sub-plugins" such as `image`, `oembed`, `lazy-load`, and `prismjs` which is not exactly a remark dependency, but we'll get to that later.
-- <em>Styled-Components</em> - CSS-in-JS library. The name says everything; it creates named components that you can style with CSS directly inside your JavaScript file. You will end up seeing a structure similar to this:
+- <em>MDX</em> - MDX is basically Markdown, but with acess to our custom React Components. Since it accepts the same sub-plugins from Remark, I'm taking advantage of a full plethora of gatsby-remark "sub-plugins".
+- <em>Styled Components</em> - CSS-in-JS library. The name says everything; it creates named components that you can style with CSS directly inside your JavaScript file. You will end up seeing a structure similar to this:
 
 ```jsx
 const Title = styled.h1 `
@@ -122,7 +126,7 @@ export default function Header () {
 }
 ```
 
-- <em>Gatsby Cloud</em> - Just like Vercel, Gatsby came out with their own set of cloud solutions that integrate with their build system. And their pricing range is very fair so far, so I saw no reason not to jump on it.
+- <em>Gatsby Cloud</em> - Just like Vercel did with Next.js, Gatsby came up with their own set of cloud solutions that integrate with their build system. Using Gatsby Cloud is the way to make sure you take advantage of incremental builds when they are available.
 
 If we were to get a high-scope view of the thing, the structure this site uses is mostly the same we get recommended by Gatsby with their documentation.
 
@@ -310,15 +314,19 @@ You may also have noticed that I use a mix of JavaScript and CSS variables to ho
 
 ## Managing post content
 
-Usually content management befalls to a CMS, but I like having things at my fingertips and writing raw Markdown gives me fine-grained control over the content. So what do I do to manage the chaos.
+Usually content management befalls to a CMS, but I like the workflow of writing content from my editor. So what do I do to manage the chaos?
 
-Well, I use Notion. It is basically a notes application that uses a Rich-Text editor. The nice part is that as soon as I have a draft ready, I can quickly export it from Notion to Markdown, without having to manually write all the Markdown itself.
+Well, I use **Notion**. It is basically a note-taking application that uses a Rich-Text editor. The management system and articles that are yet under construction stay until the final draft, where I export the Markdown file and make  the final adjustments.
 
-// SCREENSHOT OF MY ARTICLE MANAGEMENT
+<BlogImages figcaption="Writing this very same post on Notion">
+
+![Writing this very same post on Notion](https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-20.10.42_hdrrnk.webp)
+
+</BlogImages>
 
 ## Code-Highlighting with Prism
 
-You may have noticed that all the code snippets here have syntax highlighting. That's possible thanks to Prism.js. Using the gatsby-remark-prism I can choose between a list of themes, or create my own. To perfectly match the color scheme from the rest of the website, I opted for the latter.
+You may have noticed that all the code snippets here have syntax highlighting. That's possible thanks to Prism.js. Using the `gatsby-remark-prism` I can choose between a list of themes, or create my own. To perfectly match the color scheme from the rest of the website, I opted for the latter.
 
 Doing that is very simple. You can require a CSS file from the `gatsby-ssr.js` file, or inject it on the Global Styles as I did:
 
