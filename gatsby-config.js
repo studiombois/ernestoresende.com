@@ -72,7 +72,6 @@ module.exports = {
     // Plugins that don't require any additional options. Any future plugins that don't require the
     // resolve parameter should be put bellow.
 
-    'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',
