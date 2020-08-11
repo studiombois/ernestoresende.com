@@ -22,7 +22,7 @@ const Title = styled.h1`
   font-size: 24px;
   line-height: 31px;
   letter-spacing: -0.1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text);
   transition: all ease-in-out 0.1s;
   :hover {
@@ -30,7 +30,7 @@ const Title = styled.h1`
   }
 `
 const Description = styled.h2`
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   font-size: 20px;
   color: var(--color-secondaryText);
   font-weight: 600;
