@@ -8,18 +8,52 @@ import SectionCard from '@components/SectionCard'
 import WorkCard from '@components/WorkCard'
 
 import mixins from '@styles/mixins'
+import media from '@styles/media'
 
 const Main = styled.div `
   ${mixins.desktopAlignCenter}
   ${mixins.sidePadding}
 `
-const GridMinorProjects = styled.div `
+const Grid = styled.div `
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 24px;
+  padding-bottom: 128px;
+`
+const FlexGrid = styled.div `
+  display: flex;
+  padding-bottom: 128px;
+  @media (max-width: 820px) {
+      flex-direction: column;
+    }
+  img {
+    border-radius: 5px;
+    width: 100%;
+  }
+  .left-image {
+    margin-right: 16px;
+    @media (max-width: 820px) {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+  .right-image {
+    margin-left: 16px;
+    @media (max-width: 820px) {
+      margin-left: 0;
+      margin-bottom: 16px;
+    }
+  }
+`
+const SectionTitle = styled.h2 `
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 30px;
 `
 
-const WorkPage = () => {
+
+const WorkPage = ({ data }) => {
   return (
     <React.Fragment>
       <SEO title="Work - Ernesto Resende" />
@@ -35,7 +69,16 @@ const WorkPage = () => {
           />
           </div>
 
-          <GridMinorProjects>
+          <SectionTitle>Featured Works</SectionTitle>
+
+          <FlexGrid>
+            <img className="left-image" src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.webp"></img>
+            <img className="right-image" src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/Be_The_Hero_sczbhi.webp" alt=""/>
+          </FlexGrid>
+
+          <SectionTitle>Other minor projects</SectionTitle>
+
+          <Grid>
             <WorkCard 
               tech="HTML • CSS • JavaScript"
               title="Kal-Calc"
@@ -50,7 +93,7 @@ const WorkPage = () => {
               projectLink="See on Github"
               href="https://github.com"
             />
-          </GridMinorProjects>
+          </Grid>
 
         </Main>
 
@@ -58,5 +101,6 @@ const WorkPage = () => {
     </React.Fragment>
   )
 }
+
 
 export default WorkPage
