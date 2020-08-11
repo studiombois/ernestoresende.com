@@ -6,6 +6,9 @@ const slug = require('github-slugger').slug
 export default ({ headings, url }) => {
   return (
     <ul>
+      <li>
+        <Link to={`/blog${url}#`}>Introduction</Link>
+      </li>
       {headings
         .filter(heading => heading.depth !== 3)
         .map(heading => (
