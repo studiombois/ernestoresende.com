@@ -16,7 +16,7 @@ const Recent = styled.h2`
   font-size: 18px;
   font-weight: 600;
   padding: 30px 0 50px;
-  color: var(--color-sectionTitleHighlights);
+  color: var(--color-highlights);
 `
 const Archive = styled(props => <GatsbyLink {...props} />)`
   ${mixins.styledLink}
