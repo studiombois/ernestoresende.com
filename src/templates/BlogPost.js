@@ -15,6 +15,7 @@ import BlogImages from '@components/BlogImages'
 import WarningSidenote from '@components/Sidenote/WarningSidenote'
 import InformationSidenote from '@components/Sidenote/InformationSidenote'
 import SucessSidenote from '@components/Sidenote/SucessSidenote'
+import Quote from '@components/Mdx/Quote.js'
 import TableOfContents from '@components/TableOfContents'
 
 import mixins from '@styles/mixins'
@@ -28,6 +29,7 @@ const shortcodes = {
   SucessSidenote,
   TableOfContents,
   BlogImages,
+  Quote,
 }
 
 // Header styles
