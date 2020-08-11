@@ -15,7 +15,7 @@ const DrawerWrapper = styled.div`
   display: none;
   justify-content: space-around;
   left: 0rem;
-  position: fixed;
+  position: sticky;
   right: 0rem;
   z-index: 5;
   ${media.tablet`display:flex;`}
