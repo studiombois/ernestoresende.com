@@ -49,7 +49,7 @@ const StyledLinkCaption = styled.div`
 const NavigationDrawer = () => {
   return (
     <DrawerWrapper>
-      <StyledLink to='/portfolio'>
+      <StyledLink to='/work'>
         <span
           class='iconify'
           data-icon='bx:bx-code-alt'
