@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: 'Ernesto Resende',
     author: '@ernestoresende',
-    image: 'https://joshwcomeau.com/images/og-default.png',
+    image: 'https://res.cloudinary.com/ernestoresende/image/upload/v1597233789/og%20cards/Main_Thumbnail-min_lmhrgn.jpg',
     siteUrl: 'https://ernestoresende.com',
     description: 'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
     keywords: ['dog', 'cat'],
