@@ -190,6 +190,7 @@ export default function PageTemplate({ data: { mdx } }) {
           title={`${mdx.frontmatter.title} - Ernesto Resende`}
           description={mdx.frontmatter.description}
           image={mdx.frontmatter.featured}
+          pathname={`/blog${mdx.fields.slug}`}
         />
 
         <BlogHeader>

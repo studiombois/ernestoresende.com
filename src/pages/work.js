@@ -44,6 +44,7 @@ const WorkPage = () => {
           <SectionCard 
             title="Work"
             description="Some of the previous and ongoing work that I'm proud of"
+            pathname="/work"
           />
           </div>
 

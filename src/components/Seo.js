@@ -24,9 +24,8 @@ function SEO({ description, lang, image, title, pathname }) {
 
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || site.siteMetadata.image
-  // highlight-start
-  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
-  // highlight-end
+  const metaCanonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` 
+  : site.siteMetadata.siteUrl
 
   return (
     <Helmet
@@ -36,11 +35,11 @@ function SEO({ description, lang, image, title, pathname }) {
       title={title}
       // highlight-start
       link={
-        canonical
+        metaCanonical
           ? [
               {
                 rel: "canonical",
-                href: canonical,
+                href: metaCanonical,
               },
             ]
           : []
@@ -98,7 +97,7 @@ function SEO({ description, lang, image, title, pathname }) {
         },
         {
           name: "twitter:card",
-          content: `summary`,
+          content: `summary_large_image`,
         },
       ]
       }
