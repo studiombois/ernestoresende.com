@@ -89,6 +89,14 @@ function SEO({ description, lang, image, title, pathname }) {
           content: metaImage,
         },
         {
+          property: "og:image:width",
+          content: 1150, 
+        },
+        {
+          property: "og:image:height",
+          content: 600, 
+        },
+        {
           name: "twitter:card",
           content: `summary`,
         },
