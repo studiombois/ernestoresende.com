@@ -47,7 +47,7 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <SEO title='Blog' description='A collection of my blog posts.' />
+        <SEO title='Blog - Ernesto Resende' />
         <Layout>
           <SmallHero />
 

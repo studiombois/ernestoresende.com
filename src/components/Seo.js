@@ -1,9 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
+// highlight-next-line
+function SEO({ description, lang, image, title, pathname }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -11,19 +12,21 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           siteMetadata {
             title
             description
+            image
             author
+            keywords
             siteUrl
           }
         }
       }
     `
   )
+
   const metaDescription = description || site.siteMetadata.description
-  const image =
-    metaImage && metaImage.src
-      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null
+  const metaImage = image || site.siteMetadata.image
+  // highlight-start
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
+  // highlight-end
 
   return (
     <Helmet
@@ -31,28 +34,31 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
         lang,
       }}
       title={title}
+      // highlight-start
       link={
         canonical
           ? [
               {
-                rel: 'canonical',
+                rel: "canonical",
                 href: canonical,
               },
             ]
           : []
       }
-      /*Not ideal, but I injected the Iconify script that is used on the ToggleTheme component.
-      It could be done using gatsby-ssr file or even another Helmet component, but it's too
-      much for just a script injection. */
       script={[
         {
           src: 'https://code.iconify.design/1/1.0.7/iconify.min.js',
         },
       ]}
+      //highlight-end
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: "keywords",
+          content: site.siteMetadata.keywords.join(","),
         },
         {
           property: `og:title`,
@@ -78,41 +84,21 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          property: "og:image",
+          content: metaImage,
+        },
+        {
+          name: "twitter:card",
+          content: `summary`,
+        },
       ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  property: 'og:image',
-                  content: image,
-                },
-                {
-                  property: 'og:image:width',
-                  content: metaImage.width,
-                },
-                {
-                  property: 'og:image:height',
-                  content: metaImage.height,
-                },
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-            : [
-                {
-                  name: 'twitter:card',
-                  content: 'summary',
-                },
-              ]
-        )
-        .concat(meta)}
+      }
     />
   )
 }
 
 SEO.defaultProps = {
-  title: `Ernesto Resende`,
   lang: `en`,
   meta: [],
   description: ``,
@@ -123,11 +109,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-  }),
+  // highlight-next-line
   pathname: PropTypes.string,
 }
 

@@ -4,17 +4,11 @@ module.exports = {
   // -- METADATA INFORMATION FOR THE SEO COMPONENT --
   siteMetadata: {
     title: 'Ernesto Resende',
-    author: 'Ernesto Resende',
+    author: '@ernestoresende',
+    image: 'https://joshwcomeau.com/images/og-default.png',
     siteUrl: 'https://ernestoresende.com',
-    image: '/static/thumbnail_image_later', // !! SET THE GLOBAL THUMBNAIL IMAGE LATER !!
-    description:
-      'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
-    social: {
-      twitter: 'ernestoresende',
-      twitterLink: 'https://twitter.com/ErnestoResende',
-      linkedinLink: '',
-      githubLink: '',
-    },
+    description: 'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
+    keywords: ['dog', 'cat'],
   },
 
   //  -- GATSBY SPECIFIC PLUGINS --

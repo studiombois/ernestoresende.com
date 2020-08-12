@@ -187,9 +187,9 @@ export default function PageTemplate({ data: { mdx } }) {
     <div>
       <BlogNavigation/>
         <SEO
-          title={mdx.frontmatter.title}
+          title={`${mdx.frontmatter.title} - Ernesto Resende`}
           description={mdx.frontmatter.description}
-          articles={true}
+          image={mdx.frontmatter.featured}
         />
 
         <BlogHeader>
@@ -236,6 +236,7 @@ export const pageQuery = graphql`
         title
         description
         date
+        featured
       }
       headings {
         depth
