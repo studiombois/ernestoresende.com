@@ -2,10 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const ImageWrapper = styled.figure `
-
-`
-
 const FigureCaption = styled.figcaption `
   font-size: 16px;
   text-align: center;
@@ -30,9 +26,9 @@ const ImageDivider = styled.div `
 const BlogImages = ({ children, figcaption }) => {
   return (
     <React.Fragment>
-      <ImageWrapper>
+      <figure>
         <ImageDivider>{children}</ImageDivider>
-      </ImageWrapper>
+      </figure>
       <FigureCaption>{figcaption}</FigureCaption>
     </React.Fragment>
   )
