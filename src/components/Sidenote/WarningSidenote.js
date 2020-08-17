@@ -42,7 +42,7 @@ const WarningSidenote = ({ title, children }) => {
     <BaseWrapper>
       <IconWrapper>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='ant-design:warning-filled'
           data-inline='false'
         ></span>

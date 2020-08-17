@@ -126,8 +126,7 @@ const ArticleWrapper = styled.div`
     line-height: 1.7;
     padding-bottom: 30px;
     ${media.thone`
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 16px;
       line-height: 1.6;
     `}
   }
@@ -144,12 +143,16 @@ const ArticleWrapper = styled.div`
   ul li {
     margin-bottom: 1.6rem;
     line-height: 30px;
+    ${media.thone`
+      font-size: 16px;
+      line-height: 1.6;
+    `}
   }
 
   a {
     ${mixins.styledLink}
     ${media.thone`
-      font-size: 18px;
+      font-size: 16px;
     `}
   }
   h1 {

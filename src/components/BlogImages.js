@@ -35,7 +35,6 @@ const BlogImages = ({ children, figcaption }) => {
 }
 
 BlogImages.propTypes = {
-  children: PropTypes.string.isRequired,
   figcaption: PropTypes.string,
 }
 

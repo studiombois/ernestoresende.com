@@ -42,7 +42,7 @@ const SucessSidenote = ({ title, children }) => {
     <BaseWrapper>
       <IconWrapper>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='bi:check-all'
           data-inline='false'
         ></span>
