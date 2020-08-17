@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link as GatsbyLink} from 'gatsby'
 
 import Layout from '@components/Layout'
 import SEO from '@components/Seo'
@@ -43,7 +44,7 @@ const WorkPage = () => {
           <div>
           <SectionCard 
             title="Work"
-            description="Some of the previous and ongoing work that I'm proud of"
+            description="Some of the previous and ongoing work that I'm proud of."
             pathname="/work"
           />
           </div>
@@ -51,12 +52,11 @@ const WorkPage = () => {
           <SectionTitle>Featured Works</SectionTitle>
 
           <Grid>
-            <img src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.webp" 
-            alt="Project SOWI"
-            width="488" height="295"></img>
-            <img src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/Be_The_Hero_sczbhi.webp"
-            width="488" height="295" 
-            alt="Be The Hero"/>
+            <GatsbyLink to="/sowi">
+              <img src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.webp" 
+              alt="Project SOWI"
+              width="488" height="295"></img>
+            </GatsbyLink>
           </Grid>
 
           <SectionTitle>Other minor projects</SectionTitle>

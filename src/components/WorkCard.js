@@ -15,7 +15,7 @@ const CardLink = styled.a `
   text-decoration: none;
   h4 {
     font-weight: 700;
-    font-size: 26px;
+    font-size: 22px;
     padding-bottom: 18px;
   }
   h6 {

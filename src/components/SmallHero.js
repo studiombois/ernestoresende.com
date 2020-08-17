@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import HeroMask from '@icons/HeroMask'
 
 const MainContainer = styled.div`
-  height: 60px;
   background: var(--color-gradients);
   display: flex;
   flex-direction: column;
@@ -19,9 +18,10 @@ const HeroMaskWrapper = styled.div`
   bottom: -15px;
 `
 
-const SmallHero = () => {
+const SmallHero = ({ children }) => {
   return (
     <MainContainer>
+      {children}
       <HeroMaskWrapper>
         <HeroMask />
       </HeroMaskWrapper>
