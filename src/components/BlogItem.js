@@ -57,7 +57,7 @@ const BlogItem = ({ slug, timeToRead, title, description, excerpt }) => {
 BlogItem.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  timeToRead: PropTypes.string,
+  timeToRead: PropTypes.number,
   description: PropTypes.string,
   excerpt: PropTypes.string,
 }

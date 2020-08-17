@@ -79,7 +79,7 @@ const HomeGrid = ({ children }) => {
               rel='nofollow noopener noreferer'
             >
               <span
-                class='iconify'
+                className='iconify'
                 data-icon='ant-design:linkedin-filled'
                 data-inline='false'
               ></span>
@@ -90,7 +90,7 @@ const HomeGrid = ({ children }) => {
               rel='nofollow noopener noreferer'
             >
               <span
-                class='iconify'
+                className='iconify'
                 data-icon='ant-design:github-filled'
                 data-inline='false'
               ></span>
@@ -101,7 +101,7 @@ const HomeGrid = ({ children }) => {
               rel='nofollow noopener noreferer'
             >
               <span
-                class='iconify'
+                className='iconify'
                 data-icon='ant-design:twitter-outlined'
                 data-inline='false'
               ></span>

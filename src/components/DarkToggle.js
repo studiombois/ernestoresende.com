@@ -88,7 +88,7 @@ const DarkToggle = () => {
     <ToggleContainer>
       <ToggleIcon>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='heroicons-outline:light-bulb'
           data-inline='false'
         ></span>

@@ -92,10 +92,10 @@ const Footer = () => {
           </Copyright>
         </FooterLeft>
         <FooterRight>
-          <StyledLink to='/portfolio'>Portfolio</StyledLink>
-          <StyledLink to='/about'>About</StyledLink>
           <StyledLink to='/blog'>Blog</StyledLink>
-          <StyledLink to='/contact'>Contact</StyledLink>
+          <StyledLink to='/portfolio'>Work</StyledLink>
+          <StyledLink to='/about'>About</StyledLink>
+          <StyledLink to='/contact'>Connect</StyledLink>
         </FooterRight>
       </FooterWrapper>
     </MainContainer>

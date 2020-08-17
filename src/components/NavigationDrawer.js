@@ -51,7 +51,7 @@ const NavigationDrawer = () => {
     <DrawerWrapper>
       <StyledLink to='/work'>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='bx:bx-code-alt'
           data-inline='false'
         ></span>
@@ -60,7 +60,7 @@ const NavigationDrawer = () => {
 
       <StyledLink to='/about'>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='mdi:emoticon-happy'
           data-inline='false'
         ></span>
@@ -69,7 +69,7 @@ const NavigationDrawer = () => {
 
       <StyledLink to='/blog'>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='bx:bxs-pencil'
           data-inline='false'
         ></span>
@@ -78,7 +78,7 @@ const NavigationDrawer = () => {
 
       <StyledLink to='/#connect'>
         <span
-          class='iconify'
+          className='iconify'
           data-icon='bi:person-fill'
           data-inline='false'
         ></span>
