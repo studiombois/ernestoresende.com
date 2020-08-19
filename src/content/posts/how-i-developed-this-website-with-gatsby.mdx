@@ -19,18 +19,18 @@ Along with that came the decision to build a new website from the ground-up and 
 
 First thing's first, I had to come up with a new layout for the thing. I went trough some iterations of what I wanted, spending a long time in the borders of the *I want it to feel like you're reading a newspaper kind of experience*, but that was ultimately scratched. By the end of April, I had something like this:
 
-<BlogImages>
-
-![Layout from this website](https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-11.58.04_fpag4c.webp)
-
-</BlogImages>
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-11.58.04_fpag4c.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-11.58.04_fpag4c.jpeg"
+  alt="Layout from this website."
+/>
 
 A slick modern UI with saturated highlights on main elements. With the design done, it was time for development. That's where I would expend the most amount of time...
 
 
 # Why Gatsby?
 
-> "It's funny how many people out there will go over the trouble of putting together a Gatsby or Next.js site to end up having a landing page and two posts."  — Someone on Twitter, probably.
+"It's funny how many people out there will go over the trouble of putting together a Gatsby or Next.js site to end up having a landing page and two posts."  — Someone on Twitter, probably.
 
 That's actually fair. Opting for Gatsby to bootstrap simple presentational content is massive over-engineering in <em>my humble opinion</em>. But, even though I have few posts here as of now, I obviously intend to have much more in the future. That's where some of Gatsby advantages (or Static Site Generation as a whole) comes into play. I'm cutting out on many of the headaches that may arise in the future. Let me take the time to delve deeper into such advantages: 
 
@@ -186,9 +186,6 @@ const MainContainer = styled.div `
   flex-direction: column;
   justify-content: space-between;
   ${media.tablet`height: 400px;`};
-  ${media.thone`height: 450px;`};
-  ${media.phablet`height: 500px;`};
-  ${media.phone`height: 550px;`};
 `;
 const HeaderWrapper = styled.div `
   padding-top: 36px;
@@ -319,11 +316,12 @@ Usually content management befalls to a CMS, but I like the workflow of writing 
 
 Well, I use **Notion**. It is basically a note-taking application that uses a Rich-Text editor. The management system and articles that are yet under construction stay until the final draft, where I export the Markdown file and make  the final adjustments.
 
-<BlogImages figcaption="Writing this very same post on Notion">
-
-![Writing this very same post on Notion](https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-20.10.42_hdrrnk.webp)
-
-</BlogImages>
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-20.10.42_hdrrnk.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-20.10.42_hdrrnk.jpeg"
+  alt="Writing this very same post on Notion"
+  figcaption="Writing this very same post on Notion."
+/>
 
 ## Code-Highlighting with Prism
 

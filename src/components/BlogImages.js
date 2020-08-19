@@ -23,19 +23,26 @@ const ImageDivider = styled.div `
   }
 `
 
-const BlogImages = ({ children, figcaption }) => {
+const BlogImages = ({ webpLink, jpegLink, figcaption, alt }) => {
   return (
     <React.Fragment>
-      <figure>
-        <ImageDivider>{children}</ImageDivider>
-      </figure>
+      <ImageDivider>
+        <figure>
+          <source srcSet={webpLink} type="image/webp"/>
+          <source srcSet={jpegLink} type="image/jpeg" />
+          <img src={jpegLink} alt={alt} />
+        </figure>
+      </ImageDivider>
       <FigureCaption>{figcaption}</FigureCaption>
     </React.Fragment>
   )
 }
 
 BlogImages.propTypes = {
-  figcaption: PropTypes.string,
+  webpLink: PropTypes.string.isRequired,
+  jpegLink: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  figcaption: PropTypes.string
 }
 
 export default BlogImages

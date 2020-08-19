@@ -53,9 +53,11 @@ const WorkPage = () => {
 
           <Grid>
             <GatsbyLink to="/sowi">
-              <img src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.webp" 
-              alt="Project SOWI"
-              width="488" height="295"></img>
+              <picture>
+                <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.webp" type="image/webp" />
+                <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.jpeg" type="image/jpeg" />
+                <img src="https://res.cloudinary.com/ernestoresende/image/upload/v1596954990/work/SOWI_pxt7mk.jpeg" alt="Project SOWI"/>
+              </picture>
             </GatsbyLink>
           </Grid>
 
