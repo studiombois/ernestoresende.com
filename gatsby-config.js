@@ -8,7 +8,7 @@ module.exports = {
     image: 'https://res.cloudinary.com/ernestoresende/image/upload/v1597233789/og%20cards/Main_Thumbnail-min_lmhrgn.jpg',
     siteUrl: 'https://ernestoresende.com',
     description: 'UI Designer and Front-End Developer. Blogs about design, development and tech stuff.',
-    keywords: ['dog', 'cat'],
+    keywords: ['blog', 'frontend', 'development', 'design'],
   },
 
   //  -- GATSBY SPECIFIC PLUGINS --
@@ -29,6 +29,14 @@ module.exports = {
         name: `posts`,
         path: `${__dirname}/src/content/posts/`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: "UA-158582996-3",
+        head: true ,
+        anonymize: true,
+      }
     },
 
     // MDX Plugin and subplugins from remark
