@@ -71,5 +71,6 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-sitemap'
   ],
 }
