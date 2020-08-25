@@ -2,13 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Main = styled.div `
+const Main = styled.a `
   padding: 32px;
   border-radius: 10px;
   background-color: var(--color-workCards);
-  box-shadow: var(--color-cardsBoxShadow)
+  box-shadow: var(--color-cardsBoxShadow);
+  transition: all 0.15s ease-in-out;
+  :hover {
+    box-shadow: var(--color-cardsBoxShadowHover);
+  }
 `
-const CardLink = styled.a `
+const CardContainer = styled.div `
   position: relative;
   display: block;
   color: var(--color-text);
@@ -36,14 +40,14 @@ const CardLink = styled.a `
 
 const WorkCard = ({ title, description, tech, href, projectLink }) => {
   return (
-    <Main>
-      <CardLink href={href} target='_blank'
-        rel='nofollow noopener noreferer'>
+    <Main href={href} target='_blank'
+    rel='nofollow noopener noreferer'>
+      <CardContainer>
         <h6>{tech}</h6>
         <h4>{title}</h4>
         <p>{description}</p>
         <span className="read-more">{projectLink}</span>
-      </CardLink>
+      </CardContainer>
     </Main>
   )
 }

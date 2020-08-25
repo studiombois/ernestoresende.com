@@ -69,7 +69,7 @@ const WorkPage = () => {
               title="Kal-Calc"
               description="A calories calculator built with vanilla JavaScript, presents the user with Basal Metabolic Rate and required calories for weight loss, gain and maintenance."
               projectLink="See on Github"
-              href="https://github.com"
+              href="https://github.com/thisisernesto/kal-calc"
             />
             <WorkCard 
               tech="React • Styled-Components"
@@ -77,6 +77,13 @@ const WorkPage = () => {
               description="When you feel crunched about the amount of tasks you have ahead, put the hard decisions in the hands of your computer."
               projectLink="See on Github"
               href="https://github.com"
+            />
+            <WorkCard 
+              tech="Ionic • Angular"
+              title="Mobile Pókedex"
+              description="A fun little Pokédex project built with Ionic and Angular, which I used to practice API consumption and smart search queries on Ionic"
+              projectLink="See on Github"
+              href="https://github.com/thisisernesto/ionic-pokedex"
             />
           </Grid>
 

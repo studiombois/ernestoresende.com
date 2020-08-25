@@ -30,7 +30,7 @@ const HeroWrapper = styled.div `
   }
   h2 {
     font-size: 18px;
-    max-width: 400px;
+    max-width: 500px;
     line-height: 1.4;
     padding-bottom: 36px;
   }
@@ -94,7 +94,7 @@ const ProjectSection = styled.div `
       `};
       }
       .flex-item h2 {
-        font-size: 22px;
+        font-size: 26px;
         font-weight: 700;
         display: inline;
         background-image: linear-gradient(
@@ -110,7 +110,7 @@ const ProjectSection = styled.div `
         background-position: 0%;
       }
       .flex-item p {
-        font-size: 16px;
+        font-size: 18px;
         padding-top: 28px;
         line-height: 1.4;
       }
@@ -126,7 +126,7 @@ const ProjectSowi = () => {
         <SmallHero>
           <HeroWrapper>
             <h1>Empowering the discussions around media culture</h1>
-            <h2>The project aimed at creating a scalable and consistent user interface, along with it's development and long-run maintenance.</h2>
+            <h2>SOWI is a project that aims to discuss and analyze the culture of entertainment. The goal is to create a scalable and consistent user-interface for the main website, along with it's development and long-run maintenance.</h2>
             <SowiIcon />
           </HeroWrapper>
         </SmallHero>

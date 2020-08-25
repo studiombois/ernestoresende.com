@@ -50,6 +50,10 @@ export const COLORS = {
     light: '0px 0px 25px rgba(153, 153, 153, 0.3)', // Same color as Light Mode Typography.
     dark: '0px 0px 30px rgba(0, 0, 0, 0.1)', // One tone brighter then dark mode background.
   },
+  cardsBoxShadowHover: {
+    light: '0px 0px 50px rgba(153, 153, 153, 0.5)', // Same color as Light Mode Typography.
+    dark: '0px 0px 50px rgba(0, 0, 0, 0.7)', // One tone brighter then dark mode background.
+  },
   footer: {
     light: 'rgb(225, 241, 250)',
     dark: 'rgb(18, 26, 36)',
