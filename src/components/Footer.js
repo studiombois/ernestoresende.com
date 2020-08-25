@@ -93,9 +93,9 @@ const Footer = () => {
         </FooterLeft>
         <FooterRight>
           <StyledLink to='/blog'>Blog</StyledLink>
-          <StyledLink to='/portfolio'>Work</StyledLink>
+          <StyledLink to='/work'>Work</StyledLink>
           <StyledLink to='/about'>About</StyledLink>
-          <StyledLink to='/contact'>Connect</StyledLink>
+          <StyledLink to='/connect'>Connect</StyledLink>
         </FooterRight>
       </FooterWrapper>
     </MainContainer>
