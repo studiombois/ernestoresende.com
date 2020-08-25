@@ -24,12 +24,29 @@ module.exports = {
     },
 
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Ernesto Resende',
+        short_name: 'Ernesto Resende',
+        start_url: '/',
+        background_color: '#f7f7f7',
+        theme_color: '#ed45a4',
+        display: 'standalone',
+        icon: 'static/android-chrome-512x512.png',
+        icon_options: {
+          purpose: `maskable`,
+        },
+      }
+    },
+
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `posts`,
         path: `${__dirname}/src/content/posts/`,
       },
     },
+
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -79,6 +96,7 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline'
   ],
 }
