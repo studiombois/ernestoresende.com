@@ -53,11 +53,11 @@ const StyledIcon = styled.a`
 const HomeGrid = ({ children }) => {
   return (
     <Main>
-      <SectionCard
+      {/* <SectionCard
         title='Writing.'
         description='I love to write in detail about the stuff I work on.'
         descriptionSecondLine="This is where I'll write about front-end development, design, and general tech related stuff."
-      />
+      /> */}
       <div>
         <Recent>RECENTLY PUBLISHED</Recent>
 
