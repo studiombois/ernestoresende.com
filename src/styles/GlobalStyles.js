@@ -63,7 +63,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     -moz-osx-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
   }
   i, em {
     font-style: italic;
