@@ -4,10 +4,6 @@ import styled from 'styled-components'
 import { ThemeContext } from '@components/ThemeContext'
 import media from '@styles/media'
 
-/* Kudos to Bill Heberer for the toggle button animation. I was stuck here for a
-long time before giving up on doing the animation myself and looking for a nice
-toggle on Codepen, and yours, my friend... Looks fantastic. */
-
 const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -19,7 +15,6 @@ const ToggleIcon = styled.div`
     height: 3.2rem;
   }
 `
-
 const ToggleLabel = styled.label`
   display: block;
   padding-left: 12px;
@@ -42,6 +37,9 @@ const ToggleLabel = styled.label`
     background-color: white;
     transition: background-color 250ms;
     cursor: pointer;
+    :focus {
+      outline: solid 1px;
+    }
   }
   .toggle-slot:hover {
     box-shadow: 0px 0px 35px rgb(55, 65, 81, 0.3);
