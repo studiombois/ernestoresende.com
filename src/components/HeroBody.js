@@ -5,7 +5,6 @@ import theme from '@styles/theme'
 const { fontSizes } = theme
 
 const Main = styled.main`
-  display: blockj;
   justify-content: space-between;
 `
 
