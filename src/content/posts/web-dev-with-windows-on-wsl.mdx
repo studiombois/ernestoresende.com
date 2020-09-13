@@ -13,9 +13,9 @@ In the last few years, we saw the open-sourcing of PowerShell and Visual Studio 
 
 It was a huge move, and brought some quality of life improvements to web developers using Windows for development tasks. But it wasn't quite there yet...
 
-<InformationSidenote title="A good start, but with several flaws">
+<InformationSidenote>
 
-  <p>The first version of WSL worked as an operation layer that would emulate the Linux API. It worked, but since Microsoft had to implement each API by hand, it was easy to get bonked each time Linux shifted some obscure things on the background. That would break things... Important things, like Webpack for example.</p>  
+  <p>The first version of WSL worked as an operation layer that would emulate the Linux API. It worked, but since Microsoft had to implement each API by hand, it was easy to get bonked each time Linux shifted some obscure things on the background. That would break things... Important things...</p>  
 
   <p className='last-line'>In the end, as much as it worked most of the time, there was always a change of breaking some key component of the whole ecosystem, making it unreliable.</p>
 
@@ -23,18 +23,74 @@ It was a huge move, and brought some quality of life improvements to web develop
 
 # How does WSL2 differs from the first version
 
-The new version of the Linux Subsystem is a complete rework of the underlining architecture.
+The new version of the Linux Subsystem is a complete rework of the underlining architecture when compared to how the first version of WSL used to work:
 
-// Image of the schema here.
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1599956813/web-dev-with-windows-on-wsl/wsl-architecture-scheme_ncbuxn.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1599956813/web-dev-with-windows-on-wsl/wsl-architecture-scheme_ncbuxn.jpeg"
+  alt="A diagram of the underlining architecture of WSL2, showing how the Linux kernel communicates with Windows kernel via Hypervisor."
+/>
 
 Instead of trying to emulate system calls, the entire Linux kernel is now integrated **inside** Windows. That makes for a very seamlessly and native Linux development environment on top of Windows. 
+
+Because of the new way this revamped architecture deals with I/O intensive operations, things like `git clone`, `npm install`, and `apt update` will be comparatively faster then they where when running under the last version.
 
 # Virtualization on steroids
 
 Now, it is important to understand that, behind the scenes, the new WSL is actually a Hyper-V virtual machine... Don't roll your eyes yet.
 
-I don't hold much love for virtualized environments myself, and yet, even I was impressed when I saw this running for the first time. Unlike the traditional virtualized environments, this is so tightly integrated into the OS that the performance does not feel like a virtual machine in any aspect. I'm talking about spinning up a new Ubuntu instance and opening the entire project on my IDE in a matter of 20 seconds.
+I don't hold much love for virtualization myself, and yet, even I was impressed when I got it running for the first time. Unlike traditional virtualized environments, this is so tightly integrated into the OS that the it does not feel like a virtual machine in any almost any aspect. I'm talking about spinning up a new Ubuntu instance and opening the entire project on my IDE in a matter of 20 seconds.
 
-And it goes further. Want to thinker with the filesystem or spin a project under a new set of configurations? Spin a new instance, mess with it, throw it away, and spin yet another instance in a matter of minutes.
+And it goes further. Want to thinker with the file system or spin a project under a new set of configurations? Spin a new instance, mess with it, throw it away, and spin yet another instance in a matter of minutes.
 
 This entire gimmick makes me think about all the development workflows that can be put in action with this. Shutting down and bringing up instances of the entire development ecosystem in a matter of seconds.
+
+The reason for me wanting to highlight that it is a virtual machine, is so I can point to the fact that you will not get a native performance out of it, and it will be taxing on your hardware if you're running on a lower-end machine vs. running a light-weight Linux distribution for example. And yet, the set of tests for this article were made in a desktop machine with an old AMD FX-6300 and 8GB's of RAM, and as far as I can tell, things where smooth... 80% memory use that will represent a bottleneck for a realistic setting in which I would be multitasking smooth, but still, smooth.
+
+# Getting onboard
+
+Before going ahead, there are some WSL2 requirements you must meet:
+
+- You must be using a *Windows 10 Pro* or *Enterprise* version (Home and Educational versions are not supported).
+- You need to be at least on the build 19041 from the 2004 - May Update.
+- Your machine *must support Hyper-V*.
+
+You can check for your build version by typing "About your PC" on the search bar. Under Windows Specifications, you can check the version, update and build you're currently running.
+
+// Image of the specifications
+
+The Hyper-V support can be generally checked on your motherboard BIOS configurations.
+
+# Installing WSL2
+
+First step is to enable the optional system resource. You can search for "Turn Windows Feature on or off" and look for the checkbox with "Windows Subsystem for Linux" and "Virtual Machine Platform". Check them both, let them download and reboot the machine.
+
+// Screenshot of the boxes
+
+With that done, open PowerShell, and set your WSL default version:
+
+```powershell
+wsl --set-default-version 2
+```
+
+There is a high change that it will require an update to the kernel component. If it does, [download the .msi](https://aka.ms/wsl2kernel) file from Microsoft, install it, and execute the command again. 
+
+If these steps are completed successfully, you can now go to the Microsoft Store and search for a Linux distribution of your choice. 
+
+// SCREENSHOT OF THE MICROSOFT STORE
+
+On the first time you open the distribution, it will take some time unpacking and setting up. As it finishes, you will be asked for a Unix user and password. This is the user and password you will be using on your Linux environment.
+
+You can now see a list of installed distributions by running:
+
+```powershell
+wsl --list --verbose
+```
+
+And set a version to a given distribution with: 
+
+```powershell
+wsl --set-version <distribution name> <versionNumber>
+```
+
+And yes, you can run instances of multiple Linux distributions, and set them to use a different version of WSL.
