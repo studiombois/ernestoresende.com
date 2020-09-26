@@ -35,7 +35,7 @@ const SectionTitle = styled.h2 `
 const WorkPage = () => {
   return (
     <React.Fragment>
-      <SEO title="Work - Ernesto Resende" />
+      <SEO title="Projects - Ernesto Resende" />
       <Layout>
         
         <SmallHero />
@@ -43,13 +43,13 @@ const WorkPage = () => {
         <Main>
           <div>
           <SectionCard 
-            title="Work"
+            title="Projects"
             description="Some of the previous and ongoing work that I'm proud of."
-            pathname="/work"
+            pathname="/projects"
           />
           </div>
 
-          <SectionTitle>Featured Works</SectionTitle>
+          {/* <SectionTitle>Featured Works</SectionTitle>
 
           <Grid>
             <GatsbyLink to="/sowi">
@@ -61,9 +61,16 @@ const WorkPage = () => {
             </GatsbyLink>
           </Grid>
 
-          <SectionTitle>Other minor projects</SectionTitle>
+          <SectionTitle>Other minor projects</SectionTitle> */}
 
           <Grid>
+          <WorkCard 
+              tech="React • Styled-Components • GraphQL"
+              title="SOWI"
+              description="A content production collective that aims to discuss the culture of entertainment in it's many formats in different mediums."
+              projectLink="See the case study"
+              href="/sowi"
+            />
             <WorkCard 
               tech="HTML • CSS • JavaScript"
               title="Kal-Calc"
