@@ -57,7 +57,10 @@ Before going ahead, there are some WSL2 requirements you must meet:
 
 You can check for your build version by typing "About your PC" on the search bar. Under Windows Specifications, you can check the version, update and build you're currently running.
 
-// Image of the specifications
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_specifications_sghvh4.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_specifications_sghvh4.jpeg"
+/>
 
 The Hyper-V support can be generally checked on your motherboard BIOS configurations.
 
@@ -65,21 +68,29 @@ The Hyper-V support can be generally checked on your motherboard BIOS configurat
 
 First step is to enable the optional system resource. You can search for "Turn Windows Feature on or off" and look for the checkbox with "Windows Subsystem for Linux" and "Virtual Machine Platform". Check them both, let them download and reboot the machine.
 
-// Screenshot of the boxes
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_features_tn7pwr.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_features_tn7pwr.jpeg"
+  figcaption='Make sure to check the items "Virtual Machine Platform" and "Windows Subsystem for Linux"'
+/>
 
-With that done, open PowerShell, and set your WSL default version:
+With that done, reboot your machine, open PowerShell, and set your WSL default version:
 
 ```powershell
 wsl --set-default-version 2
 ```
 
-There is a high change that it will require an update to the kernel component. If it does, [download the .msi](https://aka.ms/wsl2kernel) file from Microsoft, install it, and execute the command again. 
+There is a high change that this process will require an update to the kernel component. If it does, [download the .msi](https://aka.ms/wsl2kernel) file from Microsoft, install it, and execute the command again. 
 
-If these steps are completed successfully, you can now go to the Microsoft Store and search for a Linux distribution of your choice. 
+If these steps are completed successfully, you can now go to the Microsoft Store and search for a Linux distribution of your choice. This choice will not make much of a difference in the context of regular WSL use, since you're not leveraging the graphical user interface from them (although you have the option). 
 
-// SCREENSHOT OF THE MICROSOFT STORE
+<BlogImages
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160944/web-dev-with-windows-on-wsl/windows_store_linux_ltavh5.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160944/web-dev-with-windows-on-wsl/windows_store_linux_ltavh5.webp"
+  figcaption="You can search the store for any Linux distribution of your liking."
+/>
 
-On the first time you open the distribution, it will take some time unpacking and setting up. As it finishes, you will be asked for a Unix user and password. This is the user and password you will be using on your Linux environment.
+To open the newly installed distribution, you can find the distro icon that was added to your list of programs, or just type `wsl` on the terminal. On the first time you open the distribution, it will take some time unpacking and setting up. As it finishes, you will be asked for a Unix user and password. This is the user and password you will be using on your Linux environment.
 
 You can now see a list of installed distributions by running:
 
@@ -94,3 +105,7 @@ wsl --set-version <distribution name> <versionNumber>
 ```
 
 And yes, you can run instances of multiple Linux distributions, and set them to use a different version of WSL.
+
+# Settings and optimizing performance
+
+
