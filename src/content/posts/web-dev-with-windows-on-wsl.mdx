@@ -46,6 +46,7 @@ And it goes further. Want to thinker with the file system or spin a project unde
 This entire gimmick makes me think about all the development workflows that can be put in action with this, treating different Linux instances almost as if they were Docker containers, shutting down and bringing up instances of an entire development ecosystem in a matter of seconds.
 
 The reason for me wanting to highlight that WSL 2 is essentially a virtual machine is so I can point to the fact that you will most likely not get a native performance out of it (altough it is surprisingly close), and it will be taxing on your hardware if you're running on a lower-end machine vs. running a light-weight Linux distribution by itself for example.
+
 # Getting onboard
 
 If what you saw so far got you inclined on going ahead, there are some WSL2 requirements you must meet:
@@ -132,7 +133,7 @@ This is a problem that I personally haven't run into so far, but still seems to 
 
 If this seems to be happening with you, using `resize-vhd` on the `.vhdx` file for the distribution that you're using may solve the problem. Open PowerShell as Administrator. Run `wsl --list` if you need to check for your distribution name:
 
-```powershell
+<!-- ```powershell
 # DistroFolder found at: $env:LOCALAPPDATA\Packages\
 
 # Examples:
@@ -142,7 +143,7 @@ Set-Variable -Name "MaxSizeGB" -Value "32GB"
 cd $env:LOCALAPPDATA\Packages\REPLACE_ME_WITH_TARGET_DISTRO_FOLDERNAME\LocalState\
 wsl --shutdown
 resize-vhd -Path .\ext4.vhdx -SizeBytes $MaxSize
-```
+``` -->
 
 This will shrink down the size of the .vhdx file to the ammont set in the `MaxSizeGB` variable. It is a good idea to check if you're using more space then the maximum ammount you want to set before doing so by using a tool like `ncdu` (`sudo apt install ncdu`) and running `ncdu --exclude /mnt`. This will do a quick scan of your Linux file system and give you an idea of how much space it's using.
 

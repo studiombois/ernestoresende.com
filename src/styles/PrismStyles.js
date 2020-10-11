@@ -16,7 +16,6 @@ const PrismStyles = css`
     font-family: ${fonts.LeagueMono};
     font-size: 14px;
     font-weight: 700;
-    overflow-x: auto !important;
     border-radius: 0;
     letter-spacing: -0.05rem;
 
