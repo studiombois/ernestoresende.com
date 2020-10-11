@@ -82,7 +82,7 @@ I quickly glanced over some of my design decisions and advantages of using a sta
 
 Starting with a high-scope view of the thing, here is a list of relevant technologies I'm using as of now:
 
-- <em>GraphQL</em> - This fella is the one responsible for sourcing content and presenting structured data. We write a query like this:
+- <em>GraphQL</em> - This fella is the one responsible for sourcing content and presenting structured data. If we write a query like this:
   
 ```graphql
   query MyQuery {
@@ -95,7 +95,7 @@ Starting with a high-scope view of the thing, here is a list of relevant technol
 }
 ```
 
-And this is how it will return the data stored inside Gatsby configuration file:
+It will return the data stored inside Gatsby configuration file:
 
 ```graphql
 {
@@ -348,7 +348,7 @@ const GlobalStyle = createGlobalStyle`
 
 Usually content management befalls to a CMS, but I like the workflow of writing content from my editor. So what do I do to manage the chaos?
 
-Well, I use **Notion**. It is basically a note-taking application that uses a Rich-Text editor. The management system and articles that are yet under construction stay until the final draft, where I export the Markdown file and make  the final adjustments.
+Well, I use **Notion**. It is a note-taking application that uses a Rich-Text editor. The management system and articles that are yet under construction stay there until the final draft, where I export the Markdown file and make the final adjustments.
 
 <BlogImages 
   webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1596583032/how-i-developed-this-website-with-gatsby/Screen-Shot-2020-08-04-at-20.10.42_hdrrnk.webp"
@@ -361,12 +361,17 @@ Well, I use **Notion**. It is basically a note-taking application that uses a Ri
 
 Outside of the front-end development part, there is very little I need to in order to get it running on Gatsby Cloud. Their service is very straight forward; chose a Github repo and a branch where it will pull the site from and a new build will be trigered each time you commit to that branch. It also integrates beautifully with Netlify, which I use for hosting.
 
-// Schema of the Gatsby Cloud and Netlify working together.
+<BlogImages 
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602394468/how-i-developed-this-website-with-gatsby/gatsby-cloud-interface_tovphb.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602394468/how-i-developed-this-website-with-gatsby/gatsby-cloud-interface_tovphb.jpeg"
+  alt="Gatsby Cloud's build management interface"
+  figcaption="Gatsby Cloud's build management interface."
+/>
 
-Netlify also offers a CMS service for those interested, but as stated before, given the diverse nature of components I inject (and will still inject) into my MDX files, I still prefer to manage it by hand.
+Netlify also offers a CMS service for those interested, but as stated before, given the diverse nature of components I inject into my MDX files, I still prefer to manage it by hand.
 
 # Wrapping up
 
 Developing this was a fun exercise of "It didn't end up like I envisioned in my head for the first time but I liked it better". And although I abhor the term "digital garden" with every molecule of my body, this is essentially how I want to treat my little slice of the web from now on; progressive growth and content development that doesn't get stale after a week passes by. That means I'm very much open to suggestions for changes and additions in the future. 
 
-As for a newsletter, I'm not making that kind of compromisse... Yet.
+As for a newsletter, I aim to get one up and running as soon as I have a more well defined routine for posting content.

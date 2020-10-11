@@ -54,7 +54,7 @@ const SucessSidenote = ({ title, children }) => {
 }
 
 SucessSidenote.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string
 }
 
 export default SucessSidenote

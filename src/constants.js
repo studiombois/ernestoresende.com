@@ -107,7 +107,7 @@ export const COLORS = {
 
   /* Custom Prism.js theme colors */
   syntaxBackground: {
-    light: 'rgb(241, 241, 241)', // Same color as Light Mode Typography.
+    light: 'rgba(237, 237, 237, 0.5)', // Same color as Light Mode Typography.
     dark: 'rgb(24, 34, 47)', // One tone brighter then dark mode background.
   },
   syntaxComment: {

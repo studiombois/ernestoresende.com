@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link as GatsbyLink} from 'gatsby'
 
 import Layout from '@components/Layout'
 import SEO from '@components/Seo'
@@ -23,12 +22,6 @@ const Grid = styled.div `
     border-radius: 5px;
     width: 100%;
   }
-`
-const SectionTitle = styled.h2 `
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  padding-bottom: 30px;
 `
 
 

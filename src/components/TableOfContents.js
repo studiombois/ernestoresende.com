@@ -10,7 +10,7 @@ export default ({ headings, url }) => {
         <Link to={`/blog${url}#`}>Introduction</Link>
       </li>
       {headings
-        .filter(heading => heading.depth !== 3)
+        .filter(heading => heading.depth !== 2)
         .map(heading => (
           <li key={heading.value}>
             <Link to={`/blog${url}#` + slug(heading.value)}>

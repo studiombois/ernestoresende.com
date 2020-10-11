@@ -7,9 +7,9 @@ featured: https://res.cloudinary.com/ernestoresende/image/upload/v1597233789/og%
 
 If someone told me a decade ago that we would be running the Linux kernel inside a regular Windows build, I would probably laugh at them. 
 
-It's not new to anyone that the Microsoft from that time is not the same company that is now aggressively adopting open-source tools and actively helping them grow. 
+It's not new to anyone that the Microsoft has been aggressively adopting open-source tools and actively helping them grow for some time now. 
 
-In the last few years, we saw the open-sourcing of PowerShell and Visual Studio Code, Edge's transition to Chromium, and even a partnership with Canonical to bring Ubuntu to Linux. From that partnership we saw the rise of the first version of WSL, the Windows Subsystem for Linux.
+In the last few years, we saw the open-sourcing of PowerShell and Visual Studio Code, Edge's transition to Chromium, and even a partnership with Canonical to bring Ubuntu to Linux. From that partnership we saw the rise of the first version of the Windows Subsystem for Linux.
 
 It was a huge move, and brought some quality of life improvements to web developers using Windows for development tasks. But it wasn't quite there yet...
 
@@ -17,7 +17,7 @@ It was a huge move, and brought some quality of life improvements to web develop
 
   <p>The first version of WSL worked as an operation layer that would emulate the Linux API. It worked, but since Microsoft had to implement each API by hand, it was easy to get bonked each time Linux shifted some obscure things on the background. That would break things... Important things...</p>  
 
-  <p className='last-line'>In the end, as much as it worked most of the time, there was always a change of breaking some key component of the whole ecosystem, making it unreliable.</p>
+  <p className='last-line'>In the end, as much as it worked most of the time, there was always a chance of breaking some key component of the whole ecosystem, making it unreliable.</p>
 
 </InformationSidenote>
 
@@ -39,63 +39,65 @@ Because of the new way this revamped architecture deals with I/O intensive opera
 
 Now, it is important to understand that, behind the scenes, the new WSL is actually a Hyper-V virtual machine... Don't roll your eyes yet.
 
-I don't hold much love for virtualization myself, and yet, even I was impressed when I got it running for the first time. Unlike traditional virtualized environments, this is so tightly integrated into the OS that the it does not feel like a virtual machine in any almost any aspect. I'm talking about spinning up a new Ubuntu instance and opening the entire project on my IDE in a matter of 20 seconds.
+I don't hold much love for virtualization myself, and yet, even I was impressed when I got it running for the first time. Unlike traditional virtualized environments, this is so tightly integrated into the OS that it does not feel like a virtual machine in almost any aspect.
 
-And it goes further. Want to thinker with the file system or spin a project under a new set of configurations? Spin a new instance, mess with it, throw it away, and spin yet another instance in a matter of minutes.
+And it goes further. Want to thinker with the file system or spin a project under a new set of configurations? Spin a new instance, mess with it, throw it away, and spin yet another instance in a matter of minutes, switching arround distributions and both versions of WSL as you see fit.
 
-This entire gimmick makes me think about all the development workflows that can be put in action with this. Shutting down and bringing up instances of the entire development ecosystem in a matter of seconds.
+This entire gimmick makes me think about all the development workflows that can be put in action with this, treating different Linux instances almost as if they were Docker containers, shutting down and bringing up instances of an entire development ecosystem in a matter of seconds.
 
-The reason for me wanting to highlight that it is a virtual machine, is so I can point to the fact that you will not get a native performance out of it, and it will be taxing on your hardware if you're running on a lower-end machine vs. running a light-weight Linux distribution for example. And yet, the set of tests for this article were made in a desktop machine with an old AMD FX-6300 and 8GB's of RAM, and as far as I can tell, things where smooth... 80% memory use that will represent a bottleneck for a realistic setting in which I would be multitasking smooth, but still, smooth.
-
+The reason for me wanting to highlight that WSL 2 is essentially a virtual machine is so I can point to the fact that you will most likely not get a native performance out of it (altough it is surprisingly close), and it will be taxing on your hardware if you're running on a lower-end machine vs. running a light-weight Linux distribution by itself for example.
 # Getting onboard
 
-Before going ahead, there are some WSL2 requirements you must meet:
+If what you saw so far got you inclined on going ahead, there are some WSL2 requirements you must meet:
 
-- You must be using a *Windows 10 Pro* or *Enterprise* version (Home and Educational versions are not supported).
+- You must be using a *Windows 10 Pro* or *Enterprise* version (Home and Educational versions are supported on Windows Insider build as far as I know, but they introduce some unexpected gimmicks that you probably don't want to deal with).
 - You need to be at least on the build 19041 from the 2004 - May Update.
 - Your machine *must support Hyper-V*.
 
 You can check for your build version by typing "About your PC" on the search bar. Under Windows Specifications, you can check the version, update and build you're currently running.
 
 <BlogImages 
-  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_specifications_sghvh4.webp"
-  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_specifications_sghvh4.jpeg"
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602403265/web-dev-with-windows-on-wsl/windows-specs_tynfzy.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602403265/web-dev-with-windows-on-wsl/windows-specs_tynfzy.jpeg"
+  alt="Screenshot of the 'About your PC' section on Windows, where you can check the OS version and build"
 />
 
 The Hyper-V support can be generally checked on your motherboard BIOS configurations.
 
 # Installing WSL2
 
-First step is to enable the optional system resource. You can search for "Turn Windows Feature on or off" and look for the checkbox with "Windows Subsystem for Linux" and "Virtual Machine Platform". Check them both, let them download and reboot the machine.
+First step is to enable the optional system resource. You can search for "Turn Windows Feature on or off" and look for the checkboxes with "Windows Subsystem for Linux" and "Virtual Machine Platform". Check them both, let them download and reboot the machine.
 
 <BlogImages 
-  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_features_tn7pwr.webp"
-  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160943/web-dev-with-windows-on-wsl/windows_features_tn7pwr.jpeg"
-  figcaption='Make sure to check the items "Virtual Machine Platform" and "Windows Subsystem for Linux"'
+  webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602403265/web-dev-with-windows-on-wsl/windows-features_nembo4.webp"
+  jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1602403265/web-dev-with-windows-on-wsl/windows-features_nembo4.jpeg"
+  alt="Make sure to check the items 'Virtual Machine Platform' and 'Windows Subsystem for Linux'"
+  figcaption='Make sure to check the items "Virtual Machine Platform" and "Windows Subsystem for Linux".'
 />
 
-With that done, reboot your machine, open PowerShell, and set your WSL default version:
+With that done, open PowerShell, and set your WSL default version:
 
 ```powershell
 wsl --set-default-version 2
 ```
 
-There is a high change that this process will require an update to the kernel component. If it does, [download the .msi](https://aka.ms/wsl2kernel) file from Microsoft, install it, and execute the command again. 
+There is a chance that some step of this process asks for an update to the kernel component, depending on the version of Windows you're running. If it does, [download the .msi](https://aka.ms/wsl2kernel) file from Microsoft, install it, and execute the command again. 
 
-If these steps are completed successfully, you can now go to the Microsoft Store and search for a Linux distribution of your choice. This choice will not make much of a difference in the context of regular WSL use, since you're not leveraging the graphical user interface from them (although you have the option). 
+If these steps are completed successfully, you can now go to the Microsoft Store and search for a Linux distribution of your choice. This choice will not make much of a difference in the context of regular WSL use, since you're not leveraging the graphical user interface from them (although you have the option to run Linux GUI applications, but that's out of this article's scope). 
 
 <BlogImages
   webpLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160944/web-dev-with-windows-on-wsl/windows_store_linux_ltavh5.webp"
   jpegLink="https://res.cloudinary.com/ernestoresende/image/upload/v1601160944/web-dev-with-windows-on-wsl/windows_store_linux_ltavh5.webp"
+  alt="You can search the store for any Linux distribution of your liking"
   figcaption="You can search the store for any Linux distribution of your liking."
 />
 
-To open the newly installed distribution, you can find the distro icon that was added to your list of programs, or just type `wsl` on the terminal. On the first time you open the distribution, it will take some time unpacking and setting up. As it finishes, you will be asked for a Unix user and password. This is the user and password you will be using on your Linux environment.
+To open the newly installed distribution, you can find the distro icon that was added to your list of programs, or just type `wsl` on cmd/Powershell. The first time you open the distribution it will take some time unpacking and setting up. As it finishes, you will be asked for a Unix user and password. This is the user and password you will be using on your Linux environment.
 
 You can now see a list of installed distributions by running:
 
 ```powershell
-wsl --list --verbose
+wsl --list
 ```
 
 And set a version to a given distribution with: 
@@ -108,4 +110,73 @@ And yes, you can run instances of multiple Linux distributions, and set them to 
 
 # Settings and optimizing performance
 
+WSL has some gimicks when it comes to optimizing performance. These gimicks nail down to excessive memory and disk space use under different sets of circunstances.
 
+<WarningSidenote>
+
+  <p>Later Windows updates will be correcting most of these problems, but I think it's important to bring them up as I cannot accurately pinpoint in which updates each of these fixes will be introduced, and what build the reader is currently using at any given time this article is read.</p>
+
+  <p className='last-line'>I advise you to use and tinker with your system first, and then apply the necessary fixes if they seem to be happening in your system.</p>
+
+</WarningSidenote>
+
+## Poor performance when using mounted drives
+
+I'll tackle this one first because there is no actual workaround for this. Microsoft documentation for WSL 2 states that working with files that reside on mounted drives will always cause performance issues as this kind of virtualization layer was not built for this. It is essential that project files reside on Linux's actual filesystem (something like `/home/user/Projects`) if you want to be as close as possible to native performance.
+
+If for some reason you need to keep your project files on a mounted drive, it is recommended that you stay on WSL 1. You can see more about it [here](https://docs.microsoft.com/pt-br/windows/wsl/compare-versions).
+
+## Unused disk space is not reclaimed by default
+
+This is a problem that I personally haven't run into so far, but still seems to exist as the related Github issue was still not closed to the day I'm writing this article (it seems to be a very regular problem for Docker users with a large number of containers).
+
+If this seems to be happening with you, using `resize-vhd` on the `.vhdx` file for the distribution that you're using may solve the problem. Open PowerShell as Administrator. Run `wsl --list` if you need to check for your distribution name:
+
+```powershell
+# DistroFolder found at: $env:LOCALAPPDATA\Packages\
+
+# Examples:
+# CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc
+
+Set-Variable -Name "MaxSizeGB" -Value "32GB"
+cd $env:LOCALAPPDATA\Packages\REPLACE_ME_WITH_TARGET_DISTRO_FOLDERNAME\LocalState\
+wsl --shutdown
+resize-vhd -Path .\ext4.vhdx -SizeBytes $MaxSize
+```
+
+This will shrink down the size of the .vhdx file to the ammont set in the `MaxSizeGB` variable. It is a good idea to check if you're using more space then the maximum ammount you want to set before doing so by using a tool like `ncdu` (`sudo apt install ncdu`) and running `ncdu --exclude /mnt`. This will do a quick scan of your Linux file system and give you an idea of how much space it's using.
+
+<WarningSidenote title="Workround for Windows Home users">
+
+  <p className='last-line'>If you're using Windows Home, check <a rel="nofollow noopener noreferer" href="https://github.com/microsoft/WSL/issues/4699#issuecomment-627133168">this comment</a> on the Github issue to see a possible workaround, given that Home Edition does not have the resize-vhd cmdlet available for use.</p>
+
+</WarningSidenote>
+
+## Keep memory usage in check
+
+This is the most annoying, and to be honest, the most stupid one you will probably come across. Memory usage in WSL 2 can go wild if left unchecked. This happens because, by default, WSL 2 snags 80% of the available host system's memory, but doesn't do a very good job of returning that memory when processes are no longer using it. The first step to keep that in check is creating a `.wslconfig` file insider your user folder on Windows, usually `C:\Users\user_name`:
+
+```
+[wsl2]
+memory=3GB
+```
+
+Remember to restart WSL for the changes to take effect on your next WSL startup. This will limit the amount of memory it consumes, so you can adjust according to your system specs.
+
+If still, you don't want your total set amount of memory to be consumed all the time, you can create a bash alias to free that memory on the go:
+
+```bash
+alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+```
+
+# Keep using WSL 1 if...
+
+After dedicating an entire section to WSL 2 problems and their hacky workrounds, I would be a hypocrite to say that it's all flowers and rainbows. It's far from that. And there are cases in which, if you still want to keep Windows as your development environment, WSL 1 will inevitably be a better fit.
+
+Yes, WSL 2 improves I/O performance and has real kernel compatibility that could not be emulated by WSL's "kernel" implementation. But WSL 1 uses the same networking stack from Windows, cutting down on many of the VM's problems with networking and required bridging for development servers. Processes in WSL 1 use the exact amount of memory they need to use, as they are not running under a virtualized environment; processes go directly to the host OS. You can safely work on projects stored inside mounted drivers on WSL 1 without tanking I/O performance, as it is still using Windows system calls.
+
+The basic rule of thumb here would be, if your environment was already working well on WSL 1, don't botter rushing in and upgrading to WSL 2 as it will probably give you some things to take care of regarding network and memory management. Remember, you can have multiple instances of different distributions, running under both versions of WSL. The instances you can create, depending on how you treat them, are very much disposable. And that is great! It means you can take the time to test what is going to work for you, and commiting to that instance as it proves to do so.
+
+# Wrapping up
+
+I'm excited to see what comes ahead in terms of Windows/Linux interoperability as WSL grows in size and scope on the development community awereness. 

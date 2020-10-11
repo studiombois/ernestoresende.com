@@ -10,12 +10,11 @@ const PrismStyles = css`
     text-align: left;
     max-height: 75vh;
     white-space: pre-wrap;
-    line-height: 1.7;
     -moz-tab-size: 2;
     tab-size: 2;
     hyphens: none;
     font-family: ${fonts.LeagueMono};
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     overflow-x: auto !important;
     border-radius: 0;
