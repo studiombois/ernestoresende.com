@@ -57,7 +57,14 @@ const WorkPage = () => {
           <SectionTitle>Other minor projects</SectionTitle> */}
 
           <Grid>
-          <WorkCard 
+            <WorkCard 
+              tech="Angular • Ionic"
+              title="Oração Play"
+              description="A praying and meditation mobile app available for Android and iOS users."
+              projectLink="See the case study"
+              href="/oracao-play"
+            />
+            <WorkCard 
               tech="React • Styled-Components • GraphQL"
               title="SOWI"
               description="A content production collective that aims to discuss the culture of entertainment in it's many formats in different mediums."
