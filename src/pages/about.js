@@ -55,7 +55,6 @@ const ImageContainer = styled.div `
   }
 `
 
-// TODO: (Not so) frequently asked questions
 const About = () => {
   return(
     <React.Fragment>
@@ -69,7 +68,7 @@ const About = () => {
             pathname="/about"
           />
           <AboutText>
-            <p>Hello, I'm Ernesto Resende, a UI Designer and Front-End Developer based on Brazil <span role="img" aria-label="brazil-flag">🇧🇷</span>.</p>
+            <p>Hello, I'm Ernesto Resende, a UI Designer and Front-End Developer based on Brazil.</p>
             <p>I enjoy working with and contributing to stuff that lives on the web, be it by designing or developing it. Presentational content, web-apps, stores or weird conceptual projects, it doesn't matter. If it lives in the web, I'm interested on building it.</p>
             <p>I'm currently majoring in Graphic Design at the <a href="http://en.ufs.br/pagina/21114">Federal University of Sergipe</a>, and take some freelance work on my spare time, while also trying to learn new stuff that adds value to both to my coding skills and industry awareness.</p>
             <p className="last-line">When I'm not busy with work, I'm all about playing some RPGs or reading some novels (I'm a big fan of all sorts of medieval fantasy stuff and weird sci-fi stuff). I'm not so keen at sports, but I'm trying to take long walks more frequently to keep my health and mind in a good place.</p>
