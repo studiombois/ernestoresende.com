@@ -190,7 +190,7 @@ const ArticleWrapper = styled.div`
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
-    <div>
+    <React.Fragment>
       <BlogNavigation/>
         <SEO
           title={`${mdx.frontmatter.title} - Ernesto Resende`}
@@ -227,7 +227,7 @@ export default function PageTemplate({ data: { mdx } }) {
         </FullArticleWrapper>
       <Footer/>
       <NavigationDrawer/>
-    </div>
+    </React.Fragment>
   )
 }
 
