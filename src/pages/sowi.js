@@ -101,7 +101,20 @@ const ProjectSection = styled.div `
       ${media.tablet`font-size: 16px;`};
     }
 
-  .project-overview {
+  .project-section {
+    ${mixins.sidePadding}
+    ${mixins.desktopAlignCenter}
+    max-width: 1100px;
+    padding-top: 128px;
+    padding-bottom: 64px;
+    ${media.tablet`
+    padding-top: 64px;
+    padding-bottom: 64px;
+    `};
+  }
+
+  .goals-section {
+    display: flex;
     ${mixins.sidePadding}
     ${mixins.desktopAlignCenter}
     max-width: 1100px;
@@ -110,15 +123,28 @@ const ProjectSection = styled.div `
     ${media.tablet`
     padding-top: 64px;
     padding-bottom: 64px;
+    display: block;
     `};
-  }
 
-  .article-image {
-    max-width: 600px;
-    z-index: 5;
-    box-shadow: var(--color-projectImageShadow);
-    border-radius: 10px;
-    ${media.tablet`border-radius: 5px;`};
+    .article-image {
+      max-width: 600px;
+      z-index: 5;
+      box-shadow: var(--color-projectImageShadow);
+      border-radius: 3px;
+    }
+    .goals-text {
+      margin-left: 48px;
+      max-width: 350px;
+      ${media.tablet`
+        padding-top: 64px;
+        padding-bottom: 64px;
+        margin-left: 0;
+        max-width: none;
+      `};
+      p {
+        padding-bottom: 30px;
+      }
+    }
   }
 `
 
@@ -159,7 +185,7 @@ const ProjectSowi = () => {
         <ImageContainer>
           <figure>
             <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.webp" type="image/webp"/>
-            <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.jpeg" type="image/jpeg" />
+            <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.jpeg" type="image/jpeg"/>
             <img 
               className="home-image"
               src="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.jpeg" 
@@ -172,30 +198,32 @@ const ProjectSowi = () => {
         
         <ProjectSection>
 
-          <section className="project-overview">
+          <section className="project-section">
             <h1>Project Overview</h1>
             <p>Project SOWI is one bold attempt at creating a content production collective able to discuss the culture of entertainment that surrounds us. The project’s main medium is hosted on YouTube, where we focus on producing high-quality research driven video-essays. But eventually, as the project grew in scope, we saw the need to have different content mediums like articles and podcasts. My main objective was to design, develop and deploy a website that would be the home for everything related to the project.</p>
           </section>
 
-          <section className="project-overview">
+          <section className="goals-section">
+            <div>
               <img
-                className="article-image " 
-                src="https://res.cloudinary.com/ernestoresende/image/upload/v1603597170/work/ProjetoSOWI_Individual_Article_Cut_qpostw.jpeg" alt=""/>
+                className="article-image" 
+                src="https://res.cloudinary.com/ernestoresende/image/upload/v1603665881/work/ProjetoSOWI_Individual_Article_Cut_lryrdc.jpeg" 
+                alt="Project SOWI article page."
+                width="600"
+                height="728"  
+              />
+            </div>
+
+            <div className="goals-text">
+            <h1>Project Goals</h1>  
+              <div>
+              <p>The website needed to have consistent modules and design choices across all sections. It was my job to make sure every page across the site would follow the same brand guidelines.</p>
+              <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, allowing for easy content management for me and future team members.</p>
+            </div>
+            </div>
           </section>
 
-          {/* <section className="goals">
-            <h1>Goals</h1>
-            <div className="flex-container">
-              <div className="flex-item">
-                <h2>Design Consistency</h2>
-                <p>The website needed to have consistent modules and design choices across all sections. It was my job to make sure every page across the site would follow the same brand guidelines.</p>
-              </div>
-              <div className="flex-item">
-                <h2>Scalable Structure</h2>
-                <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, allowing easy content management for all my team members.</p>
-              </div>
-            </div>
-          </section> */}
+          
         </ProjectSection>
       <Footer/>
       <NavigationDrawer/>

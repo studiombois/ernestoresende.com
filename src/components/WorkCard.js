@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Link as GatsbyLink } from 'gatsby'
 
-const Main = styled.a `
+const Main = styled(props => <GatsbyLink {...props} />)`
   padding: 32px;
   border-radius: 10px;
   background-color: var(--color-workCards);
@@ -40,8 +41,7 @@ const CardContainer = styled.div `
 
 const WorkCard = ({ title, description, tech, href, projectLink }) => {
   return (
-    <Main href={href} target='_blank'
-    rel='nofollow noopener noreferer'>
+    <Main to={href}>
       <CardContainer>
         <h6>{tech}</h6>
         <h4>{title}</h4>
