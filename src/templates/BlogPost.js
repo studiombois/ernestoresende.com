@@ -16,7 +16,6 @@ import WarningSidenote from '@components/Sidenote/WarningSidenote'
 import InformationSidenote from '@components/Sidenote/InformationSidenote'
 import SucessSidenote from '@components/Sidenote/SucessSidenote'
 import Quote from '@components/Mdx/Quote.js'
-import TableOfContents from '@components/TableOfContents'
 
 import mixins from '@styles/mixins'
 import media from '@styles/media'
@@ -27,7 +26,6 @@ const shortcodes = {
   WarningSidenote,
   InformationSidenote,
   SucessSidenote,
-  TableOfContents,
   BlogImages,
   Quote,
 }
@@ -81,41 +79,6 @@ const FullArticleWrapper = styled.div`
   align-items: flex-start;
   ${media.phablet`padding: 48px 15px 0 15px;`};
 `
-
-// Table of contents
-const TableOfContentsWrapper = styled.div`
-  display: block;
-  width: 380px;
-  margin-left: 64px;
-  position: sticky;
-  top: 148px;
-  max-height: calc(100vh - 148px);
-  overflow: auto;
-  padding-bottom: 16px;
-  ${media.desktop`display:none;`}
-`
-
-const TableOfContentNavigation = styled.nav`
-  h2 {
-    font-size: 18px;
-    font-weight: 700;
-    padding-bottom: 26px;
-  }
-  a {
-    color: var(--color-secondaryText);
-    text-decoration: none;
-    transition: all ease-in-out 0.1s;
-    :hover {
-      color: var(--color-highlights);
-    }
-  }
-  li {
-    font-size: 14px;
-    padding-bottom: 1em;
-    list-style: none;
-  }
-`
-// Wraps the Table of Content as a Navigation element for semantic HTML
 
 // Article only div
 const ArticleWrapper = styled.div`
@@ -210,12 +173,13 @@ export default function PageTemplate({ data: { mdx } }) {
         </BlogHeader>
 
         <FullArticleWrapper>
-          <TableOfContentsWrapper>
+        {/* Gonna move this to individual blog post that actually benefit from having a TOC */}
+          {/* <TableOfContentsWrapper>
             <TableOfContentNavigation>
               <h2>TABLE OF CONTENTS</h2>
               <TableOfContents headings={mdx.headings} url={mdx.fields.slug} />
             </TableOfContentNavigation>
-          </TableOfContentsWrapper>
+          </TableOfContentsWrapper> */}
 
           <ArticleWrapper>
             <MDXProvider components={shortcodes}>

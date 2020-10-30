@@ -5,8 +5,6 @@ import Layout from '@components/Layout'
 import SEO from '@components/Seo'
 import SmallHero from '@components/SmallHero'
 
-import projectSowi from '../content/images/Project_Sowi.jpg'
-
 import mixins from '@styles/mixins'
 import media from '@styles/media'
 
@@ -117,11 +115,6 @@ const OracaoPlay = () => {
         </SmallHero>
 
         <ProjectSection>
-          <img src={projectSowi} 
-            alt="Project SOWI landing page."
-            height="452"
-            width="800"
-          />
 
           <section className="project-overview">
             <h1>Project Overview</h1>

@@ -1,47 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import theme from '@styles/theme'
-const { fontSizes } = theme
+import mixins from '@styles/mixins'
+import media from '@styles/media'
 
 const Main = styled.main`
   justify-content: space-between;
+  ${mixins.sidePadding}
+  ${mixins.desktopAlignCenter}
+  margin-bottom: 120px;
+  margin-top: 80px;
+  ${media.tablet`
+    margin-top: 10vw;
+    margin-bottom: 25vw;
+  `}
 `
 
-const HeroTextContainer = styled.div``
-const Title = styled.h2`
-  font-size: ${fontSizes.xxlg};
-  font-weight: 500;
-  line-height: 38px;
-  div {
+const Title = styled.h1`
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 64px;
+  ${media.tablet`
+    font-size: 7vw;
+    line-height: 10vw;
+  `}
+  span {
     display: inline-block;
-    h2 {
-      color: var(--color-highlights);
-    }
   }
-`
-const Subtitle = styled.h3`
-  font-size: ${fontSizes.xmd};
-  line-height: 25px;
-  padding-top: 15px;
+  .highlight {
+    color: var(--color-highlights);
+  }
 `
 
 export default function HeroBody() {
   return (
     <Main>
-      <HeroTextContainer>
-        <Title>
-          Hi, my name is&nbsp;
-          <div>
-            <h2>Ernesto Resende</h2>
-          </div>
-          .
-        </Title>
-        <Subtitle>
-          I’m a UI designer and front-end developer with a passion for building
-          great web experiences.
-        </Subtitle>
-      </HeroTextContainer>
+      <Title>
+        <span>Hi there, I'm Ernesto,</span>
+        <span>UI <span className="highlight">Designer</span> & Front-End <span className="highlight">Developer</span>.</span>
+        <span>I build stuff for the web.</span>
+      </Title>
     </Main>
   )
 }

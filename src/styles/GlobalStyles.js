@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   button {
+    font-family: ${fonts.Futura};
     background: none;
     border: 0;
     padding: 0;

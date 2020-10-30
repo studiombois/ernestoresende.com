@@ -49,14 +49,6 @@ const StyledLinkCaption = styled.div`
 const NavigationDrawer = () => {
   return (
     <DrawerWrapper>
-      <StyledLink to='/projects'>
-        <span
-          className='iconify'
-          data-icon='bx:bx-code-alt'
-          data-inline='false'
-        ></span>
-        <StyledLinkCaption>projects</StyledLinkCaption>
-      </StyledLink>
 
       <StyledLink to='/about'>
         <span

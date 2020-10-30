@@ -9,7 +9,7 @@ const theme = {
       'Sriracha, Pangolin, Mali, Comic Neue, Comic Sans, Arial, sans-serif',
 
     //Monospaced content fontface
-    LeagueMono: 'League Mono, Fira Mono, monospace',
+    JetBrainsMono: 'JetBrainsMono, Fira Mono, monospace',
   },
 
   fontSizes: {
