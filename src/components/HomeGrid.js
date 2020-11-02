@@ -141,7 +141,6 @@ const HomeGrid = ({ children }) => {
       </ProjectsHeader>
       <ProjectsGrid>
         <WorkCard
-          href=''
           thumbnail='https://res.cloudinary.com/ernestoresende/image/upload/v1604017158/work/SOWI_Cover_yvhybp.jpg'
           title='SOWI'
           description="A content production collective to discusses the culture of entertainment in it's many formats."
@@ -150,7 +149,6 @@ const HomeGrid = ({ children }) => {
         />
 
         <WorkCard
-          href=''
           thumbnail='https://res.cloudinary.com/ernestoresende/image/upload/v1604017328/work/Oracao_Play_Cover_i2cogh.jpg'
           title='Oração Play'
           description='A praying and meditation mobile app available for Android and iOS users.'

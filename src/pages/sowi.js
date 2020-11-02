@@ -115,6 +115,7 @@ const ProjectSection = styled.div `
 
   .goals-section {
     display: flex;
+    align-items: center;
     ${mixins.sidePadding}
     ${mixins.desktopAlignCenter}
     max-width: 1100px;
@@ -199,7 +200,7 @@ const ProjectSowi = () => {
 
           <section className="project-section">
             <h1>Project Overview</h1>
-            <p>Project SOWI is one bold attempt at creating a content production collective able to discuss the culture of entertainment that surrounds us. The project’s main medium is hosted on YouTube, where we focus on producing high-quality research driven video-essays. But eventually, as the project grew in scope, we saw the need to have different content mediums like articles and podcasts. My main objective was to design, develop and deploy a website that would be the home for everything related to the project.</p>
+            <p>Project SOWI is one bold attempt at creating a content production collective able to discuss the culture of entertainment that surrounds us. The project’s main medium is hosted on YouTube, where it's focused on producing high-quality research driven video-essays. But eventually the project grew in scope, and we saw the need to have different content mediums like articles and podcasts. My main objective is to design, develop and deploy a website that would be the home for everything related to the project.</p>
           </section>
 
           <section className="goals-section">
@@ -214,11 +215,40 @@ const ProjectSowi = () => {
             </div>
 
             <div className="goals-text">
-            <h1>Project Goals</h1>  
+            <h1>Goals</h1>  
               <div>
               <p>The website needed to have consistent modules and design choices across all sections. It was my job to make sure every page across the site would follow the same brand guidelines.</p>
-              <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, allowing for easy content management for me and future team members.</p>
+              <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, both in regards to enabling the easy development of new features on the future, and allowing for easy content management for me and future team members that will be creating content for the website.</p>
             </div>
+            </div>
+          </section>
+
+          <section className="project-section">
+            <div>
+            </div>
+
+            <div className="projects-text">
+            <h1>The Web Stack</h1>  
+              <div>
+              <p>From the get-go, We wanted to go with React paired with a Static Site Generator for this project. It was only a matter of analyzing the ones that would provide the best balance between development experience and build-time performance at high-scale. And <b>Next.js</b> was the one that best striked the balance for us.</p>
+
+              <p>Research on the main SSG's showed us that Next.js performed better on build times when compared to Gatsby given the same amount of pages and under the same parameters.</p>
+
+              <p>Plus, just like Gatsby, Vercel has their own hosting solution which is highly optimized for projects that come out of Next.js, with a fair ammount of resources and flexible pricing. That meant having no worries about our back-end and hosting solutions, and having a organized development pipeline from development to production.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="project-section">
+            <div>
+            </div>
+
+            <div className="projects-text">
+            <h1>What comes next</h1>  
+              <div>
+              <p>SOWI is a laid-back project going for the long run. In a forseeable future, we can see ourselves taking the shot at a solid crowdfunding campaign to help raise the project to the next level.</p>
+              <p>As it is now, SOWI will continue to be nourished with the desire to discuss the products from the entertainment culture that we love and understanding what makes them special, promoting public discussions and avoiding the noises from traditional journalism vehicles.</p>
+              </div>
             </div>
           </section>
 

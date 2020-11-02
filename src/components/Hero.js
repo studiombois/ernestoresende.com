@@ -4,8 +4,6 @@ import HeroBody from '@components/HeroBody'
 
 import HeroMask from '@icons/HeroMask'
 
-import media from '@styles/media'
-
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;

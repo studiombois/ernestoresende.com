@@ -68,6 +68,9 @@ const GlobalStyle = createGlobalStyle`
   i, em {
     font-style: italic;
   }
+  b {
+    font-weight: 700;
+  }
   input[type="search"] {
     -webkit-appearance: textfield;
   }
