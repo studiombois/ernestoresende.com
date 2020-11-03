@@ -1,118 +1,149 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Layout from '@components/Layout'
+import BlogNavigation from '@components/BlogNavigation'
 import SEO from '@components/Seo'
-import SmallHero from '@components/SmallHero'
-
-import projectSowi from '../content/images/Project_Sowi.jpg'
-import SowiIcon from '@icons/SowiIcon'
+import NavigationDrawer from '@components/NavigationDrawer'
+import Footer from '@components/Footer'
 
 import mixins from '@styles/mixins'
 import media from '@styles/media'
 
 const HeroWrapper = styled.div `
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 64px 0 128px 0;
+  padding-top: 128px;
+  padding-bottom: 128px;
+  max-width: 1100px;
   margin: 0 auto;
-  max-width: 800px;
   ${mixins.sidePadding}
+  ${media.tablet`
+    padding-top: 64px;
+    padding-bottom: 64px;
+  `};
 
   h1 {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 0.9;
-    padding-bottom: 36px; 
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 48px; 
     ${media.tablet`font-size: 36px;`};
   }
   h2 {
+    color: var(--color-secondaryText);
     font-size: 18px;
-    max-width: 500px;
-    line-height: 1.4;
-    padding-bottom: 36px;
+    line-height: 1.7;
+    padding-bottom: 64px;
+    max-width: 700px;
+    ${media.tablet`font-size: 16px;`};
   }
-`
-const ProjectSection = styled.div `
-  img {
-    ${mixins.sidePadding}
-    position: relative;
-    bottom: 100px;
-    max-width: 800px;
-    margin: 0 auto;
-    z-index: 5;
-    filter: drop-shadow(var(--color-cardsBoxShadow));
+  .project-desc-table {
+    display: flex;
+    ${media.tablet`flex-direction: column;`};
   }
-  .project-overview {
-    ${mixins.sidePadding}
-    ${mixins.desktopAlignCenter}
-    text-align: center;
-    max-width: 800px;
-    padding-bottom: 128px;
-    h1 {
-      font-size: 48px;
+  .project-desc-item {
+    padding-right: 80px;
+    ${media.tablet`
+      padding-right: 24px;
+      padding-bottom: 24px;
+    `};
+    h3 {
       font-weight: 700;
-      line-height: 1;
-      padding-bottom: 8px;
-      ${media.tablet`font-size: 36px;`};
-    }
-    h4 {
       font-size: 16px;
-      color: var(--color-secondaryText);
-      padding-bottom: 36px;
+      text-transform: uppercase;
+      padding-bottom: 24px;
+      ${media.tablet`
+        font-size: 14px;
+        padding-bottom: 8px;
+      `};
     }
     p {
-      line-height: 1.4;
+      color: var(--color-secondaryText);
+      font-size: 16px;
+      padding-bottom: 8px;
+      ${media.tablet`
+        font-size: 14px;
+        padding-bottom: 12px;
+      `};
+    }
+    a {
+      font-weight: 600;
+      ${mixins.styledLink}
+      font-size: 16px;
     }
   }
-  .goals {
-    ${mixins.sidePadding}
-    background-color: var(--color-workCards);
-    text-align: center;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    h1 {
+`
+
+const ImageContainer = styled.div `
+  ${mixins.sidePadding}
+  .home-image {
+    max-width: 1100px;
+    margin: 0 auto;
+    z-index: 5;
+    box-shadow: var(--color-projectImageShadow);
+    border-radius: 10px;
+    ${media.tablet`border-radius: 5px;`};
+  }
+`
+
+const ProjectSection = styled.div `
+  h1 {
       font-size: 36px;
       font-weight: 600;
-      padding-bottom: 60px;
+      padding-bottom: 64px;
+      ${media.tablet`font-size: 36px;`};
     }
-    .flex-container {
-      display: flex;
-      justify-content: center;
+    p {
+      color: var(--color-secondaryText);
+      line-height: 1.7;
+      font-size: 18px;
+      max-width: 700px;
+      ${media.tablet`font-size: 16px;`};
+    }
+
+  .project-section {
+    ${mixins.sidePadding}
+    ${mixins.desktopAlignCenter}
+    max-width: 1100px;
+    padding-top: 128px;
+    padding-bottom: 64px;
+    ${media.tablet`
+    padding-top: 64px;
+    padding-bottom: 64px;
+    `};
+  }
+
+  .goals-section {
+    display: flex;
+    align-items: center;
+    ${mixins.sidePadding}
+    ${mixins.desktopAlignCenter}
+    max-width: 1100px;
+    padding-top: 128px;
+    padding-bottom: 128px;
+    ${media.tablet`
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: block;
+    `};
+
+    .article-image {
+      max-width: 600px;
+      z-index: 5;
+      box-shadow: var(--color-projectImageShadow);
+      border-radius: 3px;
+    }
+    .goals-text {
+      margin-left: 48px;
+      max-width: 350px;
       ${media.tablet`
-        flex-direction: column;
-        align-items: center;
+        padding-top: 64px;
+        padding-bottom: 64px;
+        margin-left: 0;
+        max-width: none;
       `};
-      
-      .flex-item {
-        padding: 0 50px;
-        max-width: 400px;
-        ${media.tablet`
-          padding: 30px 0;
-      `};
-      }
-      .flex-item h2 {
-        font-size: 26px;
-        font-weight: 700;
-        display: inline;
-        background-image: linear-gradient(
-          transparent 0,
-          transparent 55%,
-          var(--color-cardUnderline) 55%,
-          var(--color-cardUnderline) 90%,
-          transparent 90%,
-          transparent 100%
-        );
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-position: 0%;
-      }
-      .flex-item p {
-        font-size: 18px;
-        padding-top: 28px;
-        line-height: 1.4;
+      p {
+        padding-bottom: 30px;
       }
     }
   }
@@ -122,43 +153,105 @@ const ProjectSowi = () => {
   return (
     <React.Fragment>
       <SEO title="Project SOWI - Ernesto Resende" />
-      <Layout>
-        <SmallHero>
-          <HeroWrapper>
-            <h1>Empowering the discussions around media culture</h1>
+      <BlogNavigation/>
+        <HeroWrapper>
+            <h1>SOWI</h1>
             <h2>SOWI is a project that aims to discuss and analyze the culture of entertainment. The goal is to create a scalable and consistent user-interface for the main website, along with it's development and long-run maintenance.</h2>
-            <SowiIcon />
-          </HeroWrapper>
-        </SmallHero>
+            <div className="project-desc-table">
+              
+              <div className="project-desc-item">
+                <h3>Roles</h3>
+                <p>UI Design</p>
+                <p>Front-end Development</p>
+              </div>
+              <div className="project-desc-item">
+                <h3>Stack</h3>
+                <p>React</p>
+                <p>Styled Components</p>
+                <p>GraphQL</p>
+              </div>
+              <div className="project-desc-item">
+                <h3>Github Repo</h3>
+                <a 
+                  target='_blank' rel='noreferer noopener nofollow' 
+                  href="https://github.com/projetosowi/projetosowi.com.br">
+                  View Code
+                </a>
+              </div>
+            
+            </div>
+        </HeroWrapper>
+
+        <ImageContainer>
+          <figure>
+            <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.webp" type="image/webp"/>
+            <source srcSet="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.jpeg" type="image/jpeg"/>
+            <img 
+              className="home-image"
+              src="https://res.cloudinary.com/ernestoresende/image/upload/v1603584417/work/ProjetoSOWI_Home_Browser_tac98p.jpeg" 
+              alt="Project SOWI landing page."
+              width="1087"
+              height="666"
+            />
+          </figure>
+        </ImageContainer>
         
         <ProjectSection>
-          <img src={projectSowi} 
-            alt="Project SOWI landing page."
-            height="452"
-            width="800"
-          />
 
-          <section className="project-overview">
+          <section className="project-section">
             <h1>Project Overview</h1>
-            <h4>Made by people who love culture and art.</h4>
-            <p>Project SOWI is one bold attempt at creating a content production collective able to discuss the culture of entertainment that surrounds us. The project’s main medium is hosted on YouTube, where we focus on producing high-quality research driven video-essays. But eventually, as the project grew in scope, we saw the need to have different content mediums like articles and podcasts. My main objective was to design, develop and deploy a website that would be the home for everything related to the project.</p>
+            <p>Project SOWI is one bold attempt at creating a content production collective able to discuss the culture of entertainment that surrounds us. The project’s main medium is hosted on YouTube, where it's focused on producing high-quality research driven video-essays. But eventually the project grew in scope, and we saw the need to have different content mediums like articles and podcasts. My main objective is to design, develop and deploy a website that would be the home for everything related to the project.</p>
           </section>
 
-          <section className="goals">
-            <h1>Goals</h1>
-            <div className="flex-container">
-              <div className="flex-item">
-                <h2>Design Consistency</h2>
-                <p>The website needed to have consistent modules and design choices across all sections. It was my job to make sure every page across the site would follow the same brand guidelines.</p>
-              </div>
-              <div className="flex-item">
-                <h2>Scalable Structure</h2>
-                <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, allowing easy content management for all my team members.</p>
+          <section className="goals-section">
+            <div>
+              <img
+                className="article-image" 
+                src="https://res.cloudinary.com/ernestoresende/image/upload/v1603665881/work/ProjetoSOWI_Individual_Article_Cut_lryrdc.jpeg" 
+                alt="Project SOWI article page."
+                width="600"
+                height="728"  
+              />
+            </div>
+
+            <div className="goals-text">
+            <h1>Goals</h1>  
+              <div>
+              <p>The website needed to have consistent modules and design choices across all sections. It was my job to make sure every page across the site would follow the same brand guidelines.</p>
+              <p>As SOWI is a project in constant evolution, I needed to make sure it was going to be scalable in the long-run, both in regards to enabling the easy development of new features on the future, and allowing for easy content management for me and future team members that will be creating content for the website.</p>
+            </div>
+            </div>
+          </section>
+
+          <section className="project-section">
+            <div>
+            </div>
+
+            <div className="projects-text">
+            <h1>The Web Stack</h1>  
+              <div>
+              <p>From the get-go, We wanted to go with React paired with a Static Site Generator for this project. It was only a matter of analyzing the ones that would provide the best balance between development experience and build-time performance at high-scale. And <b>Gatsby</b> was the one that best striked the balance for us.</p>
               </div>
             </div>
           </section>
+
+          <section className="project-section">
+            <div>
+            </div>
+
+            <div className="projects-text">
+            <h1>What comes next</h1>  
+              <div>
+              <p>SOWI is a laid-back project going for the long run. In a forseeable future, we can see ourselves taking the shot at a solid crowdfunding campaign to help raise the project to the next level.</p>
+              <p>As it is now, SOWI will continue to be nourished with the desire to discuss the products from the entertainment culture that we love and understanding what makes them special, promoting public discussions and avoiding the noises from traditional journalism vehicles.</p>
+              </div>
+            </div>
+          </section>
+
+          
         </ProjectSection>
-      </Layout>
+      <Footer/>
+      <NavigationDrawer/>
     </React.Fragment>
   )
 }

@@ -9,6 +9,7 @@ const MainWrapper = styled.div`
 `
 const TextWrapper = styled.div`
   .card-header-wrapper {
+    margin-top: 12px;
     margin-bottom: 28px;
   }
   h1 {

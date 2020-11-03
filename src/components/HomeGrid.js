@@ -2,15 +2,35 @@ import React from 'react'
 import styled from 'styled-components'
 
 import SectionCard from '@components/SectionCard'
+import WorkCard from '@components/WorkCard'
 
 import { Link as GatsbyLink } from 'gatsby'
 
 import mixins from '@styles/mixins'
+import media from '@styles/media'
 
 const Main = styled.div`
-  max-width: 780px;
-  margin: 0 auto;
+  ${mixins.desktopAlignCenter}
   ${mixins.sidePadding}
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'main-area' 'side-area';
+  gap: 64px 64px;
+  ${media.desktop`display: block`}
+`
+const ProjectsHeader = styled.div`
+  padding-top: 128px;
+  ${mixins.desktopAlignCenter}
+  ${mixins.sidePadding}
+`
+const ProjectsGrid = styled.div`
+  ${mixins.desktopAlignCenter}
+  ${mixins.sidePadding}
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 32px;
+  padding-bottom: 128px;
 `
 const Recent = styled.h2`
   font-size: 18px;
@@ -18,15 +38,57 @@ const Recent = styled.h2`
   padding: 30px 0 50px;
   color: var(--color-highlights);
 `
+const Newsletter = styled.div`
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 30px 0 0;
+    color: var(--color-highlights);
+  }
+  p {
+    color: var(--color-secondaryText);
+    margin-top: 28px;
+    font-size: 16px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid var(--color-highlights);
+    border-radius: 0.6em;
+    color: var(--color-highlights);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.8em 2.5em;
+    text-decoration: none;
+    text-align: center;
+    transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 40px 40px var(--color-highlights) inset;
+      color: #fff;
+    }
+  }
+`
 const Archive = styled(props => <GatsbyLink {...props} />)`
   ${mixins.styledLink}
 `
 const ContactSection = styled.div`
+  ${mixins.desktopAlignCenter}
+  ${mixins.sidePadding}
+  text-align: center;
   padding-top: 100px;
+  max-width: 800px;
 `
 const SocialWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
 `
 const StyledIcon = styled.a`
   align-items: center;
@@ -52,25 +114,54 @@ const StyledIcon = styled.a`
 
 const HomeGrid = ({ children }) => {
   return (
-    <Main>
-      {/* <SectionCard
-        title='Writing.'
-        description='I love to write in detail about the stuff I work on.'
-        descriptionSecondLine="This is where I'll write about front-end development, design, and general tech related stuff."
-      /> */}
-      <div>
-        <Recent>RECENTLY PUBLISHED</Recent>
+    <React.Fragment>
+      <Main>
+        <div>
+          <Recent>RECENTLY PUBLISHED</Recent>
 
-        {children}
+          {children}
 
-        <Archive to='/blog'>See all blog posts</Archive>
-      </div>
+          <Archive to='/blog'>See all blog posts</Archive>
+        </div>
+
+        <Newsletter>
+          <h2>NEWSLETTER</h2>
+          <p>Get updated on design and front-end content as soon as they come out. No spamming, no compromisses. Unsubscribe at any time.</p>
+          <button>Join the Newsletter</button>
+        </Newsletter>
+
+
+      </Main>
+
+      <ProjectsHeader>
+        <SectionCard
+          title='Projects'
+          description="Some of the previous and ongoing work that I'm proud of."
+        />
+      </ProjectsHeader>
+      <ProjectsGrid>
+        <WorkCard
+          thumbnail='https://res.cloudinary.com/ernestoresende/image/upload/v1604017158/work/SOWI_Cover_yvhybp.jpg'
+          title='SOWI'
+          description="A content production collective to discusses the culture of entertainment in it's many formats."
+          projectLink='VIEW THE CASE STUDY >'
+          href='/sowi'
+        />
+
+        {/* <WorkCard
+          thumbnail='https://res.cloudinary.com/ernestoresende/image/upload/v1604017328/work/Oracao_Play_Cover_i2cogh.jpg'
+          title='Oração Play'
+          description='A praying and meditation mobile app available for Android and iOS users.'
+          projectLink='VIEW THE CASE STUDY >'
+          href='/oracao-play'
+        /> */}
+      </ProjectsGrid>
 
       <ContactSection id='connect'>
         <SectionCard
           title='Hey there!'
-          description="As of now, I'm actually looking for a job opportunity in front-end development and/or UI design roles. If you like what you see here, consider sending me a mail or reaching out in any of my socials:"
-          contactEmail='ernestoresende@hotmail.com'
+          description="Feel free to reach out whether you are looking for a designer and/or developer for your next project, have a question, or just want to say connect."
+          contactEmail='ernestoresende@eightsystems.com.br'
         >
           <SocialWrapper>
             <StyledIcon
@@ -109,7 +200,7 @@ const HomeGrid = ({ children }) => {
           </SocialWrapper>
         </SectionCard>
       </ContactSection>
-    </Main>
+    </React.Fragment>
   )
 }
 

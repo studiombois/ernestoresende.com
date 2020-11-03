@@ -81,7 +81,6 @@ class BlogNavigation extends React.Component {
             </NameContainer>
             <NavList>
               <StyledLink to='/blog'>Blog</StyledLink>
-              <StyledLink to='/projects'>Projects</StyledLink>
               <StyledLink to='/about'>About</StyledLink>
               <StyledLink to='/#connect'>Connect</StyledLink>
             </NavList>

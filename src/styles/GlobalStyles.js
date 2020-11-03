@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   button {
+    font-family: ${fonts.Futura};
     background: none;
     border: 0;
     padding: 0;
@@ -66,6 +67,9 @@ const GlobalStyle = createGlobalStyle`
   }
   i, em {
     font-style: italic;
+  }
+  b {
+    font-weight: 700;
   }
   input[type="search"] {
     -webkit-appearance: textfield;

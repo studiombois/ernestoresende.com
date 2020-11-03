@@ -93,7 +93,6 @@ const Footer = () => {
         </FooterLeft>
         <FooterRight>
           <StyledLink to='/blog'>Blog</StyledLink>
-          <StyledLink to='/projects'>Projects</StyledLink>
           <StyledLink to='/about'>About</StyledLink>
           <StyledLink to='/connect'>Connect</StyledLink>
         </FooterRight>

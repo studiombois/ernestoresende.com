@@ -14,12 +14,13 @@ const PrismStyles = css`
     -moz-tab-size: 2;
     tab-size: 2;
     hyphens: none;
-    font-family: ${fonts.LeagueMono};
-    font-size: 14px;
+    font-family: ${fonts.JetBrainsMono};
+    font-size: 16px;
     font-weight: 700;
     overflow-x: auto !important;
     border-radius: 0;
-    letter-spacing: -0.05rem;
+    line-height: 1.7;
+    overflow-x: auto !important;
     ${media.phablet`
     font-size: 12px;
   `};
@@ -28,7 +29,7 @@ const PrismStyles = css`
   /* Code blocks */
   pre[class*='language-'] {
     max-width: 100%;
-    padding: 1em;
+    padding: 2.4em;
     border-radius: 0.3em;
     margin: 0 auto;
     margin-bottom: 30px;
