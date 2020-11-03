@@ -148,13 +148,13 @@ const HomeGrid = ({ children }) => {
           href='/sowi'
         />
 
-        <WorkCard
+        {/* <WorkCard
           thumbnail='https://res.cloudinary.com/ernestoresende/image/upload/v1604017328/work/Oracao_Play_Cover_i2cogh.jpg'
           title='Oração Play'
           description='A praying and meditation mobile app available for Android and iOS users.'
           projectLink='VIEW THE CASE STUDY >'
           href='/oracao-play'
-        />
+        /> */}
       </ProjectsGrid>
 
       <ContactSection id='connect'>

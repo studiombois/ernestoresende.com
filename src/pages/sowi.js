@@ -230,11 +230,7 @@ const ProjectSowi = () => {
             <div className="projects-text">
             <h1>The Web Stack</h1>  
               <div>
-              <p>From the get-go, We wanted to go with React paired with a Static Site Generator for this project. It was only a matter of analyzing the ones that would provide the best balance between development experience and build-time performance at high-scale. And <b>Next.js</b> was the one that best striked the balance for us.</p>
-
-              <p>Research on the main SSG's showed us that Next.js performed better on build times when compared to Gatsby given the same amount of pages and under the same parameters.</p>
-
-              <p>Plus, just like Gatsby, Vercel has their own hosting solution which is highly optimized for projects that come out of Next.js, with a fair ammount of resources and flexible pricing. That meant having no worries about our back-end and hosting solutions, and having a organized development pipeline from development to production.</p>
+              <p>From the get-go, We wanted to go with React paired with a Static Site Generator for this project. It was only a matter of analyzing the ones that would provide the best balance between development experience and build-time performance at high-scale. And <b>Gatsby</b> was the one that best striked the balance for us.</p>
               </div>
             </div>
           </section>
