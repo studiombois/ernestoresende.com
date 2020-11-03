@@ -2,7 +2,7 @@
 title: Web-dev on Windows with WSL
 description: It's still Linux... But inside Windows
 date: 2020-07-07 
-featured: https://res.cloudinary.com/ernestoresende/image/upload/v1597233789/og%20cards/Web-dev_on_Windows_with_WSL-min_gbraxb.jpg
+featured: https://res.cloudinary.com/ernestoresende/image/upload/v1603304966/og%20cards/Web-dev_on_Windows_with_WSL-min_cfliaz.jpg
 ---
 
 If someone told me a decade ago that we would be running the Linux kernel inside a regular Windows build, I would probably laugh at them. 
@@ -21,7 +21,7 @@ It was a huge move, and brought some quality of life improvements to web develop
 
 </InformationSidenote>
 
-# How does WSL2 differs from the first version
+# How does WSL 2 differs from the first version
 
 The new version of the Linux Subsystem is a complete rework of the underlining architecture when compared to how the first version of WSL used to work:
 
@@ -78,7 +78,7 @@ First step is to enable the optional system resource. You can search for "Turn W
 
 With that done, open PowerShell, and set your WSL default version:
 
-```powershell
+```
 wsl --set-default-version 2
 ```
 
@@ -97,13 +97,13 @@ To open the newly installed distribution, you can find the distro icon that was 
 
 You can now see a list of installed distributions by running:
 
-```powershell
+```
 wsl --list
 ```
 
 And set a version to a given distribution with: 
 
-```powershell
+```
 wsl --set-version <distribution name> <versionNumber>
 ```
 
@@ -111,45 +111,13 @@ And yes, you can run instances of multiple Linux distributions, and set them to 
 
 # Settings and optimizing performance
 
-WSL has some gimicks when it comes to optimizing performance. These gimicks nail down to excessive memory and disk space use under different sets of circunstances.
+WSL has some gimicks to performance optimization and . They nail down to excessive memory use and differences from the networking .
 
 <WarningSidenote>
 
   <p>Later Windows updates will be correcting most of these problems, but I think it's important to bring them up as I cannot accurately pinpoint in which updates each of these fixes will be introduced, and what build the reader is currently using at any given time this article is read.</p>
 
   <p className='last-line'>I advise you to use and tinker with your system first, and then apply the necessary fixes if they seem to be happening in your system.</p>
-
-</WarningSidenote>
-
-## Poor performance when using mounted drives
-
-I'll tackle this one first because there is no actual workaround for this. Microsoft documentation for WSL 2 states that working with files that reside on mounted drives will always cause performance issues as this kind of virtualization layer was not built for this. It is essential that project files reside on Linux's actual filesystem (something like `/home/user/Projects`) if you want to be as close as possible to native performance.
-
-If for some reason you need to keep your project files on a mounted drive, it is recommended that you stay on WSL 1. You can see more about it [here](https://docs.microsoft.com/pt-br/windows/wsl/compare-versions).
-
-## Unused disk space is not reclaimed by default
-
-This is a problem that I personally haven't run into so far, but still seems to exist as the related Github issue was still not closed to the day I'm writing this article (it seems to be a very regular problem for Docker users with a large number of containers).
-
-If this seems to be happening with you, using `resize-vhd` on the `.vhdx` file for the distribution that you're using may solve the problem. Open PowerShell as Administrator. Run `wsl --list` if you need to check for your distribution name:
-
-<!-- ```powershell
-# DistroFolder found at: $env:LOCALAPPDATA\Packages\
-
-# Examples:
-# CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc
-
-Set-Variable -Name "MaxSizeGB" -Value "32GB"
-cd $env:LOCALAPPDATA\Packages\REPLACE_ME_WITH_TARGET_DISTRO_FOLDERNAME\LocalState\
-wsl --shutdown
-resize-vhd -Path .\ext4.vhdx -SizeBytes $MaxSize
-``` -->
-
-This will shrink down the size of the .vhdx file to the ammont set in the `MaxSizeGB` variable. It is a good idea to check if you're using more space then the maximum ammount you want to set before doing so by using a tool like `ncdu` (`sudo apt install ncdu`) and running `ncdu --exclude /mnt`. This will do a quick scan of your Linux file system and give you an idea of how much space it's using.
-
-<WarningSidenote title="Workround for Windows Home users">
-
-  <p className='last-line'>If you're using Windows Home, check <a rel="nofollow noopener noreferer" href="https://github.com/microsoft/WSL/issues/4699#issuecomment-627133168">this comment</a> on the Github issue to see a possible workaround, given that Home Edition does not have the resize-vhd cmdlet available for use.</p>
 
 </WarningSidenote>
 
@@ -170,14 +138,28 @@ If still, you don't want your total set amount of memory to be consumed all the 
 alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
 ```
 
+## Localhost and networking
+
+Since WSL 2 is actually a virtualized environment, differently from WSL 1 where the networking used the same IP adress as the host system's IP, WSL 2 NAT's it's virtual network instead of making it bridged to the host OS's NIC.
+
+In early days of WSL 2 this used to be a problem. But as far as I've tested outside of Windows Insider Previews, this has been already adressed, as WSL automatically bridges localhost apps from the virtual machine to the host OS and no further configuration is needed.
+
+If you're in need of running your development server under the native machine's IP adress, there is a common workround that consists in forwarding the TCP ports of WSL 2 services to the host OS. You can see it in details in [this Github issue comment](https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723). Keep in mind that it uses `ifconfig` to `grep` WSL's IP adress, so you may need to run `sudo apt-get install net-tools` on your WSL distribution as it no longer comes as the default networking tool in some of the popular distros. 
+
+If you wish to have a deeper understanding about how the networking layer works in WSL 2 so you can make your own changes and implementations, I highly recommend watching [this video](https://www.youtube.com/watch?v=yCK3easuYm4) from David Bombal, where he explains it in-depth.
+
 # Keep using WSL 1 if...
 
 After dedicating an entire section to WSL 2 problems and their hacky workrounds, I would be a hypocrite to say that it's all flowers and rainbows. It's far from that. And there are cases in which, if you still want to keep Windows as your development environment, WSL 1 will inevitably be a better fit.
 
 Yes, WSL 2 improves I/O performance and has real kernel compatibility that could not be emulated by WSL's "kernel" implementation. But WSL 1 uses the same networking stack from Windows, cutting down on many of the VM's problems with networking and required bridging for development servers. Processes in WSL 1 use the exact amount of memory they need to use, as they are not running under a virtualized environment; processes go directly to the host OS. You can safely work on projects stored inside mounted drivers on WSL 1 without tanking I/O performance, as it is still using Windows system calls.
 
-The basic rule of thumb here would be, if your environment was already working well on WSL 1, don't botter rushing in and upgrading to WSL 2 as it will probably give you some things to take care of regarding network and memory management. Remember, you can have multiple instances of different distributions, running under both versions of WSL. The instances you can create, depending on how you treat them, are very much disposable. And that is great! It means you can take the time to test what is going to work for you, and commiting to that instance as it proves to do so.
+The basic rule of thumb here would be, if your environment was already working well on WSL 1, don't botter rushing in and upgrading to WSL 2 as it will probably give you some things to take care of regarding network and memory management. Remember, you can have multiple instances of different distributions, running under both versions of WSL. The instances you can create, depending on how you treat them, are very much disposable. And that is great! It means you can take the time to test what is going to work for you, and default to that instance as it proves to do so.
 
 # Wrapping up
 
-I'm excited to see what comes ahead in terms of Windows/Linux interoperability as WSL grows in size and scope on the development community awereness. 
+I'm excited to see what comes ahead in terms of Windows/Linux interoperability as WSL grows in size and scope on the development community awereness.
+
+Ever since I started I've been a hostage of Linux as my primary development environment, and I was never really happy with the desktop environment provided by many of the popular distributions and Linux's own little peculiarities to performance and device management. Even after spending some time on macOS as my primary daily driver, it was not an OS I felt confortable calling home.
+
+Having WSL become a mature technology means bringing my development experience back to Windows with almost zero compromisses. And I'm all down on that.
