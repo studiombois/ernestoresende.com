@@ -44,6 +44,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-reveal": "^1.2.2",
     "react-tsparticles": "^1.17.0",
     "remark-slug": "^6.0.0",
     "styled-components": "^5.1.0",

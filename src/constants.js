@@ -58,6 +58,10 @@ export const COLORS = {
     light: '0px 5px 15px rgba(153, 153, 153, 1)', // Same color as Light Mode Typography.
     dark: '0px 5px 15px rgba(0, 0, 0, 1)', // One tone brighter then dark mode background.
   },
+  formControlBoxShadow: {
+    light: '0px 0px 10px rgba(153, 153, 153, 0.5)', // Same color as Light Mode Typography.
+    dark: '0px 0px 10px rgba(0, 0, 0, 0.3)', // One tone brighter then dark mode background.
+  },
   footer: {
     light: 'rgb(225, 241, 250)',
     dark: 'rgb(18, 26, 36)',

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
+import Fade from 'react-reveal/Fade';
 
 import DarkToggle from '@components/DarkToggle'
 
@@ -14,7 +15,6 @@ const Main = styled.div`
   background-color: var(--color-navBackground);
   margin: 0 auto;
   top: 0;
-  position: sticky;
   z-index: 15;
   width: 100%;
 `
@@ -31,9 +31,9 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 55px;
+  min-height: 85px;
   ${mixins.sidePadding}
-  ${media.tablet`min-height: 50px;`}
+  ${media.tablet`min-height: 65px;`}
 `
 const LeftBlock = styled.div`
   display: flex;
@@ -74,6 +74,8 @@ class Navigation extends React.Component {
     return (
       <Main>
         <Nav>
+
+        <Fade delay={400} duration={500}>
           <LeftBlock>
             <NameContainer to='/'>
               ERNESTO<Bold>RESENDE</Bold>
@@ -84,7 +86,12 @@ class Navigation extends React.Component {
               <StyledLink to='/#connect'>Connect</StyledLink>
             </NavList>
           </LeftBlock>
-          <DarkToggle />
+        </Fade>
+
+          <Fade delay={600} duration={500}>
+            <DarkToggle/>
+          </Fade>
+          
         </Nav>
       </Main>
     )

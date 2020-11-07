@@ -71,6 +71,9 @@ const GlobalStyle = createGlobalStyle`
   b {
     font-weight: 700;
   }
+  input {
+    font-family: ${fonts.Futura};
+  }
   input[type="search"] {
     -webkit-appearance: textfield;
   }

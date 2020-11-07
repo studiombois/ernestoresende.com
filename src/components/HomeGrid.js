@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import SectionCard from '@components/SectionCard'
 import WorkCard from '@components/WorkCard'
 
-import { Link as GatsbyLink } from 'gatsby'
+import { Link as GatsbyLink, navigate } from 'gatsby'
 
 import mixins from '@styles/mixins'
 import media from '@styles/media'
@@ -113,6 +113,11 @@ const StyledIcon = styled.a`
 `
 
 const HomeGrid = ({ children }) => {
+
+  function someFunction() {
+    navigate('/newsletter')
+  }
+
   return (
     <React.Fragment>
       <Main>
@@ -127,7 +132,7 @@ const HomeGrid = ({ children }) => {
         <Newsletter>
           <h2>NEWSLETTER</h2>
           <p>Get updated on design and front-end content as soon as they come out. No spamming, no compromisses. Unsubscribe at any time.</p>
-          <button>Join the Newsletter</button>
+          <button onClick={someFunction}>Join the Newsletter</button>
         </Newsletter>
 
 

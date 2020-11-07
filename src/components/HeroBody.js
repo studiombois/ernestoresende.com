@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 
 import mixins from '@styles/mixins'
 import media from '@styles/media'
@@ -9,7 +10,7 @@ const Main = styled.main`
   ${mixins.sidePadding}
   ${mixins.desktopAlignCenter}
   margin-bottom: 120px;
-  margin-top: 80px;
+  margin-top: 60px;
   ${media.tablet`
     margin-top: 10vw;
     margin-bottom: 25vw;
@@ -20,8 +21,8 @@ const Title = styled.h1`
   font-size: 48px;
   font-weight: 600;
   line-height: 64px;
-  ${media.tablet`
-    font-size: 7vw;
+  ${media.thone`
+    font-size: 8vw;
     line-height: 10vw;
   `}
   span {
@@ -35,11 +36,15 @@ const Title = styled.h1`
 export default function HeroBody() {
   return (
     <Main>
-      <Title>
-        <span>Hi there, I'm Ernesto,</span>
-        <span>UI <span className="highlight">Designer</span> & Front-End <span className="highlight">Developer</span>.</span>
-        <span>I build stuff for the web.</span>
-      </Title>
+      <Fade duration={400}>
+        <Title>
+        
+          <span>Hi there, I'm Ernesto,</span>
+          <span>UI <span className="highlight">Designer</span> & Front-End <span className="highlight">Developer</span>.</span>
+          <span>I build stuff for the web.</span>
+        
+        </Title>
+      </Fade>
     </Main>
   )
 }

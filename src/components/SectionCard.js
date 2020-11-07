@@ -66,7 +66,7 @@ const SectionCard = ({
           <p>{description}</p>
           <p className='reset-padding'>{descriptionSecondLine}</p>
           <a
-            href='mailto:ernestoresende@hotmail'
+            href='mailto:ernestoresende@eightsystems.com.br'
             rel='noopener noreferrer'
             target='_blank'
           >
