@@ -114,9 +114,9 @@ const StyledIcon = styled.a`
 
 const HomeGrid = ({ children }) => {
 
-  function someFunction() {
-    navigate('/newsletter')
-  }
+  // function someFunction() {
+  //   navigate('/newsletter')
+  // }
 
   return (
     <React.Fragment>
@@ -132,7 +132,7 @@ const HomeGrid = ({ children }) => {
         <Newsletter>
           <h2>NEWSLETTER</h2>
           <p>Get updated on design and front-end content as soon as they come out. No spamming, no compromisses. Unsubscribe at any time.</p>
-          <button onClick={someFunction}>Join the Newsletter</button>
+          <button>Join the Newsletter</button>
         </Newsletter>
 
 

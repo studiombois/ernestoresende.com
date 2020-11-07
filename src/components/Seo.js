@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-// highlight-next-line
 function SEO({ description, lang, image, title, pathname }) {
   const { site } = useStaticQuery(
     graphql`
@@ -33,7 +32,6 @@ function SEO({ description, lang, image, title, pathname }) {
         lang,
       }}
       title={title}
-      // highlight-start
       link={
         metaCanonical
           ? [
@@ -116,7 +114,6 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  // highlight-next-line
   pathname: PropTypes.string,
 }
 
