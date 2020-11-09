@@ -14,7 +14,7 @@ const Main = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 90vh;
+  min-height: 70vh;
   max-width: 600px;
   ${mixins.sidePadding}
   ${mixins.desktopAlignCenter}
@@ -74,19 +74,19 @@ const FormContainer = styled.div `
       color: #fff;
     }
   }
-
 `
 
 const NewsletterTitle = styled.h1 `
   font-size: 42px;
   font-weight: 700;
   padding-bottom: 32px;
+  ${media.tablet`font-size: 32px;`}
 `
 
 const NewsletterDescription = styled.p `
   font-size: 26px;
   padding-bottom: 64px;
-  ${media.tablet`font-size: 24px;`}
+  ${media.tablet`font-size: 22px;`}
 `
 
 const Newsletter = () => {
@@ -96,31 +96,35 @@ const Newsletter = () => {
       <SEO title="Newsletter - Ernesto Resende" />
 
       <Main>
-        <NewsletterTitle>A newsletter to spark joy or some other bullshit.</NewsletterTitle>
+        <NewsletterTitle>New content on your email as soon as they are out.</NewsletterTitle>
         <NewsletterDescription>Get updated with guides, tips and discussions about design and front-end development, with <b>early previews to upcoming posts.</b> No spamming, no compromisses, you can unsubscribe at any time.</NewsletterDescription>
 
         <FormContainer>
-          <form action="">
+          <form action="https://forms.soundestlink.com/REST/forms/v1/subscribe?brandID=5fa568604c7fa4130887a42c&formType=landingPage&formID=5fa72a5b4c7fa41220eeb753&source=landingPage" method="POST" id="form">
             <div className="formcontrol-field">
 
               <div>
                 <input 
+                  id="field-email"
                   type="email" 
-                  name="email_adress" 
+                  name="email" 
                   required="true"
+                  autoComplete="off"
                   placeholder="Your email"
                 />
               </div>
 
             </div>
 
-            <button>Subscribe</button> 
+            <button
+              type="submit"
+            >Subscribe</button> 
 
           </form>
         </FormContainer> 
       </Main>
-      <NavigationDrawer />
       <Footer />
+      <NavigationDrawer />
 
     </React.Fragment> 
   )
